@@ -1,0 +1,98 @@
+<div class="product-details health-product-list" style="display: block">
+  <form [formGroup]="healthCustomerLocateForm">
+    <div class="createjob-tab-content" id="wyn-hospitalization" style="display: block">
+      <div class="createjob-tab-sec">
+        <h3>Search customer location</h3>
+        <div class="createjob-tab-block three-coloum">
+          <div class="left-block">
+            <div class="il-input-block">
+              <label>Customer pincode*</label>
+              <input id="hospitalization-cust-pincode"
+                     type="text"
+                     maxlength="6"
+                     formControlName="hospitalPinCode"
+                     (blur)="verifyPincode()"
+                     appInputfocus
+                     appSpecialChar/>
+              <span class="error_message"
+                    *ngIf="healthCustomerLocateForm.get('hospitalPinCode')?.errors?.['required'] &&
+                    healthCustomerLocateForm.get('hospitalPinCode')?.touched">This field is required</span>
+              <span class="error_message"
+                    *ngIf="healthCustomerLocateForm.get('hospitalPinCode')?.errors?.['pattern'] ||
+                    healthCustomerLocateForm.get('hospitalPinCode')?.errors?.['minlength']">
+                    This field is invalid
+              </span>
+              <span *ngIf="healthCustomerLocateForm.get('hospitalPinCode')?.hasError('invalidPincode')" class="error_message">
+                    Pincode is invalid
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="createjob-tab-sec">
+        <h3>Customer Information</h3>
+        <app-customer-health-info></app-customer-health-info>
+      </div>
+
+      <div class="createjob-tab-sec">
+        <h3>POC details</h3>
+        <app-poc-details></app-poc-details>
+      </div>
+
+      <div class="createjob-tab-sec">
+        <h3>Pick Up Location</h3>
+        <app-pickup-location></app-pickup-location>
+      </div>
+
+      <!--<div class="createjob-tab-sec">
+        <h3>Adjust Pin</h3>
+        <div class="createjob-map-block">
+          <app-ppn-map-selector></app-ppn-map-selector>
+        </div>
+      </div>-->
+
+      <div class="createjob-tab-sec">
+        <!--<app-select-slot [actonSelect]="actionSelected"></app-select-slot>-->
+
+        <app-select-slot [actonSelect]="actionSelected" [selectedSlotData]="selectedSlotData"></app-select-slot>
+        <app-slot-calendar [zoneDetails]="zoneData" *ngIf="showSlotCalendar" (selectedSlotEvent)="sendSelectedSlot($event)"></app-slot-calendar>
+      </div>
+
+      <div class="createjob-tab-sec">
+        <h3>Document List</h3>
+
+        <div class="createjob-tab-block equal-coloum">
+          <div class="first-block">
+            <div class="input-block dropdown-block">
+              <div class="card flex justify-content-center">
+                <p-multiSelect
+                               formcontrolname="documentlist"
+                               [options]="documentListOptions"
+                               (onChange)="onDocumentListChange($event)"
+                               placeholder="Document list for collection"
+                               optionLabel="name"
+                               display="chip"
+                               [showClear]="true"></p-multiSelect>
+              </div>
+              <span class="error_message" *ngIf="healthCustomerLocateForm.get('documentlist')?.errors?.['required'] &&
+               healthCustomerLocateForm.get('documentlist')?.touched">This field is required</span>
+            </div>
+          </div>
+          <div class="second-block">
+            <div class="il-input-block">
+              <label>Other documents to be submitted*</label>
+              <input id="hospitalization-doc-submit"
+                     type="text" maxlength="20"
+                     formControlName="otherdocument"
+                     appInputfocus
+                     appSpecialChar/>
+              <span class="error_message" *ngIf="healthCustomerLocateForm.get('otherdocument')?.errors?.['required'] &&
+                healthCustomerLocateForm.get('otherdocument')?.touched">This field is required</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

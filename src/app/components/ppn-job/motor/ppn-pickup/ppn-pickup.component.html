@@ -1,0 +1,31 @@
+<div class="product-details motor-product-list" style="display: block">
+  <div class="createjob-tab-content" id="pickup-job" style="display: block">
+      <div class="createjob-map-block">
+        <app-motor-claim></app-motor-claim>
+      </div>
+      <div class="createjob-tab-sec" style="display: none">
+        <h3>PPN Information</h3>
+        <app-ppn-info [actonSelect]="actionSelected"></app-ppn-info>
+      </div>
+      <!--<div class="createjob-tab-sec">
+        <h3>Select PPN on map</h3>
+
+        <div class="createjob-map-block">
+          <app-ppn-map-selector></app-ppn-map-selector>
+        </div>
+      </div>-->
+
+      <div class="createjob-tab-sec">
+        <h3>Additional customer information</h3>
+
+        <app-customer-info [actonSelect]="actionSelected"></app-customer-info>
+      </div>
+
+      <div class="createjob-tab-sec">
+        <app-select-slot [actonSelect]="actionSelected" [selectedSlotData]="selectedSlotData"></app-select-slot>
+        <app-slot-calendar [zoneDetails]="zoneData" *ngIf="showSlotCalendar" (selectedSlotEvent)="sendSelectedSlot($event)"></app-slot-calendar>
+      </div>
+
+    </div>
+  </div>
+

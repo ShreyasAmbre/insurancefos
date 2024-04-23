@@ -1,0 +1,57 @@
+
+
+<form [formGroup]="ppnInfoForm" >
+  <div class="createjob-tab-block four-coloum">
+   
+
+    <div class="first-block">
+      <div class="il-input-block" [ngClass]="{'focus':ppnname.value}">
+        <input #inputField  id="dropjob-ppn-name" type="text" formControlName="ppnname" maxlength="20"  />
+        <label for="dropjob-ppn-name">PPN name </label>
+        <span class="error_message" *ngIf="ppnInfoForm.get('ppnname')?.errors?.['required'] &&
+              (ppnInfoForm.get('ppnname')?.touched || isSubmit)">This field is required</span>
+        <span class="error_message"
+              *ngIf="
+    ppnInfoForm.get('ppnname')?.errors?.['pattern'] ||
+    ppnInfoForm.get('ppnname')?.errors?.['minlength'] ||
+    ppnInfoForm.get('ppnname')?.errors?.['maxlength']">
+          This field is invalid
+        </span>
+      </div>
+    </div>
+
+    <div class="second-block">
+      <div class="il-input-block"  [ngClass]="{'focus':ppncontact.value}" >
+        <input #inputField  id="dropjob-ppncontact-num" type="text" appDigitOnly formControlName="ppncontact" maxlength="10"  appInputfocus/>
+        <label for="dropjob-ppncontact-num">PPN contact no.</label>
+        <span class="error_message" *ngIf="ppnInfoForm.get('ppncontact')?.errors?.['required'] &&
+(ppnInfoForm.get('ppncontact')?.touched || isSubmit)">This field is required</span>
+        <span class="error_message"
+              *ngIf="
+    ppnInfoForm.get('ppncontact')?.errors?.['pattern'] ||
+    ppnInfoForm.get('ppncontact')?.errors?.['minlength'] ||
+    ppnInfoForm.get('ppncontact')?.errors?.['maxlength']">
+          This field is invalid
+        </span>
+
+      </div>
+    </div>
+    <div class="addressPPN">
+      <div class="il-input-block"  [ngClass]="{'focus':ppnaddress.value}" >
+        <input #inputField  id="pickupjob-ppn-address" type="text" maxlength="50" formControlName="ppnaddress" appInputfocus/>
+        <label for="pickupjob-ppn-address">PPN address</label>
+        <span class="error_message" *ngIf="ppnInfoForm.get('ppnaddress')?.errors?.['required'] &&
+ (ppnInfoForm.get('ppnaddress')?.touched || isSubmit)">This field is required</span>
+        <span class="error_message"
+              *ngIf="
+    ppnInfoForm.get('ppnaddress')?.errors?.['pattern'] ||
+    ppnInfoForm.get('ppnaddress')?.errors?.['minlength'] ||
+    ppnInfoForm.get('ppnaddress')?.errors?.['maxlength']">
+          This field is invalid
+        </span>
+      </div>
+
+    </div>
+  </div>
+</form>
+

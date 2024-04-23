@@ -1,0 +1,74 @@
+.pageLoader {
+  display: block;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1000000;
+  background: #ffffff;
+  transition: all 0.1s ease;
+}
+
+.loaderInner {
+  width: 300px;
+  display: block;
+  justify-content: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  /*    flex-direction: column;
+    */
+  grid-row-gap: 15px;
+  row-gap: 15px;
+  height: 60px;
+  align-items: center;
+}
+
+.loaderDot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin: 0 3px;
+  background: #303131;
+  animation: wave 1s linear infinite;
+}
+
+.loaderDot:nth-child(1) {
+  background: #ec6625;
+}
+
+.loaderDot:nth-child(2) {
+  animation-delay: 0.15s;
+  background: #004a80;
+}
+
+.loaderDot:nth-child(3) {
+  animation-delay: 0.3s;
+  background: #ec6625;
+}
+
+@keyframes wave {
+  0%, 30%, 60%, to {
+    transform: initial;
+    -webkit-transform: initial;
+    -ms-transform: initial;
+    -moz-transform: initial;
+    opacity: 0.25;
+  }
+
+  30% {
+    transform: translateY(-3px);
+    -webkit-transform: translateY(-3px);
+    -ms-transform: translateY(-3px);
+    -moz-transform: translateY(-3px);
+    opacity: 1;
+  }
+}
+
+
+/*-----------CSS For page loader end here-----------*/

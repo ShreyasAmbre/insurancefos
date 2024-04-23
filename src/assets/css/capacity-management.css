@@ -1,0 +1,236 @@
+.capacity-management-wrapper .db-heading-block {
+
+    padding-top: 2rem;
+}
+
+.capacity-management-sec .cap-managment-input {
+    width: 100%;
+    max-width: 360px;
+    margin: 2rem 0;
+}
+
+
+
+
+.capacity-management-sec .cap-calendar-block {
+
+    border: 1px solid #EAEAEA;
+    border-radius: 10px;
+    background: #ffffff;
+}
+
+
+
+
+
+
+
+.capacity-management-sec table.capacity-details tr:last-child td,
+.capacity-management-sec table.capacity-details tr:last-child td {
+    border-bottom: none;
+
+}
+
+.capacity-management-sec table.capacity-details td a,
+.capacity-management-sec table.capacity-details th a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.capacity-management-sec td.cap-time-block {
+    width: 8%;
+}
+
+
+
+
+.capacity-management-sec table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+.cap-time-block td:last-child th {
+    border-right: none;
+}
+
+.capacity-management-sec td:last-child table.capacity-details td,
+.capacity-management-sec td:last-child table.capacity-details th {
+    border-right: none;
+}
+
+
+
+
+.capacity-management-sec .meeting-details {
+
+    background: #E1F4FD;
+    border-radius: 5px;
+    width: 93%;
+    margin: 0 auto;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    /*height: 100%;*/
+    /*min-height: 235px;*/
+    padding: 5.5rem 0;
+    z-index: 99;
+    margin: 0.6rem auto;
+    cursor: pointer;
+    left: 0;
+    right: 0;
+}
+
+.capacity-management-sec .meeting-time p {
+    color: #575757;
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.capacity-management-sec .meeting-time p {
+    color: #575757;
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.capacity-management-sec .meeting-time {
+
+    background: #CBEEFF;
+    padding: 1rem 1rem;
+    text-align: left;
+}
+
+.capacity-management-sec .total-capacity {
+    padding: 1rem 1rem;
+    text-align: center;
+}
+
+.capacity-management-sec .total-capacity p {
+    border-radius: 5px;
+    background: #5F96B0;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: normal;
+    padding: 0.6rem 0;
+    width: 100%;
+    max-width: 98px;
+    margin: 0 auto;
+}
+
+.capacity-management-sec .presentDay {
+
+    background: #FFFEF3;
+}
+
+
+.capacity-sloteidt-popup-sec .db-popup-sec,
+.capacity-slotsave-popup-sec .db-popup-sec {
+    width: 100%;
+    max-width: 610px;
+}
+
+
+.cap-sloteidt-sec .cap-slotedit-block {
+    display: flex;
+    justify-content: space-between;
+    margin: 1.5rem 0 4rem;
+}
+
+.cap-sloteidt-sec .cap-sloteidt-input {
+
+    width: 31%;
+}
+
+.cap-sloteidt-sec .cap-slotedit-btn {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.cap-sloteidt-sec .cap-slotedit-btn .secondary-btn {
+
+    margin-right: 2rem;
+}
+
+
+
+
+
+/*CSS for new design start here*/
+
+
+.capacity-management-sec .fc.fc-theme-standard .fc-view-harness td,
+.capacity-management-sec .fc.fc-theme-standard .fc-view-harness th {
+    color: #6B7A99;
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 20px;
+    border: 1px solid #EAEAEA;
+    text-align: center;
+    height: 62px;
+    position: relative;
+    background: transparent;
+    vertical-align: middle;
+}
+
+.capacity-management-sec .fc-timegrid-event .fc-event-time{
+    background: #CBEEFF;
+    padding: 1rem 1rem;
+    text-align: left;
+    font-size: 1.2rem;
+    color: #575757;
+    font-weight: 700;
+    line-height: normal;
+    margin: 0;
+    white-space: inherit;
+}
+
+.capacity-management-sec .fc-timegrid-event-harness{
+    background: #E1F4FD;
+    border-radius: 5px;
+    width: 93%;
+    margin: 0 auto;
+    overflow: hidden;
+    top: 0;
+    /*height: 100%;*/
+    /*min-height: 235px;*/
+    padding: 5.5rem 0;
+    z-index: 99;
+    margin: 0.6rem auto;
+    cursor: pointer;
+    left: 0;
+    right: 0;
+    position: absolute;
+}
+
+.capacity-management-sec .fc-v-event .fc-event-title{
+    border-radius: 5px;
+    background: #5F96B0;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: normal;
+    padding: 0.6rem 0;
+    width: 100%;
+    max-width: 98px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.capacity-management-sec .fc-v-event .fc-event-title-container{
+    padding: 1rem 1rem;
+    text-align: center;
+}
+
+
+.capacity-management-sec .fc-timegrid-event-harness-inset .fc-timegrid-event{
+    background: #E1F4FD;
+    border: none;
+    box-shadow: none;
+}
+
+
+/*CSS for new design end here*/

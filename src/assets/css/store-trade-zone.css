@@ -1,0 +1,265 @@
+/*----------------CSS For Store and Trade Zone Start Here----------------*/
+
+
+/* toggle css START*/
+.il-switch {
+  position: relative;
+  display: inline-block;
+  width: 49px;
+  height: 26px;
+  border: 2px solid transparent;
+}
+
+  .il-switch.il-small-toggle {
+    width: 37px;
+    height: 22px;
+  }
+
+  .il-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+.il-slider-round {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #B2B2B2;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+  .il-slider-round:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+  }
+
+.il-small-toggle .il-slider-round:before {
+  width: 15px;
+  height: 15px;
+  left: 2px;
+  bottom: 2px;
+}
+
+input:checked + .il-slider-round {
+  background-color: #EC6608;
+}
+
+  input:checked + .il-slider-round:before {
+    -webkit-transform: translateX(23px);
+    -ms-transform: translateX(23px);
+    transform: translateX(23px);
+  }
+
+.il-small-toggle input:checked + .il-slider-round:before {
+  -webkit-transform: translateX(15px);
+  -ms-transform: translateX(15px);
+  transform: translateX(15px);
+}
+
+.il-slider-round:hover {
+  background-color: #D2CECD;
+}
+
+input:checked + .il-slider-round:hover {
+  background-color: #F58820;
+}
+
+.il-slider-round:active {
+  background-color: #BBB5B4;
+}
+
+input:checked + .il-slider-round:active {
+  background-color: #D05A06;
+}
+
+.il-switch:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0px 2px #FFA05D;
+  border: 2px solid #fff;
+  border-radius: 34px;
+}
+
+/* toggle css END */
+
+.store-and-trade-sec,
+.service-area-sec {
+  display: flex;
+  width: 100%;
+}
+
+.store-and-trade-sec {
+  border-radius: 2rem 2rem;
+  overflow: hidden;
+}
+
+.store-map-sec,
+.service-area-map {
+  width: 60%;
+  overflow: hidden;
+}
+
+  .store-map-sec img,
+  .service-area-map img {
+    width: 100%;
+  }
+
+.store-serch-sec,
+.service-area-input {
+  width: 40%;
+}
+
+  .store-serch-sec .whitebg {
+    background-color: #fff;
+    padding: 30px;
+  }
+
+.store-serch-btn {
+  margin-top: 40px;
+  width: 100%;
+}
+
+.stores-found-wrap {
+  background: #E1F3FD;
+  padding: 15px 30px;
+}
+
+  .stores-found-wrap p {
+    color: #102F58;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+.store-found-results {
+  padding: 20px;
+}
+
+.stores-card {
+  background: #fff;
+  display: flex;
+  padding: 20px 20px 30px;
+  border-radius: 15px;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.store-icon {
+  margin-right: 15px;
+}
+
+  .store-icon img {
+    width: 22px;
+    height: 22px;
+  }
+
+.stores-card .stores-city {
+  color: #282828;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.stores-card .stores-city-address {
+  color: #575757;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.stores-card .store-mob {
+  color: #575757;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  text-decoration: underline;
+}
+
+.store-activate-btn {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.store-btn-wrapper {
+  margin-top: 0;
+  padding: 0 20px 0;
+}
+
+  .store-btn-wrapper a {
+    display: inline-block;
+    width: 100%;
+    padding: 0.8rem 2.4rem;
+    font-size: 1.4rem;
+  }
+
+.stores-status {
+  color: #B2B2B2;
+  text-align: right;
+  font-family: Mulish;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-right: 10px;
+}
+
+  .stores-status.active {
+    color: #0DA526;
+  }
+
+.service-area-input .area-input-block {
+  margin-bottom: 3rem;
+}
+
+  .service-area-input .area-input-block:last-child {
+    margin-bottom: 0;
+  }
+
+.service-area-sec .service-area-input {
+  padding: 3rem 3rem;
+  background: #ffffff;
+}
+
+.service-area-input .selectize-input {
+  height: auto;
+}
+
+.service-area-sec .update-pincode-block {
+  text-align: right;
+}
+
+.service-area-input .area-pincode-block {
+  margin-bottom: 4rem;
+}
+
+.store-and-trade-sec.section-width {
+  margin: 6.5rem 0 0;
+}
+
+.service-area-input .area-input-block#all-area-pincode {
+  display: none;
+}
+
+
+
+/*----------------CSS For Store and Trade Zone End Here----------------*/

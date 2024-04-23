@@ -1,0 +1,389 @@
+<div class="ppn-search-wrapper section-width" id="ppn-search">
+
+
+
+  <div class="block-popup-sec">
+
+    <div class="close-btn-block">
+
+      <a href="javascript:void(0);" class="js_closeBlock"></a>
+
+    </div>
+
+    <div class="ppn-search-sec">
+
+      <h3>Search type of PPN</h3>
+
+      <div class="ppn-search-block three-coloum">
+
+        <div class="first-block">
+
+          <div class="select-input-block">
+            <div class="input-block dropdown-block">
+              <label for="ppn-search-type">Search type</label>
+              <div class="dropdown">
+                <input id="ppn-search-type" type="text" class="selected required">
+                <ul class="custom-dropdown-list">
+                  <li class="active select-list"><a href="javascript:void(0);">Garage</a></li>
+                  <li><a href="javascript:void(0);">Hospital</a></li>
+                  <li><a href="javascript:void(0);">Mobile repair centre</a></li>
+
+                </ul>
+              </div>
+            </div>
+            <span class="error_message">Please select option</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="ppn-search-sec">
+
+      <h3>Search customer location</h3>
+
+      <div class="ppn-search-block two-coloum">
+
+        <div class="first-block">
+
+          <div class="il-input-block">
+
+            <input id="ppnsearch-pincode" type="text" maxlength="20">
+            <label for="ppnsearch-pincode">Pickup pincode</label>
+            <span class="error_message">This field is required</span>
+          </div>
+
+        </div>
+
+        <div class="second-block">
+
+          <div class="il-input-block">
+
+            <input id="ppnsearch-location" type="text" maxlength="50">
+            <label for="ppnsearch-location">Pickup location</label>
+            <span class="error_message">This field is required</span>
+          </div>
+
+        </div>
+
+        <div class="third-block">
+
+          <button type="button" class="primary-btn" id="search-location-btn">Search location</button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="ppn-search-sec search-garage">
+
+      <div class="ppn-search-block">
+
+        <div class="first-block">
+
+          <img src="assets/images/ppn-location-map.png" class="img-responsive">
+
+        </div>
+
+        <div class="second-block">
+
+          <div class="garage-details-block">
+
+            <div class="select-garage-block">
+
+              <h3>Search PPN Garage</h3>
+
+              <div class="select-garage-input">
+
+                <div class="left-block">
+
+                  <div class="select-input-block">
+                    <div class="input-block dropdown-block">
+                      <label for="ppn-repair-type">Repair type</label>
+                      <div class="dropdown">
+                        <input id="ppn-repair-type" type="text" class="selected required">
+                        <ul class="custom-dropdown-list">
+                          <li class="active select-list"><a href="javascript:void(0);">All parts</a></li>
+                          <li><a href="javascript:void(0);">Glass only</a></li>
+                          <li><a href="javascript:void(0);">Tyre only</a></li>
+
+                        </ul>
+                      </div>
+                    </div>
+                    <span class="error_message">Please select option</span>
+                  </div>
+
+                </div>
+
+                <div class="right-block">
+
+                  <div class="select-input-block">
+                    <div class="input-block dropdown-block">
+                      <label for="ppn-garage-type">Garage type</label>
+                      <div class="dropdown">
+                        <input id="ppn-garage-type" type="text" class="selected required">
+                        <ul class="custom-dropdown-list">
+                          <li class="active select-list"><a href="javascript:void(0);">All</a></li>
+                          <li><a href="javascript:void(0);">Flagship</a></li>
+                          <li><a href="javascript:void(0);">PPN</a></li>
+                          <li><a href="javascript:void(0);">Dealer PPN</a></li>
+                          <li><a href="javascript:void(0);">Others</a></li>
+
+                        </ul>
+                      </div>
+                    </div>
+                    <span class="error_message">Please select option</span>
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="select-disstance-block">
+
+                <div class="input_slider_holder">
+
+                  <div class="def_slider slider_with_input" id="input_slider">
+
+                    <div class="disstance_digit">
+
+                      <input type="text" id="slider_input">
+
+                    </div>
+
+                  </div>
+
+
+
+                  <!-- <div class="il-input-block">
+                      <input type="text" id="slider_input">
+                  </div> -->
+
+                </div>
+
+                <div class="input_slider_label">
+
+                  <span class="label-texts">5km</span>
+                  <span class="label-texts">100km</span>
+
+                </div>
+
+                <!-- <div class=" input_slider_holder " >
+
+                    <span class="label-texts">1k</span>
+
+                    <div class="def_slider slider_with_input" id="input_slider">
+
+
+                    </div>
+
+                    <span class="label-texts">20k</span>
+
+                    <div class="il-input-block">
+                        <input type="text" id="slider_input">
+                    </div>
+
+                </div> -->
+
+              </div>
+
+              <div class="search-btn-block">
+
+                <button type="button" class="primary-btn" id="ppn-search-btn">Search</button>
+
+              </div>
+
+            </div>
+
+            <div class="garage-list-block">
+
+              <div class="garage-count">
+
+                <h4>Showing <span>63</span> garage(s)</h4>
+
+              </div>
+
+              <div class="garage-type">
+
+                <div class="garage-type-title">
+
+                  <a href="javascript:void(0);" class="activeBtn premium-vehicle">Premium vehicle</a>
+                  <a href="javascript:void(0);" class="non-premium-vehicle">Non-premium vehicle</a>
+
+                </div>
+
+                <div class="garage-type-details" id="premium-vehicle" style="display:block;">
+
+                  <div class="garage-name-block activeGarage">
+
+                    <div class="garage-address">
+
+                      <div class="icon-block">
+
+                        <img src="assets/images/garage-location-icon.svg" alt="Garage-Location-Icon">
+
+                      </div>
+
+                      <div class="address-block">
+
+                        <h5>Super auto services pvt ltd</h5>
+
+                        <p><span>Multi car garage</span> Desai wadi, Jayawant sawant road, near happy home society, Mumbai, Maharashtra</p>
+
+                        <a href="javascript:void(0)">
+                          <img src="assets/images/call-icon.svg">
+                          <span>9920993980</span>
+                        </a>
+
+                      </div>
+
+                    </div>
+
+                    <div class="view-btn-block">
+
+                      <div class="garage-cust-chkbox">
+
+                        <div class="form-group">
+                          <input type="checkbox" id="pre-vehicle-chkBox1" checked="">
+                          <label for="pre-vehicle-chkBox1"></label>
+                        </div>
+
+                      </div>
+
+                      <a href="javascript:void(0)" class="secondary-btn">View</a>
+
+                    </div>
+
+                  </div>
+
+                  <div class="garage-name-block">
+
+                    <div class="garage-address">
+
+                      <div class="icon-block">
+
+                        <img src="assets/images/garage-location-icon.svg" alt="Garage-Location-Icon">
+
+                      </div>
+
+                      <div class="address-block">
+
+                        <h5>Car care automotive pvt ltd</h5>
+
+                        <p><span>Multi car garage</span> Desai wadi, Jayawant sawant road, near happy home society, Mumbai, Maharashtra</p>
+
+                        <a href="javascript:void(0)">
+                          <img src="assets/images/call-icon.svg">
+                          <span>9920993980</span>
+                        </a>
+
+                      </div>
+
+                    </div>
+
+                    <div class="view-btn-block">
+
+                      <div class="garage-cust-chkbox">
+
+                        <div class="form-group">
+                          <input type="checkbox" id="pre-vehicle-chkBox2">
+                          <label for="pre-vehicle-chkBox2"></label>
+                        </div>
+
+                      </div>
+
+                      <a href="javascript:void(0)" class="secondary-btn">View</a>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <div class="garage-type-details" id="non-premium-vehicle">
+
+                  <div class="garage-name-block">
+
+                    <div class="garage-address">
+
+                      <div class="icon-block">
+
+                        <img src="assets/images/garage-location-icon.svg" alt="Garage-Location-Icon">
+
+                      </div>
+
+                      <div class="address-block">
+
+                        <h5>Super auto services pvt ltd</h5>
+
+                        <p><span>Multi car garage</span> Desai wadi, Jayawant sawant road, near happy home society, Mumbai, Maharashtra</p>
+
+                        <a href="javascript:void(0)">
+                          <img src="assets/images/call-icon.svg">
+                          <span>9920993980</span>
+                        </a>
+
+                      </div>
+
+                    </div>
+
+                    <div class="view-btn-block">
+
+                      <div class="garage-cust-chkbox">
+
+                        <div class="form-group">
+                          <input type="checkbox" id="nonpre-vehicle-chkBox1">
+                          <label for="nonpre-vehicle-chkBox1"></label>
+                        </div>
+
+                      </div>
+
+                      <a href="javascript:void(0)" class="secondary-btn">View</a>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="sticky-btn-block">
+
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-lg-12">
+
+            <div class="ppnsearch-btn-sec">
+
+              <button type="button" class="secondary-btn" id="ppnsearch-cancle-btn">Cancle</button>
+              <button type="button" class="primary-btn" id="ppnsearch-create-btn">Create</button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

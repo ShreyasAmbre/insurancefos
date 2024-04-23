@@ -1,0 +1,22 @@
+<div class="joblist-tab-list">
+  <ul>
+    <ng-container *ngFor="let item of motorJobCategory">
+      <li *ngIf="item.isVisible === 'both' || item.isVisible === selectedJobType "
+          class="pointer"
+          [ngClass]="item.iconclass"
+          [class.activejobStatus]="selectedCategory === item.category"
+          (click)="selectCategory(item.category)">
+        <a>
+          <div class="job-status-block">
+            <div class="joblist-icon"></div>
+
+            <div class="joblist-count">
+              <span id="all-jobs">{{item.count}}</span>
+              <p>{{item.name}}</p>
+            </div>
+          </div>
+        </a>
+      </li>
+    </ng-container>
+  </ul>
+</div>

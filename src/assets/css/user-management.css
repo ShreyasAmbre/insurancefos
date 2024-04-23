@@ -1,0 +1,346 @@
+/*-----------------CSS For User management Start here-----------------*/
+
+
+.user-management-sec .user-details-block ul {
+  display: flex;
+}
+
+.user-management-sec .user-details-block li {
+  color: #282828;
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: normal;
+  word-break: break-all;
+  padding-right: 1rem;
+}
+
+.user-management-sec .user-details {
+  background: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #EAEAEA;
+  box-shadow: 0px 3px 5px 0px #F8F6F6;
+  padding: 2.4rem 1.7rem 2.4rem 6.8rem;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+  .user-management-sec .user-details:last-child {
+    margin-bottom: 0;
+  }
+
+  .user-management-sec .user-details:before {
+    content: '';
+    background: url('../images/user-management-profile.svg');
+    width: 14px;
+    height: 16px;
+    position: absolute;
+    top: 27px;
+    left: 30px;
+  }
+
+.user-management-sec .user-details-block li:first-child,
+.user-management-wrapper .accordian-title li:first-child {
+  width: 16%;
+}
+
+.user-management-sec .user-details-block li:nth-child(2),
+.user-management-wrapper .accordian-title li:nth-child(2) {
+  width: 16%;
+}
+
+.user-management-sec .user-details-block li:nth-child(3),
+.user-management-wrapper .accordian-title li:nth-child(3) {
+  width: 26%;
+}
+
+.user-management-sec .user-details-block li:nth-child(4),
+.user-management-wrapper .accordian-title li:nth-child(4) {
+  width: 16%;
+}
+
+.user-management-sec .user-details-block li:nth-child(5),
+.user-management-wrapper .accordian-title li:nth-child(5) {
+  width: 16%;
+}
+
+.user-management-sec .user-details-block li:last-child {
+  width: 10%;
+  text-align: right;
+}
+
+.user-management-wrapper .accordian-title ul {
+  padding: 3rem 1.7rem 1rem 6.8rem;
+}
+
+li .dropdown-arrow {
+  margin-left: 1rem;
+}
+
+.user-management-sec .accesscity-name span {
+  background: #F8F6E4;
+  padding: 0.4rem 1rem;
+  border-radius: 100px;
+  color: #6C6C6C;
+  font-size: 1.2rem;
+  line-height: normal;
+  margin: 0 0.4rem 0 0;
+}
+
+  .user-management-sec .accesscity-name span:nth-child(n+4) {
+    margin-top: 0.6rem;
+  }
+
+.user-management-sec .accesscity-name a {
+  color: #EC6625;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: normal;
+  text-decoration: underline;
+  margin-left: 0.6rem;
+}
+
+.user-management-sec .accesscity-name {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 90%;
+}
+
+.user-management-sec .edit-details span.edit-dots {
+  background: #838383;
+  width: 3px;
+  height: 3px;
+  border-radius: 100%;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+  .user-management-sec .edit-details span.edit-dots:last-child {
+    margin-bottom: 0;
+  }
+
+.user-management-sec .user-details-block li.access-city-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.user-management-sec .edit-details a {
+  /*	padding: 0.5rem 1rem;*/
+  padding: 0;
+  display: inline-block;
+}
+
+.user-management-sec .user-option-block a {
+  color: #282828;
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: normal;
+  display: flex;
+  align-items: center;
+  padding: 1.4rem 1rem;
+}
+
+.user-management-sec .user-option-block span {
+  margin-left: 1rem;
+}
+
+.user-management-sec .user-option-block {
+  width: 120px;
+  background: #ffffff;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 10px;
+  position: absolute;
+  top: 50px;
+  right: 0px;
+  z-index: 99;
+  display: none;
+}
+
+.user-management-sec .show-dropdown .user-option-block {
+  display: block;
+}
+
+.user-management-sec .edit-details {
+  position: relative;
+}
+
+.user-management-sec .user-option-block a.activeDropdown {
+  background: #EAEAEA;
+}
+
+
+.deleteuser-popup-sec .db-popup-sec {
+  max-width: 466px;
+  padding: 3rem 2.8rem 4rem;
+}
+
+.delete-user-block .delete-btn-option {
+  text-align: right;
+  margin-top: 5.8rem;
+}
+
+.delete-user-block .cancle-btn,
+.delete-user-block .delete-btn {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  padding: 1.3rem 2.4rem;
+  font-size: 1.6rem;
+  border-radius: 5px;
+  text-decoration: none;
+  outline: none;
+  font-weight: 700;
+  text-align: center;
+  width: 100%;
+  max-width: 175px;
+}
+
+.delete-user-block .cancle-btn {
+  background: #fff;
+  color: #6C6C6C;
+  border: 1px solid #C9C9C9;
+  margin-right: 2rem;
+}
+
+.delete-user-block .delete-btn {
+  background: #E71A1A;
+  color: #ffffff;
+  border: 1px solid #E71A1A;
+}
+
+.db-popup-sec .db-popup-content .delete-user-block .db-popup-heading h3 {
+  width: 100%;
+  max-width: 282px;
+  line-height: 26px;
+}
+
+.db-popup-sec .db-popup-content .delete-user-block .db-popup-heading {
+  padding-bottom: 0;
+}
+
+.createuser-popup-sec .db-popup-sec,
+.editeuser-popup-sec .db-popup-sec {
+  width: 100%;
+  max-width: 660px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin: 0;
+  height: 100%;
+  border-radius: 0;
+  left: auto;
+  padding: 3.6rem 5rem;
+  overflow-x: auto;
+}
+
+.createuser-input-block .createuser-input {
+  margin-bottom: 3rem;
+}
+
+  .createuser-input-block .createuser-input:last-child {
+    margin-bottom: 4rem;
+  }
+
+  .createuser-input-block .createuser-input.flex-row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .createuser-input-block .createuser-input .left-block,
+  .createuser-input-block .createuser-input .right-block {
+    width: 48%;
+  }
+
+.createuser-input-block {
+  margin-top: 4rem;
+}
+
+  .createuser-input-block .addaccess-txt {
+    text-align: right;
+    margin-bottom: 6rem;
+  }
+
+    .createuser-input-block .addaccess-txt a {
+      color: #EC6625;
+      font-size: 1.2rem;
+      font-weight: 700;
+      line-height: normal;
+      text-decoration: underline;
+    }
+
+.create-user-block .create-btn-block,
+.create-user-block .edit-btn-block {
+  text-align: right;
+}
+
+
+.user-action-block {
+  border-radius: 10px;
+  background: #0DA526;
+  width: 100%;
+  max-width: 335px;
+  margin: 0 auto;
+  position: fixed;
+  top: 65px;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  display: none;
+}
+
+  .user-action-block p {
+    color: #ffffff;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 21px;
+    text-align: center;
+    padding: 1.4rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+    .user-action-block p span {
+      padding-left: 0.5rem;
+    }
+
+.user-management-title ul {
+  display: flex;
+  padding: 3rem 1.7rem 1rem 6.8rem;
+}
+
+.user-management-title li {
+  color: #282828;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.create-user-block .selectize-input {
+  height: auto;
+  padding: 1.7rem;
+}
+
+.createuser-input-block .disableAccordian .createuser-input.add-access-Block {
+  display: none;
+}
+
+.user-management-sec .disableAccordian .accesscity-name span {
+  background: #F0EFEE;
+  color: #B2B2B2;
+}
+
+.user-management-sec .disableAccordian .accesscity-name a {
+  color: #B2B2B2;
+}
+
+.user-management-sec .disableAccordian.user-details:before {
+  background: url('../images/disabled-accordian-icon.svg');
+  width: 14px;
+  height: 16px;
+}
+
+
+/*-----------------CSS For User management End here-----------------*/

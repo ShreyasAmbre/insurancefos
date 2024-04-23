@@ -1,0 +1,125 @@
+
+<section>
+  <div class="dashboard-main-wrapper" (click)="editOpen(userIndex,'inner')" >
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="user-management-wrapper section-width" id="user-management" style="display:block;">
+            <div class="user-action-block">
+            </div>
+            <div class="db-heading-block">
+              <div class="left-block">
+                <h3 class="left-content">User management</h3>
+              </div>
+              <div class="right-block">
+                <div class="il-input-block" id="joblist-searchby">
+                  <label for="search-by">Search by Name</label>
+                  <form [formGroup]="userSearchForm">
+                    <input id="searchby-user-name"
+                           [(ngModel)]="searchText"
+                           formControlName="searchInput"
+                           type="text"
+                           appInputfocus
+                           (focus)="onSearch()"/>
+                    <label for="searchby-user-name">Search by User name</label>
+                    <span *ngIf="userSearchForm.get('searchInput')?.errors?.['pattern']" class="error_message">This field is invalid</span>
+                  </form>
+                </div>
+                <button (click)="createUser(1)" class="orangebg-btn js_showcreateuserPopup">Create User</button>
+
+              </div>
+            </div>
+
+            <div class="accordian-title">
+              <ul>
+                <li>User name</li>
+                <li>Mobile number</li>
+                <li>Email ID</li>
+                <li>Unique id</li>
+                <li>Assign role</li>
+              </ul>
+            </div>
+
+            <div class="user-management-sec">
+              <div class="user-details-block">
+                <ng-container *ngFor="let data of visibleRecords; let i = index">
+                  <div class="user-details" (click)="editOpen(i,'upper')" [ngClass]="{'disableAccordian': data.IsActive === '0'}">
+                    <ul>
+                      <li>{{data.UserName}}</li>
+                      <li>{{data.MobileNo}}</li>
+                      <li>{{data.Email}}</li>
+                      <li>{{data.UserId}}</li>
+                      <li>{{data.RoleName}}</li>
+                      <li>
+                        <div class="edit-details pointer" (click)="editOpen(i,'inner'); $event.stopPropagation()">
+                          <a>
+                            <span class="edit-dots"></span>
+                            <span class="edit-dots"></span>
+                            <span class="edit-dots"></span>
+                          </a>
+
+                          <div class="user-option-block" *ngIf="threeDotsIndex == i" style="display: block">
+                            <a (click)="createUser(2,data)"
+                               class="js_showdisablePopup"
+                               *ngIf="data.IsActive ==='1'">
+                              <img src="assets/images/edit-icon.svg">
+                              <span>Edit</span>
+                            </a>
+                            <!--<a (click)="opendeleteuser(i,data)" class="js_showedeletePopup"><img src="assets/images/delete-icon.svg"><span>Delete</span></a>-->
+                            <a class="js_showedeletePopup"
+                               (click)="opendeleteuser(data)">
+                              <img src="assets/images/delete-icon.svg" /><span>{{data.IsActive === '0' ? 'Enable' : 'Disable'}}</span>
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </ng-container>
+              </div>
+              <p-paginator
+                           [rows]="rowsPerPage"
+                           [totalRecords]="filteredRecords.length"
+                           [rowsPerPageOptions]="[10, 20, 30]"
+                           (onPageChange)="onPageChange($event)">
+              </p-paginator>
+
+            </div>
+          </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+</section>
+
+<app-createuser-form (updateList)="getUserList()" [isEditPopupOpen]="isEditPopupOpen" [userDetails]="userDetails" (userList)="getUserList()" [click]="click" [buttonLabel]="buttonLabel" [createuserHeader]="createuserHeader"
+                     *ngIf="isOpen" (closeEvent)="closeCreateUser($event)"></app-createuser-form>
+
+<div class="deleteuser-popup-sec">
+  <div class="db-popup-overlay" style="display: block" [ngClass]="(isdeletePopUP) ? 'activeOverlay':''" *ngIf="isdeletePopUP">
+    <div class="db-popup-sec deleteUserPopup">
+      <div class="db-closebtn-block">
+        <a (click)="closepopUp()" class="js_closedbPopup"></a>
+      </div>
+      <div class="db-popup-content">
+        <div class="delete-user-block">
+          <div class="db-popup-heading">
+            <h3>Are you sure you want to <span>{{userList?.IsActive === '0' ? 'enable' : 'disable'}} this User ?</span></h3>
+          </div>
+          <div class="delete-btn-option">
+            <button (click)="closepopUp()" type="button" class="cancle-btn" id="cancle-user-btn">Cancel</button>
+            <!--<button (click)="deleteUser(num)" type="button" class="delete-btn" id="delete-user-btn">Yes, delete</button>-->
+            <button (click)="disableUser()" type="button" class="delete-btn" id="delete-ppn-btn">Yes, {{userList?.IsActive === '0' ? 'Enable' : 'Disable'}} </button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ </div>
+<div *ngIf="toasterStatus">
+  <app-custom-toaster></app-custom-toaster>
+</div>

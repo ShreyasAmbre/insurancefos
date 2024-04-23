@@ -1,0 +1,150 @@
+<!-- -----Popup for Create User start here----- -->
+<form [formGroup]="userCreationForm" class="createuser-popup-sec">
+  <div [class.activeOverlay]="true" class="db-popup-overlay">
+    <div class="db-popup-sec">
+      <div class="db-popup-content">
+        <div class="create-user-block">
+          <div>
+            <div class="db-popup-heading">
+              <h3>{{createuserHeader}}</h3>
+            </div>
+            <div class="db-closebtn-block">
+              <a (click)="closeEvent.emit(false)" class="js_closedbPopup">X</a>
+            </div>
+          </div>
+          <div class="createuser-input-block">
+            <div class="createuser-input">
+              <div class="il-input-block">
+                <label for="createuser-name">Full name</label>
+                <input #inputField
+                       formControlName="UserName"
+                       id="createuser-name"
+                       type="text"
+                       appInputfocus
+                       appSpecialChar/>
+                <span class="error_message" *ngIf="userCreationForm.get('UserName')?.errors?.['required'] &&
+                  userCreationForm.get('UserName')?.touched">This field is required</span>
+                <span class="error_message"
+                      *ngIf="
+                   userCreationForm.get('UserName')?.errors?.['pattern'] ||
+                   userCreationForm.get('UserName')?.errors?.['maxlength'] ||
+                   userCreationForm.get('UserName')?.errors?.['minlength']">
+                  This field is invalid
+                </span>
+              </div>
+
+            </div>
+            <div class="createuser-input flex-row">
+              <div class="left-block">
+                <div class="il-input-block">
+                  <label for="createuser-emailid">Email id</label>
+                  <input #inputField
+                         formControlName="Email"
+                         id="createuser-emailid"
+                         type="email"
+                         appInputfocus
+                         appSpecialChar>
+                  <span class="error_message" *ngIf="userCreationForm.get('Email')?.errors?.['required'] &&
+                    userCreationForm.get('Email')?.touched">This field is required</span>
+                  <span class="error_message"
+                        *ngIf="
+                    userCreationForm.get('Email')?.errors?.['pattern'] ||
+                    userCreationForm.get('Email')?.errors?.['email'] ||
+                    userCreationForm.get('Email')?.errors?.['maxlength']">
+                    This field is invalid
+                  </span>
+                </div>
+              </div>
+              <div class="right-block">
+                <div class="il-input-block">
+                  <label for="createuser-mobno">Mobile number</label>
+                  <input #inputField
+                         appDigitOnly
+                         formControlName="MobileNo"
+                         id="createuser-mobno"
+                         type="tel"
+                         maxlength="10"
+                         appInputfocus>
+                  <span class="error_message" *ngIf="userCreationForm.get('MobileNo')?.errors?.['required'] &&
+                        userCreationForm.get('MobileNo')?.touched">This field is required</span>
+                  <span class="error_message"
+                        *ngIf=" userCreationForm.get('MobileNo')?.errors?.['pattern']">
+                    This field is invalid
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div>
+            </div>
+            <div class="createuser-input flex-row">
+              <div class="left-block">
+                <div  class="il-input-block" [class.disabled-div]="isEditPopupOpen" [ngClass]="{'focus': userCreationForm.controls['UserId'].value}">
+                  <label for="login-userId">Unique id</label>
+                  <div class="error_messagesOne" *ngIf="!(userCreationForm.get('UserId')?.errors?.['required'] &&
+                        userCreationForm.get('UserId')?.touched) && isUniqueIdExists">This User already exists</div>
+                  <input 
+                         formControlName="UserId"
+                         id="login-userId"
+                         (blur)="uniqueIdCheck()"
+                         type="text" maxlength="10"
+                         (focus)="onFocus()"
+                         appInputfocus
+                         appTouppercase
+                         appSpecialChar>
+                  <span class="error_message" *ngIf="userCreationForm.get('UserId')?.errors?.['required'] &&
+                        userCreationForm.get('UserId')?.touched">This field is required</span>
+                  <span class="error_message"
+                        *ngIf=" userCreationForm.get('UserId')?.errors?.['pattern']">
+                    This field is invalid
+                  </span>
+                </div>
+              </div>
+              <div class="right-block">
+                <div class="select-input-block selectActive">
+                  <div class="input-block dropdown-block">
+                    <label>Access Role</label>
+                    <div class="dropdown">
+                      <p-dropdown formControlName="RoleId"
+                                  [options]="accessRoleName">
+                      </p-dropdown>
+                      </div>
+                      <span class="error_message" *ngIf="userCreationForm.get('RoleId')?.errors?.['required'] &&
+                        userCreationForm.get('RoleId')?.touched">This field is required</span>
+                    </div>
+                  </div>
+              </div>
+            </div>
+           
+            <div class="create-btn-block" *ngIf="buttonLabel === 'Create' ">
+              <button (click)="closeEvent.emit(false)" type="button" class="secondary-btn custom-cancelbtn">
+                Cancel
+              </button>
+              <button [disabled]="userCreationForm.invalid"
+                      (click)="onSubmit()"
+                      type="submit"
+                      class="primary-btn"
+                      id="create-user-btn">
+                Create
+              </button>
+            </div>
+            <div class="create-btn-block" *ngIf="buttonLabel === 'Submit' ">
+              <button (click)="closeEvent.emit(false)" type="button" class="secondary-btn custom-cancelbtn">
+                Cancel
+              </button>
+              <button [disabled]="userCreationForm.invalid"
+                      (click)="onUpdate()"
+                      type="submit"
+                      class="primary-btn"
+                      id="create-user-btn">
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+
+

@@ -1,0 +1,93 @@
+<div class="additionalinfo-popup-sec">
+  <div class="db-popup-overlay activeOverlay">
+    <div class="db-popup-sec">
+      <div class="db-closebtn-block" (click)="closePopup()">
+        <a href="javascript:void(0);" class="js_closedbPopup"></a>
+      </div>
+
+      <div class="db-popup-content">
+        <div class="additionalinfo-block">
+          <div class="db-popup-heading">
+            <h3>Additional Information</h3>
+          </div>
+
+          <div class="additionalinfo-input-block">
+            <div class="additionalinfo-input">
+              <div class="select-input-block selectActive">
+                <div class="input-block dropdown-block">
+                  <div class="dropdown">
+                    <label>Reason to cancel a job</label>
+                    <p-dropdown class="custom-prime-dropdown"
+                                inputId="float-label"
+                                [(ngModel)]="selectedReason"
+                                [options]="cancelReasons"
+                                optionLabel="ReasonDetail">
+                    </p-dropdown>
+                  </div>
+                  </div>
+                  <!--<span class="error_message">Please select option</span>-->
+                </div>
+              </div>
+
+              <div class="additionalinfo-input">
+                <div class="select-input-block selectActive">
+                  <div class="input-block dropdown-block">
+                    <div class="dropdown">
+                      <label>Garage Type</label>
+                      <p-dropdown class="custom-prime-dropdown"
+                                  [(ngModel)]="selectedGarageType"
+                                  [options]="garageTypes"
+                                  optionLabel="GarageType"
+                                  optionValue="GarageTypeId">
+                      </p-dropdown>
+                    </div>
+                  </div>
+                  <!--<span class="error_message">Please select option</span>-->
+                </div>
+              </div>
+
+              <div class="additionalinfo-input">
+                <div class="select-input-block selectActive">
+                  <div class="input-block dropdown-block">
+                    <div class="dropdown">
+                      <label>PPN Type</label>
+                      <p-dropdown class="custom-prime-dropdown"
+                                  [(ngModel)]="selectedPPNType"
+                                  [options]="ppnType"
+                                  optionLabel="ppnCategory"
+                                  optionValue="ppnCategoryId">
+                      </p-dropdown>
+                    </div>
+                  </div>
+                  <!--<span class="error_message">Please select option</span>-->
+                </div>
+              </div>
+
+              <div class="additionalinfo-input">
+                <div class="il-input-block">
+                  <textarea id="addinfo-remarks"
+                            name="txt-area1212"
+                            rows="4"
+                            [(ngModel)]="reasonRemark"
+                            placeholder="Remarks">
+                  </textarea>
+                  <!--<label for="addinfo-remarks">Remarks</label>-->
+                  <!--<span class="error_message">This field is required</span>-->
+                </div>
+              </div>
+            </div>
+
+            <div class="additionalinfo-save-btn">
+              <button [disabled]="reasonRemark == '' || selectedPPNType == '' || selectedGarageType == ''"
+                      type="button"
+                      class="primary-btn primary-btn-"
+                      id="save-info-btn"
+                      (click)="cancelJobOrder()">
+                Save
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

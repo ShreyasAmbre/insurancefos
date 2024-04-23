@@ -1,0 +1,75 @@
+<div class="store-and-trade-wrapper" id="store-and-trade-zone">
+  <div class="trade-zone-wrapper section-width" id="store-and-trade" style="display:block">
+    <div class="db-heading-block">
+      <div class="left-block titlecss">
+        <h3>Trade zone dashboard</h3>
+      </div>
+      <div class="right-block">
+        <a href="javascript:void(0)"
+           class="whitebg-btn select-area-btn js_showselectareaPopup"
+           (click)="openSelectAccess()">
+          <span id="selectedCity">{{userData.city || 'Lucknow'}}{{ " " + zoneAreaListCount + "+ more"}}</span>
+          <img src="assets/images/select-area-btn-arrow.svg">
+        </a>
+
+      </div>
+    </div>
+
+    <div class="store-and-trade-sec">
+
+      <div class="store-map-sec">
+        <app-pin-map></app-pin-map>
+      </div>
+      <div class="store-serch-sec">
+        <div class="whitebg">
+          <!--<div style="margin-right: 1%">
+            <a class="whitebg-btn select-area-btn"
+               (click)="openSelectAccess()">
+              <span id="selectedCity">Lucknow +3 more</span>
+              <img src="assets/images/select-area-btn-arrow.svg" />
+            </a>
+          </div>-->
+          <br />
+          <div class="il-input-block">
+            <input id="store-and-trade-srch" type="text" maxlength="20" [(ngModel)]="searchTerm" appInputfocus>
+            <label for="store-and-trade-srch">Search by zone</label>
+          </div>
+        </div>
+        <div class="stores-found-wrap">
+          <p>Total {{zoneList.length}} store found</p>
+        </div>
+        <ul class="store-found-results">
+          <li class="stores-card" *ngFor="let item of zoneList.slice(0, itemsToShow) | searchByText: searchTerm; let i = index">
+            <div class="store-icon">
+              <img src="assets/images/stores-icon.svg" alt="store-icon">
+            </div>
+            <div class="store-address">
+              <h4 class="stores-city">{{item.ZoneName}}</h4>
+              <p class="stores-city-address">{{item.StateName}}, {{item.CityName}}. </p>
+              <!--<a href="javascript:void(0)" class="store-mob">+91 9820098200</a>-->
+            </div>
+            <div class="store-activate-btn">
+              <span class="stores-status" [ngClass]="{active: item.Status === '1'}">
+                {{ item.Status === '1' ? 'Activated' : 'Deactivated' }}
+              </span>
+              <p-inputSwitch class="custom-slider" [ngModel]="item.Status === '1'" (onChange)="updateStatus($event, item.ZoneId)"></p-inputSwitch>
+            </div>
+          </li>
+        </ul>
+        <div class="store-btn-wrapper">
+          <a href="javascript:void(0)" class="secondary-btn" id="load-more-stores" (click)="toggleData()">
+            {{showLoadMore ? 'Load More' : 'Load Less'}}
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+</div>
+<div *ngIf="toasterStatus">
+  <app-custom-toaster></app-custom-toaster>
+</div>

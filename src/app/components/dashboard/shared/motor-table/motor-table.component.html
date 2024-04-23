@@ -1,0 +1,220 @@
+<div class="joblist-tab-title">
+  <div *ngIf="toasterStatus">
+    <app-custom-toaster></app-custom-toaster>
+  </div>
+  <ul>
+    <li>Customer name</li>
+    <li>Claim number</li>
+    <li>
+      Job type
+      <a (click)="sortJobData('JobSubType')">
+        <span class="dropdown-arrow"><img src="assets/images/dropdown-icon.svg" />  </span>
+      </a>
+    </li>
+    <li>
+      Slot
+      <a (click)="sortJobData('StartSlot')">
+        <span class="dropdown-arrow"><img src="assets/images/dropdown-icon.svg" /></span>
+      </a>
+    </li>
+    <li>Assigned to</li>
+    <li>
+      City
+      <a (click)="sortJobData('City')">
+        <span class="dropdown-arrow"><img src="assets/images/dropdown-icon.svg" /></span>
+      </a>
+    </li>
+    <li>
+      Status
+      <a (click)="sortJobData('Status')">
+        <span class="dropdown-arrow"><img src="assets/images/dropdown-icon.svg" /></span>
+      </a>
+    </li>
+    <!--<li>Call customer</li>-->
+  </ul>
+</div>
+<div class="joblist-tab-details">
+  <div class="joblist-tab-block" style="display: block">
+    <div class="joblist-accord-block" style="display: block">
+      <div class="accordion-sec icici-lombard-policy wyn-policy-details"
+           *ngFor="let item of visibleRecords; let i = index">
+        <div class="accordion-head">
+          <ul>
+            <li>{{item?.CustomerName}}</li>
+            <li>{{item?.ClaimNumber}}</li>
+            <li>{{item?.JobSubType}}</li>
+            <li>
+              {{ item?.StartSlot | date:'hh:mm a' }} <span class="accordian-date">{{ item?.StartSlot | date:'dd/MM/yyyy' }}</span>
+            </li>
+            <li>{{item?.Assigned === null ? 'Not Assigned' : item?.Assigned}}</li>
+            <li>{{item?.City}}</li>
+            <li class="done-btn"><span>{{item?.Status}}</span></li>
+            <li>
+              <!--<a class="js_showcallcustPopup">
+              <img src="assets/images/call-customer-icon.svg" />
+            </a>-->
+            </li>
+            <li class="accordian-arrow" (click)="accordionToggle(i)">
+              <a>
+                <img src="assets/images/accordian-down-arrow.svg" [class.rotoate-onexpand]="expandedRow === i" />
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="accordion-body" [class.isExpandTrue]="expandedRow === i">
+          <div class="joblist-details-block">
+            <ul class="customer-details">
+              <li>
+                <h4>Customer phone</h4>
+                <p>{{item?.CustomerContactNo}} </p>
+              </li>
+
+              <li>
+                <h4>DCSM name</h4>
+                <p>{{item?.DSCMName}}</p>
+              </li>
+
+              <li>
+                <h4>Created at</h4>
+                <p>
+                  {{item?.CreatedOn | date : 'shortTime'}}
+                  <span class="accordian-date">{{item?.CreatedOn | date: 'dd/MM/yyyy'}}</span>
+                </p>
+              </li>
+
+              <li>
+                <h4>Pincode</h4>
+                <p>{{item?.Pincode}}</p>
+              </li>
+
+              <li>
+                <h4>PPN name</h4>
+                <p>{{item?.PPNName}}</p>
+              </li>
+            </ul>
+
+            <ul class="customer-address">
+              <li>
+                <h4>Start address</h4>
+                <p>
+                  {{item?.CustomerAddress}}
+                </p>
+              </li>
+
+              <li>
+                <h4>End address</h4>
+                <p>
+                  {{item?.PPNAddress}}
+                </p>
+              </li>
+            </ul>
+            <div class="edit-popup-block" *ngIf="userRole == 'AD001' || userRole == 'RL002' || userRole == 'RL003' ||  userRole == 'RL004'">
+                <a class="js_show_joblist_editPopup edit-joblist-btn" [routerLink]="['/job/motor-edit','=NPSA#']" [state]="item">Edit</a>
+            </div>
+
+            <div class="assign-popup-btn">
+              <a class="js_showreassign_Popup" (click)="openAssignJobPopup(item)"
+                 id="reassign-btn1" *ngIf="userRole == 'AD001' || userRole == 'RL002' || userRole == 'RL003' ||  userRole == 'RL004'">
+                {{item?.Assigned === null ? 'Assign' : 'Reassign'}}
+              </a>
+              <a class="js_showrelated_data_Popup" (click)="openRelatedData(item)"
+                 id="related-btn1">Related data</a>
+              <a class="js_showrelated_data_Popup" (click)="openRescheduleSlot(item)"
+                 id="related-btn1">Reschedule the job</a>
+            </div>
+          </div>
+
+          <div class="contactstatus-block">
+            <div class="select-contactstatus">
+              <div class="select-input-block">
+                <div class="input-block dropdown-block" *ngIf="userRole == 'AD001' || userRole == 'RL001' || userRole == 'RL002' || userRole == 'RL003'">
+                  <div class="dropdown">
+                    <p-dropdown #FirstContactInput
+                                class="custom-dashboard-dropdown"
+                                [(ngModel)]="firstContactStatus"
+                                [options]="firstContact"
+                                optionLabel="label"
+                                optionValue="label"
+                                placeholder="First contact status"
+                                [readonly]="userRole === 'RL001'">
+                    </p-dropdown>
+                  </div>
+                </div>
+                <!--<span class="error_message">Please select option</span>-->
+              </div>
+
+              <div class="select-input-block">
+                <div class="input-block dropdown-block" *ngIf="userRole == 'AD001' || userRole == 'RL001' || userRole == 'RL002' || userRole == 'RL003'">
+                  <div class="dropdown">
+                    <p-dropdown #InstaspectStatusInput
+                                class="custom-dashboard-dropdown"
+                                [(ngModel)]="instaspectStatus"
+                                [options]="instaspect"
+                                optionLabel="label"
+                                optionValue="label"
+                                placeholder="Instaspect"
+                                [readonly]="userRole === 'RL001'">
+                    </p-dropdown>
+                  </div>
+                </div>
+                <!--<span class="error_message">Please select option</span>-->
+              </div>
+
+              <div class="select-input-block">
+                <div class="input-block dropdown-block" *ngIf="userRole == 'AD001' || userRole == 'RL001' || userRole == 'RL002' || userRole == 'RL003'">
+                  <div class="dropdown">
+                    <p-dropdown #InstaSrcInput
+                                class="custom-dashboard-dropdown"
+                                [(ngModel)]="instaspectSrc"
+                                [options]="instaspectSource"
+                                optionLabel="label"
+                                optionValue="label"
+                                placeholder="Instaspect source"
+                                [readonly]="userRole === 'RL001'">
+                    </p-dropdown>
+                  </div>
+                </div>
+                <!--<span class="error_message">Please select option</span>-->
+              </div>
+            </div>
+
+            <div class="joblist-btn-block">
+              <button *ngIf="userRole == 'AD001' || userRole == 'RL002' || userRole == 'RL003' ||  userRole == 'RL004'"
+                      type="button"
+                      class="secondary-btn"
+                      id="cancle-order-btn"
+                      (click)="openCancelPopup(item)">
+                Cancel order
+              </button>
+              <button *ngIf="userRole == 'AD001' || userRole == 'RL002' || userRole == 'RL003'"
+                      [disabled]="firstContactStatus === '' ||
+                      instaspectStatus === '' ||
+                      instaspectSrc === ''"
+                      type="button"
+                      class="primary-btn"
+                      id="update-btnr"
+                      (click)="updateMotorSubDetails(item, i)">
+                Update
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p-paginator [rows]="rowsPerPage"
+                 [totalRecords]="filteredRecords.length"
+                 [rowsPerPageOptions]="[10, 20, 30]"
+                 (onPageChange)="onPageChange($event)">
+    </p-paginator>
+
+    <app-reschedule-job *ngIf="showReschedulePopup" [jobData]="jobData"></app-reschedule-job>
+    <app-assign-job-popup *ngIf="isVisisbleAssignJob" [selectedJobData]="selectedJobData"></app-assign-job-popup>
+    <app-cancel-info *ngIf="isVisisbleCancelPopup" [selectedJobData]="selectedJobData"></app-cancel-info>
+    <app-related-data *ngIf="isVisisbleRelatedData" [selectedJobData]="selectedJobData"></app-related-data>
+  </div>
+</div>
+
+
+

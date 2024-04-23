@@ -1,0 +1,107 @@
+.disabled-div {
+  pointer-events: none;
+  color: gray
+}
+.invalidText{
+    color:red;
+    font-size: 15px
+}
+
+.blockButton {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  pointer-events : none
+}
+
+button:disabled {
+  opacity: 0.3;
+  background-color: gray
+
+}
+
+.custom-option-block {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+}
+
+a:hover {
+  background: #EAEAEA;
+  border-radius: 3px;
+}
+
+/*::ng-deep .p-toast-top-center {
+  top: 100px !important;
+}*/
+
+
+.disabled-button {
+  background-color: lightgray;
+  color: gray;
+  border: 2px solid gray
+}
+
+/*::ng-deep.p-element {
+  font-size: 1.6rem !important;
+  line-height: 12px !important;
+  }
+
+::ng-deep .p-toast{
+    width:30rem !important
+}*/
+
+.user-action-block {
+  border-radius: 10px;
+  background: #0DA526;
+  width: 100%;
+  max-width: 335px;
+  margin: 0 auto;
+  position: absolute;
+  top: 100px;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  display:block;
+
+}
+
+.user-action-block p {
+  color: #ffffff;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 21px;
+  text-align: center;
+  padding: 1.4rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-action-block p span {
+  padding-left: 0.5rem;
+}
+.js_showdisablePopup{
+    cursor: pointer;
+}
+
+
+.deleteUserPopup{
+  margin-top: 200px !important;
+}
+
+.disableAccordian {
+  position: relative;
+  background: #EAEAEA !important;
+}
+
+.disableAccordian:after {
+  content: '';
+  color: #EAEAEA !important;
+  position: relative !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+}

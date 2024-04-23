@@ -1,0 +1,26 @@
+<!-- -----Popup for Select Access are start here----- -->
+<div class="selectarea-popup-sec" style="display: block">
+  <div class="db-closebtn-block">
+    <a (click)="closeDialog()" class="js_closedbPopup"></a>
+  </div>
+  <div class="db-popup-content">
+    <div class="" >
+      <div class="">
+        <p-tree class="w-full md:w-30rem"
+                selectionMode="checkbox"
+                [value]="data"
+                [(selection)]="selectedZones"
+                [filter]="true"
+                filterMode="strict"
+                filterPlaceholder="Search area">
+        </p-tree>
+
+        <div class="custom-btn-container">
+          <button type="button" class="primary-btn" id="area-submit-btn" (click)="selectAccess()">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- -----Popup for Select Access are end here----- -->

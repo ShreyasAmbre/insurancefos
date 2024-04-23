@@ -1,0 +1,46 @@
+<section>
+  <div class="dashboard-main-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="capacity-management-wrapper section-width" style="display: block"
+               id="capacity-management">
+            <div class="db-heading-block">
+              <div class="left-block">
+                <h3>Capacity management</h3>
+              </div>
+            </div>
+
+
+            <div class="capacity-management-sec">
+              <div class="cap-managment-input">
+                <div class="select-input-block">
+                  <div class="input-block dropdown-block">
+                    <div class="dropdown">
+                      <p-dropdown type="text"
+                                  [(ngModel)]="selectedZone"
+                                  [options]="zones"
+                                  optionLabel="ZoneName"
+                                  dataKey="ZoneId"
+                                  optionValue="ZoneId"
+                                  placeholder="Select area">
+                      </p-dropdown>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cap-calendar-block">
+                <app-capacity-calender [zoneId]="selectedZone"></app-capacity-calender>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div *ngIf="toasterStatus">
+  <app-custom-toaster></app-custom-toaster>
+</div>

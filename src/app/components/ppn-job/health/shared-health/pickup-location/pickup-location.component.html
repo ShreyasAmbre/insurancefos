@@ -1,0 +1,116 @@
+<form [formGroup]="pickupInfoForm">
+  <div class="createjob-tab-block three-coloum marginBt">
+    <div class="left-block">
+      <div class="select-input-block selectActive">
+        <div class="input-block dropdown-block">
+          <label for="create-select-product">Address Type*</label>
+          <div class="dropdown">
+            <p-dropdown formControlName="addresstype"
+                        [options]="hospitalAddress"
+                        optionLabel="option"
+                        dataKey="option"
+                        optionValue="option">
+            </p-dropdown>
+          </div>
+          <span class="error_message" *ngIf="pickupInfoForm.get('addresstype')?.errors?.['required'] &&
+               pickupInfoForm.get('addresstype')?.touched">This field is required</span>
+          <span class="error_message"
+                *ngIf="
+              pickupInfoForm.get('addresstype')?.errors?.['pattern'] ||
+              pickupInfoForm.get('addresstype')?.errors?.['minlength'] ||
+              pickupInfoForm.get('addresstype')?.errors?.['maxlength']">
+            This field is invalid
+          </span>
+        </div>
+      </div>
+      </div>
+
+      <div class="right-block">
+        <div class="il-input-block">
+          <label>Pickup Address*</label>
+          <input id="hospitalization-pickup-address"
+                 formControlName="pickupaddress"
+                 type="text"
+                 maxlength="50"
+                 appInputfocus
+                 appSpecialChar/>
+          <span class="error_message" *ngIf="pickupInfoForm.get('pickupaddress')?.errors?.['required'] &&
+           pickupInfoForm.get('pickupaddress')?.touched">This field is required</span>
+          <span class="error_message"
+                *ngIf="
+               pickupInfoForm.get('pickupaddress')?.errors?.['pattern'] ||
+               pickupInfoForm.get('pickupaddress')?.errors?.['minlength'] ||
+               pickupInfoForm.get('pickupaddress')?.errors?.['maxlength']">
+            This field is invalid
+          </span>
+        </div>
+      </div>
+
+      <!--<div class="location-icon-block">
+        <a href="javascript:void(0)"
+           (click)="toggleImage()"
+           class="js_show_Adjustpin_popup">
+          <img src="assets/images/map-icon.svg"
+               alt="map-icon" />
+        </a>
+      </div>-->
+    </div>
+
+        <div class="createjob-tab-block three-coloum">
+          <div class="right-block">
+            <div class="il-input-block">
+              <label>Hospital Name(If applicable)*</label>
+              <input id="hospitalization-hospital-name"
+                     type="text"
+                     formControlName="hospitalname"
+                     appInputfocus
+                     appSpecialChar/>
+              <span class="error_message" *ngIf="pickupInfoForm.get('hospitalname')?.errors?.['required'] &&
+               pickupInfoForm.get('hospitalname')?.touched">This field is required</span>
+              <span class="error_message"
+                    *ngIf="
+                    pickupInfoForm.get('hospitalname')?.errors?.['pattern'] ||
+                    pickupInfoForm.get('hospitalname')?.errors?.['minlength'] ||
+                    pickupInfoForm.get('hospitalname')?.errors?.['maxlength']">
+                    This field is invalid
+              </span>
+            </div>
+          </div>
+        </div>
+
+            <div class="db-popup-overlay" [ngClass]="{'activeOverlay' : mapImage}">
+              <div class="db-popup-sec">
+                <div class="db-popup-content">
+                  <div class="db-closebtn-block" (click)="closeImage()">
+                    <a href="javascript:void(0);" class="js_closedbPopup"></a>
+                  </div>
+                  <div class="adjust-pin-block">
+                    <div class="db-popup-heading">
+                      <h3>Adjust Pin</h3>
+                    </div>
+
+                    <div class="edit-map-block">
+                      <img src="assets/images/location-map.png"
+                           class="img-responsive" />
+                    </div>
+
+                    <div class="edit-map-btn">
+                      <button type="button"
+                              class="secondary-btn"
+                              id="cancle-editmap-btn"
+                               (click)="closeImage()">
+                        Cancel
+                      </button>
+                      <button type="button"
+                              class="primary-btn"
+                              id="ok-editmap-btn"
+                              (click)="closeImage()">
+                        Ok
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+</form>
+

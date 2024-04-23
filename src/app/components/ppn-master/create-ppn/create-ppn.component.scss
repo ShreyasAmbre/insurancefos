@@ -1,0 +1,25 @@
+
+
+.disabled-button {
+  background-color: lightgray;
+  color: gray;
+  border: 2px solid gray
+}
+
+/*::ng-deep.p-element {
+  font-size: 1.6rem !important;
+  line-height: 12px !important;
+}
+*/
+/*::ng-deep .p-toast {
+  width: 30rem !important
+}*/
+
+.pointer {
+    pointer-events: auto;
+
+}
+.cancleButton{
+    display:flex;
+    justify-content:end;
+}

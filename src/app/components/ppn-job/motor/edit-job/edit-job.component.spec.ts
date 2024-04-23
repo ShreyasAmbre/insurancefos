@@ -1,0 +1,22 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { EditJobComponent } from './edit-job.component';
+
+describe('PpnDropComponent', () => {
+  let component: EditJobComponent;
+  let fixture: ComponentFixture<EditJobComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [EditJobComponent ]
+    })
+    .compileComponents();
+
+    fixture = TestBed.createComponent(EditJobComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

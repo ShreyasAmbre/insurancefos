@@ -1,0 +1,133 @@
+<div class="dashboard-main-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="dashboard-wrapper section-width"
+             id="dashboard-main"
+             style="display: block">
+          <div class="create-job-sec">
+            <div class="block-popup-sec" style="display: block">
+              <div class="createjob-block">
+                <h3>Select your product</h3>
+
+                <div class="createjob-tab-list">
+
+                  <form [formGroup]="productForm"
+                        style="display: flex; width: 100%">
+                    <div class="left-block">
+                      <div class="select-input-block selectActive">
+                        <div class="input-block dropdown-block">
+                          <label for="create-select-product">Select product</label>
+                          <div class="dropdown">
+                            <p-dropdown formControlName="product"
+                                        [options]="products"
+                                        optionLabel="productname"
+                                        dataKey="productname"
+                                        optionValue="productname">
+                            </p-dropdown>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    <div *ngIf="toasterStatus">
+                      <app-custom-toaster></app-custom-toaster>
+                    </div>
+
+                    <div class="right-block">
+                      <div class="product-list motor-product-list"
+                           style="display: block">
+                        <ul>
+                          <ng-container *ngIf="this.productForm.get('product')?.value === 'Motor'">
+                            <li *ngFor="let item of motorSelection">
+                              <div class="il-radio-group">
+                                <input [id]="item.id"
+                                       type="radio"
+                                       [value]="item.nameValue"
+                                       formControlName="action"
+                                       (click)="setActionValue(item)" />
+                                <label [for]="item.id">{{ item.label }}</label>
+                              </div>
+                            </li>
+                          </ng-container>
+                          <ng-container *ngIf="this.productForm.get('product')?.value === 'Health'">
+                            <li *ngFor="let item of healthSeclection">
+                              <div class="il-radio-group">
+                                <input [id]="item.id"
+                                       type="radio"
+                                       [value]="item.nameValue"
+                                       formControlName="action"
+                                       (click)="setActionValue(item)" />
+                                <label [for]="item.id">{{ item.label }}</label>
+                              </div>
+                            </li>
+                          </ng-container>
+                        </ul>
+                      </div>
+                    </div>
+                  
+                  </form>
+                </div>
+
+                <!-- UI Form Section Based on above Radio Button -->
+                <ng-container *ngIf="this.productForm.get('product')?.value === 'Motor'">
+                  <app-ppn-pickup [actionSelected]="this.productForm.get('action')?.value" [@inOutAnimation]
+                                  *ngIf="this.productForm.get('action')?.value === 'PickUp'">
+                  </app-ppn-pickup>
+                  <app-ppn-drop [form]="combineCreateJobForm" [actionSelected]="this.productForm.get('action')?.value" [@inOutAnimation]
+                                *ngIf="this.productForm.get('action')?.value === 'Drop'">
+                  </app-ppn-drop>
+                  <app-ppn-inspection [actionSelected]="this.productForm.get('action')?.value" [@inOutAnimation]
+                                      *ngIf="this.productForm.get('action')?.value === 'Inspection'">
+                  </app-ppn-inspection>
+                </ng-container>
+                <ng-container *ngIf="this.productForm.get('product')?.value === 'Health'">
+                  <app-wyn-hospital *ngIf="this.productForm.get('action')?.value === 'Hospitalization'"></app-wyn-hospital>
+                  <app-wyn-reimburse *ngIf="this.productForm.get('action')?.value === 'Reimbursement'"></app-wyn-reimburse>
+                </ng-container>
+
+
+
+
+                <!-- Footer -->
+                <div class="createjob-btn-sec">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <div class="createjob-btn-block">
+
+                          <button type="button"
+                                  class="secondary-btn jobButton"
+                                  id="create-cancle-btn"
+                                  [routerLink]="['/dashboard']">
+                            Cancel
+                          </button>
+                          <button [disabled]=" this.productForm.get('product')?.value === 'Motor' ?
+                                  combineCreateJobForm.motorClaimForm.isValid === 'INVALID' ||
+                                  combineCreateJobForm.PPNInfoForm.isValid === 'INVALID' ||
+                                  combineCreateJobForm.custInfoForm.isValid === 'INVALID' ||
+                                  combineCreateJobForm.selectSlotForm.isValid === 'INVALID' :
+                                  combineHealthJobFrom.customerLocateForm.isValid === 'INVALID' ||
+                                  combineHealthJobFrom.healthCustomerInfoForm.isValid === 'INVALID' ||
+                                  combineHealthJobFrom.POCDetailsForm.isValid === 'INVALID' ||
+                                  combineHealthJobFrom.pickUpLocationForm.isValid === 'INVALID' ||
+                                  combineHealthJobFrom.selectSlotForm.isValid === 'INVALID'"
+                                  
+                                  type="button"
+                                  class="primary-btn saveJobButton"
+                                  id="create-save-btn"
+                                  (click)="createJob()">
+                            Save
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

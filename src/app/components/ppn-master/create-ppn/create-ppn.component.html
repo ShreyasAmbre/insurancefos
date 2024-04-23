@@ -1,0 +1,581 @@
+
+<form  [formGroup]="ppnCreation" class="edit-ppnmaster-popup-sec">
+  <div class="db-popup-overlay" [class.activeOverlay]="true">
+    <div class="db-popup-sec">
+      <div class="db-closebtn-block">
+        <a (click)="dataEvent.emit(false)" class="js_closedbPopup"></a>
+      </div>
+      <div class="db-popup-content">
+        <div class="edit-ppnmaster-block">
+          <div class="db-popup-heading">
+            <h3>{{ppnHeader}}</h3>
+          </div>
+          <div class="ppnmaster-input-block">
+            <div class="create-ppn-input">
+              <div class="left-block">
+                <div class="select-input-block selectActive">
+                  <div class="il-input-block">
+                    <label for="create-select-product">Garage Type</label>
+                    <div class="dropdown">
+                      <p-dropdown formControlName="GarageType"
+                                  [options]="garageTypes"></p-dropdown>
+                      </div>
+                      <span class="error_message" *ngIf="ppnCreation.get('GarageType')?.errors?.['required'] &&
+                    ppnCreation.get('GarageType')?.touched">This field is required</span>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="right-block">
+                <div class="select-input-block selectActive">
+                  <div class="il-input-block">
+                    <label>PPN Category</label>
+                    <div class="dropdown">
+                      <p-dropdown formControlName="PPNCategory"
+                                  [options]="ppnCat"></p-dropdown>
+                      </div>
+                      <span class="error_message" *ngIf="ppnCreation.get('PPNCategory')?.errors?.['required'] &&
+                    ppnCreation.get('PPNCategory')?.touched">This field is required</span>
+                    </div>
+                  </div>
+              </div>
+            </div>      
+
+            <div class="create-ppn-input">
+              <div class="left-block">
+                <div  [ngClass]="{'focus': ppnCreation.controls['SapVendorCode'].value}" class="il-input-block">
+                  <input
+                         formControlName="SapVendorCode"
+                         id="edit-ppn-sap-code"
+                         type="tel"
+                         maxlength="15"
+                         appInputfocus
+                         (focus)="onFocus()"
+                         appSpecialChar>
+                  <label for="edit-ppn-sap-code">SAP vendor code</label>
+
+                  <span class="error_message" *ngIf="ppnCreation.get('SapVendorCode')?.errors?.['required'] &&
+                    ppnCreation.get('SapVendorCode')?.touched">This field is required</span>
+                  <span class="error_message" *ngIf="ppnIdExists">
+                    "SAP Vendor Code already exists"
+                  </span>
+                  <span class="error_message"
+                        *ngIf="
+                     ppnCreation.get('SapVendorCode')?.errors?.['pattern'] ||
+                     ppnCreation.get('SapVendorCode')?.errors?.['minlength'] ||
+                     ppnCreation.get('SapVendorCode')?.errors?.['maxlength']">
+                    This field is invalid
+                  </span>
+                </div>
+              </div>
+
+              <div class="right-block">
+                <div class="il-input-block"  [ngClass]="{'focus':ppnCreation.controls['ServiceCapability'].value}">
+                  <input  formControlName="ServiceCapability"
+                         id="edit-ppn-service-cap"
+                         type="text"
+                         appInputfocus
+                         appSpecialChar>
+                  <label for="edit-ppn-service-cap">Service capability</label>
+                  <span class="error_message" *ngIf="ppnCreation.get('ServiceCapability')?.errors?.['required'] &&
+                    ppnCreation.get('ServiceCapability')?.touched">This field is required</span>
+                  <span class="error_message"
+                        *ngIf="
+                     ppnCreation.get('ServiceCapability')?.errors?.['pattern'] ||
+                     ppnCreation.get('ServiceCapability')?.errors?.['minlength'] ||
+                     ppnCreation.get('ServiceCapability')?.errors?.['maxlength']">
+                    This field is invalid
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="create-ppn-input">
+              <div class="left-block">
+                <div class="il-input-block" [ngClass]="{'focus':ppnCreation.controls['NetworkPriority'].value}">
+                  <input  formControlName="NetworkPriority"
+                          id="edit-ppn-network"
+                          type="text"
+                          appInputfocus
+                          appSpecialChar>
+                  <label for="edit-ppn-network">Network priority</label>
+                  <span class="error_message" *ngIf="ppnCreation.get('NetworkPriority')?.errors?.['required'] &&
+                    ppnCreation.get('NetworkPriority')?.touched">This field is required</span>
+                  <span class="error_message"
+                        *ngIf="
+                     ppnCreation.get('NetworkPriority')?.errors?.['pattern'] ||
+                     ppnCreation.get('NetworkPriority')?.errors?.['minlength'] ||
+                     ppnCreation.get('NetworkPriority')?.errors?.['maxlength']">
+                    This field is invalid
+                  </span>
+                </div>
+              </div>
+
+              <div class="right-block">
+                        <div class="il-input-block" [ngClass]="{'focus': ppnCreation.controls['CapacityOfVehical'].value}">
+                  <input  formControlName="CapacityOfVehical"
+                         id="edit-ppn-vahicle-cap"
+                         type="text"
+                         appInputfocus
+                         appSpecialChar>
+                  <label for="edit-ppn-vahicle-cap">Capacity of vehicle</label>
+                  <span class="error_message" *ngIf="ppnCreation.get('CapacityOfVehical')?.errors?.['required'] &&
+                    ppnCreation.get('CapacityOfVehical')?.touched">This field is required</span>
+                  <span class="error_message"
+                        *ngIf="
+                     ppnCreation.get('CapacityOfVehical')?.errors?.['pattern'] ||
+                     ppnCreation.get('CapacityOfVehical')?.errors?.['minlength'] ||
+                     ppnCreation.get('CapacityOfVehical')?.errors?.['maxlength']">
+                    This field is invalid
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="create-ppn-input">
+              <div class="left-block">
+                <div class="il-input-block" [ngClass]="{'focus': ppnCreation.controls['EscalationLevel'].value}">
+                  <input  formControlName="EscalationLevel"
+                          id="edit-ppn-escalation"
+                          type="tel"
+                          appInputfocus
+                          appSpecialChar>
+                  <label for="edit-ppn-escalation">Escalation level 1 (PPN contact)</label>
+                  <span class="error_message" *ngIf="ppnCreation.get('EscalationLevel')?.errors?.['required'] &&
+                    ppnCreation.get('EscalationLevel')?.touched">This field is required</span>
+                  <span class="error_message"
+                        *ngIf="
+                     ppnCreation.get('EscalationLevel')?.errors?.['pattern'] ||
+                     ppnCreation.get('EscalationLevel')?.errors?.['minlength'] ||
+                     ppnCreation.get('EscalationLevel')?.errors?.['maxlength']">
+                    This field is invalid
+                  </span>
+                </div>
+              </div>
+
+              <div class="right-block">
+                <div class="il-input-block" [ngClass]="{'focus': ppnCreation.controls['MobileNo'].value}">
+                  <input  appDigitOnly
+                          formControlName="MobileNo"
+                          id="edit-ppn-mob-num"
+                          type="tel"
+                          maxlength="10"
+                          appInputfocus
+                          appSpecialChar>
+                  <label for="edit-ppn-mob-num">Mobile number</label>
+                  <span class="error_message" *ngIf="ppnCreation.get('MobileNo')?.errors?.['required'] &&
+                    ppnCreation.get('MobileNo')?.touched">This field is required</span>
+                  <span class="error_message"
+                        *ngIf="
+                     ppnCreation.get('MobileNo')?.errors?.['pattern'] ||
+                     ppnCreation.get('MobileNo')?.errors?.['minlength'] ||
+                     ppnCreation.get('MobileNo')?.errors?.['maxlength']">
+                    This field is invalid
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="create-ppn-input">
+              <div class="left-block">
+                <div class="il-input-block"  [ngClass]="{'focus': ppnCreation.controls['Hub'].value}">
+                  <input
+                         appDigitOnly
+                         formControlName="Hub"
+                         id="edit-ppn-enter-hub"
+                         maxlength="20"
+                         type="text"
+                         appInputfocus
+                         appSpecialChar>
+                  <label for="edit-ppn-enter-hub">Enter hub</label>
+                  <span class="error_message"
+                        *ngIf="
+                     ppnCreation.get('Hub')?.errors?.['pattern'] ||
+                     ppnCreation.get('Hub')?.errors?.['minlength'] ||
+                     ppnCreation.get('Hub')?.errors?.['maxlength']">
+                    This field is invalid
+                  </span>
+                </div>
+              </div>
+
+              <div class="right-block">
+                <div class="il-input-block" [ngClass]="{'focus': ppnCreation.controls['PPNContactNo'].value}">
+                  <input
+                         appDigitOnly
+                         formControlName="PPNContactNo"
+                         id="edit-ppn-contact-num"
+                         type="tel"
+                         maxlength="15"
+                         appInputfocus
+                         appSpecialChar>
+                  <label for="edit-ppn-contact-num">Contact number</label>
+                  <span class="error_message" *ngIf="ppnCreation.get('PPNContactNo')?.errors?.['required'] &&
+                    ppnCreation.get('PPNContactNo')?.touched">This field is required</span>
+                  <span class="error_message"
+                        *ngIf="
+                     ppnCreation.get('PPNContactNo')?.errors?.['pattern'] ||
+                     ppnCreation.get('PPNContactNo')?.errors?.['minlength'] ||
+                     ppnCreation.get('PPNContactNo')?.errors?.['maxlength']">
+                    This field is invalid
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="create-ppn-input">
+              <div class="left-block">
+                <div class="il-input-block" [ngClass]="{'focus': ppnCreation.controls['PPNLat'].value}">
+                  <input
+                         formControlName="PPNLat"
+                         id="edit-ppn-latitude"
+                         maxlength="15"
+                         type="tel"
+                         appInputfocus
+                         appSpecialChar>
+                  <label for="edit-ppn-latitude">PPN latitude</label>
+                  <span class="error_message" *ngIf="ppnCreation.get('PPNLat')?.errors?.['required'] &&
+                    ppnCreation.get('PPNLat')?.touched">This field is required</span>
+                  <span class="error_message"
+                        *ngIf="
+                     ppnCreation.get('PPNLat')?.errors?.['pattern'] ||
+                     ppnCreation.get('PPNLat')?.errors?.['minlength'] ||
+                     ppnCreation.get('PPNLat')?.errors?.['maxlength']">
+                    This field is invalid
+                  </span>
+
+                </div>
+              </div>
+
+              <div class="right-block">
+                <div class="il-input-block" [ngClass]="{'focus': ppnCreation.controls['PPNLong'].value}">
+                  <input
+                         formControlName="PPNLong"
+                         id="edit-ppn-longitude"
+                         maxlength="15"
+                         type="tel"
+                         appInputfocus
+                         appSpecialChar>
+                  <label for="edit-ppn-longitude">PPN longitude</label>
+                  <span class="error_message" *ngIf="ppnCreation.get('PPNLong')?.errors?.['required'] &&
+                    ppnCreation.get('PPNLong')?.touched">This field is required</span>
+                  <span class="error_message"
+                        *ngIf="
+                     ppnCreation.get('PPNLong')?.errors?.['pattern'] ||
+                     ppnCreation.get('PPNLong')?.errors?.['minlength'] ||
+                     ppnCreation.get('PPNLong')?.errors?.['maxlength']">
+                    This field is invalid
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="create-ppn-input">
+              <div class="left-block">
+                <div class="il-input-block" [ngClass]="{'focus': ppnCreation.controls['ProductName'].value}">
+                  <input
+                         formControlName="ProductName"
+                         id="edit-ppn-product-name"
+                         maxlength="20"
+                         type="text"
+                         appInputfocus
+                         appSpecialChar>
+                  <label for="edit-ppn-product-name">Product name</label>
+                  <span class="error_message" *ngIf="ppnCreation.get('ProductName')?.errors?.['required'] &&
+                    ppnCreation.get('ProductName')?.touched">This field is required</span>
+                  <span class="error_message"
+                        *ngIf="
+                     ppnCreation.get('ProductName')?.errors?.['pattern'] ||
+                     ppnCreation.get('ProductName')?.errors?.['minlength'] ||
+                     ppnCreation.get('ProductName')?.errors?.['maxlength']">
+                    This field is invalid
+                  </span>
+                </div>
+              </div>
+
+              <div class="right-block">
+                <div class="il-input-block" [ngClass]="{'focus': ppnCreation.controls['Manufacturer'].value}">
+                  <input
+                         formControlName="Manufacturer"
+                         id="edit-ppn-manufacturer"
+                         maxlength="20"
+                         type="text"
+                         appInputfocus
+                         appSpecialChar>
+                  <label for="edit-ppn-manufacturer">Manufacturer</label>
+                  <span class="error_message" *ngIf="ppnCreation.get('Manufacturer')?.errors?.['required'] &&
+                    ppnCreation.get('Manufacturer')?.touched">This field is required</span>
+                  <span class="error_message"
+                        *ngIf="
+                     ppnCreation.get('Manufacturer')?.errors?.['pattern'] ||
+                     ppnCreation.get('Manufacturer')?.errors?.['minlength'] ||
+                     ppnCreation.get('Manufacturer')?.errors?.['maxlength']">
+                    This field is invalid
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="create-ppn-input">
+
+              <div class="left-block">
+                <div class="il-input-block" [ngClass]="{'focus': ppnCreation.controls['GarageName'].value}">
+                  <input  formControlName="GarageName"
+                         id="edit-ppn-garage-name"
+                         type="text"
+                         appInputfocus
+                         appSpecialChar>
+                  <label for="edit-ppn-garage-name">Garage name</label>
+                  <span class="error_message" *ngIf="ppnCreation.get('GarageName')?.errors?.['required'] &&
+                    ppnCreation.get('GarageName')?.touched">This field is required</span>
+                  <span class="error_message"
+                        *ngIf="
+                     ppnCreation.get('GarageName')?.errors?.['pattern'] ||
+                     ppnCreation.get('GarageName')?.errors?.['minlength'] ||
+                     ppnCreation.get('GarageName')?.errors?.['maxlength']">
+                    This field is invalid
+                  </span>
+                </div>
+              </div>
+
+
+              <div class="right-block">
+                <div class="il-input-block" [ngClass]="{'focus': ppnCreation.controls['Pincode'].value}">
+                  <input  formControlName="Pincode"
+                          id="edit-ppn-pincode"
+                          minlength="6"
+                          maxlength="6"
+                          type="text"
+                          appInputfocus
+                          appSpecialChar>
+                  <label for="edit-ppn-pincode">Pincode</label>
+                  <span class="error_message" *ngIf="ppnCreation.get('Pincode')?.errors?.['required'] &&
+                    ppnCreation.get('Pincode')?.touched">This field is required</span>
+                  <span class="error_message"
+                        *ngIf="
+                     ppnCreation.get('Pincode')?.errors?.['pattern'] ||
+                     ppnCreation.get('Pincode')?.errors?.['minlength'] ||
+                     ppnCreation.get('Pincode')?.errors?.['maxlength']">
+                    This field is invalid
+                  </span>
+                  <span class="error_message" *ngIf="ppnCreation.get('Pincode')?.hasError('invalidPincode')">
+                    Pincode is invalid
+                  </span>
+                </div>
+              </div>
+
+
+
+            </div>
+
+            <div class="create-ppn-input">
+              <div class="il-input-block" [ngClass]="{'focus': ppnCreation.controls['Address'].value}">
+                <input  formControlName="Address"
+                        id="edit-ppn-address"
+                        type="text"
+                        appInputfocus
+                        appSpecialChar>
+                <label for="edit-ppn-address">Address</label>
+                <span class="error_message" *ngIf="ppnCreation.get('Address')?.errors?.['required'] &&
+                  ppnCreation.get('Address')?.touched">This field is required</span>
+                <span class="error_message"
+                      *ngIf="
+                   ppnCreation.get('Address')?.errors?.['pattern'] ||
+                   ppnCreation.get('Address')?.errors?.['minlength'] ||
+                   ppnCreation.get('Address')?.errors?.['maxlength']">
+                  This field is invalid
+                </span>
+              </div>
+            </div>
+
+            <div class="create-ppn-input">
+              <div class="left-block">
+                <div class="il-input-block" [ngClass]="{'focus': ppnCreation.controls['State'].value}">
+                  <input
+                         formControlName="State"
+                         id="edit-ppn-garage-name"
+                         type="text"
+                         appInputfocus
+                         appSpecialChar>
+                  <label for="edit-ppn-garage-name">State</label>
+                  <span class="error_message" *ngIf="ppnCreation.get('State')?.errors?.['required'] &&
+                        ppnCreation.get('State')?.touched">This field is required</span>
+                  <span class="error_message"
+                        *ngIf="
+                        ppnCreation.get('State')?.errors?.['pattern'] ||
+                        ppnCreation.get('State')?.errors?.['minlength'] ||
+                        ppnCreation.get('State')?.errors?.['maxlength']">
+                    This field is invalid
+                  </span>
+                </div>
+              </div>
+
+              <div class="right-block">
+                <div class="il-input-block"  [ngClass]="{'focus': ppnCreation.controls['City'].value}">
+                  <input
+                         formControlName="City"
+                         id="edit-ppn-city"
+                         type="text"
+                         appInputfocus
+                         appSpecialChar>
+                  <label for="edit-ppn-city">City</label>
+                  <span class="error_message" *ngIf="ppnCreation.get('City')?.errors?.['required'] &&
+                        ppnCreation.get('City')?.touched">This field is required</span>
+                  <span class="error_message"
+                        *ngIf="
+                        ppnCreation.get('City')?.errors?.['pattern'] ||
+                        ppnCreation.get('City')?.errors?.['minlength'] ||
+                        ppnCreation.get('City')?.errors?.['maxlength']">
+                    This field is invalid
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="create-ppn-input">
+              <div class="left-block">
+                <div class="il-input-block">
+                  <label for="edit-ppn-StartTime">Start Time</label>
+                  <p-calendar formControlName="StartTime"
+                              [showTime]="true"
+                              [timeOnly]="true"
+                              [showSeconds]="true"
+                              hourFormat="12"
+                              dataType="string"
+                              placeholder="Start Time"
+                              (ngModelChange)="resetEndTime()">
+                  </p-calendar>
+                  <span class="error_message" *ngIf="ppnCreation.get('StartTime')?.errors?.['required'] &&
+                    ppnCreation.get('StartTime')?.touched">This field is required</span>
+                  <span class="error_message"
+                        *ngIf="
+                     ppnCreation.get('StartTime')?.errors?.['pattern'] ||
+                     ppnCreation.get('StartTime')?.errors?.['minlength'] ||
+                     ppnCreation.get('StartTime')?.errors?.['maxlength']">
+                    This field is invalid
+                  </span>
+                  <span class="error_message"
+                        *ngIf="ppnCreation.get('StartTime')?.errors?.['invalidTime']">
+                    This field is invalid
+                  </span>
+                </div>
+              </div>
+
+              <div class="right-block">
+                <div class="il-input-block">
+                  <label for="edit-ppn-EndTime">End Time</label>
+                  <p-calendar formControlName="EndTime"
+                              [showTime]="true"
+                              [timeOnly]="true"
+                              [showSeconds]="true"
+                              hourFormat="12"
+                              dataType="string"
+                              placeholder="End Time">
+                  </p-calendar>
+                  <span class="error_message" *ngIf="ppnCreation.get('EndTime')?.errors?.['required'] &&
+                    ppnCreation.get('EndTime')?.touched">This field is required</span>
+                  <span class="error_message"
+                        *ngIf="
+                     ppnCreation.get('EndTime')?.errors?.['pattern'] ||
+                     ppnCreation.get('EndTime')?.errors?.['minlength'] ||
+                     ppnCreation.get('EndTime')?.errors?.['maxlength']">
+                    This field is invalid
+                  </span>
+                  <span class="error_message"
+                        *ngIf="ppnCreation.get('EndTime')?.errors?.['invalidTime']">
+                    This field is invalid
+                  </span>
+                  <span class="error_message"
+                        *ngIf="ppnCreation.get('EndTime')?.errors?.['invalidTimeDifference']">
+                    This field is invalid
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="create-ppn-input">
+              <div class="left-block">
+                <div class="il-input-block"  [ngClass]="{'focus': ppnCreation.controls['GeoVertical'].value}" >
+                  <input
+                         formControlName="GeoVertical"
+                         id="edit-ppn-geo"
+                         type="text"
+                         appInputfocus
+                         appSpecialChar>
+                  <label for="edit-ppn-geo">Geo / vertical</label>
+                  <span class="error_message" *ngIf="ppnCreation.get('GeoVertical')?.errors?.['required'] &&
+                    ppnCreation.get('GeoVertical')?.touched">This field is required</span>
+                  <span class="error_message"
+                        *ngIf="
+                    ppnCreation.get('GeoVertical')?.errors?.['pattern'] ||
+                    ppnCreation.get('GeoVertical')?.errors?.['minlength'] ||
+                    ppnCreation.get('GeoVertical')?.errors?.['maxlength']">
+                    This field is invalid
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="create-ppn-input">
+              <div class="il-input-block"  [ngClass]="{'focus':
+       ppnCreation.controls['AccessAreaName'].value}">
+                <input id="crtassets-access-area"
+                      
+                       appInputfocus
+                       formControlName="AccessAreaName"
+                       type="text"
+                       maxlength="50"
+                       readonly
+                       placeholder="Access area"
+                       disable />
+                <div class="select-area-block">
+                  <a class="js_showSelectstate_popup pointer" (click)="openAccessSelect()">Select area</a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="edit-btn-block submit cancleButton">
+            <button (click)="dataEvent.emit(false)" type="button" class="secondary-btn custom-cancelbtn">
+              Cancel
+            </button>
+            &nbsp;
+            &nbsp;
+            <button [ngClass]="{'disabled-button' : !ppnCreation.valid}"
+                    *ngIf="buttonLabel === 'Create'"
+                    (click)="onSubmit()"
+                    type="submit"
+                    class="primary-btn"
+                    id="create-btn">
+              Create
+            </button>
+            <button [disabled]="ppnCreation.invalid"
+                    *ngIf="buttonLabel === 'Submit'"
+                    (click)="onUpdate()"
+                    type="button"
+                    class="primary-btn"
+                    id="create-btn">
+              Submit
+            </button>
+          </div>
+          <div class="edit-btn-block submit">
+           
+          </div>
+
+          <!--<div class="create-btn-block" *ngIf="buttonLabel === 'Submit' ">
+            <button (click)="closeEvent.emit(false)" type="button" class="secondary-btn custom-cancelbtn">
+              Cancel
+            </button>
+            <button [disabled]="userCreationForm.invalid"
+                    (click)="onUpdate()"
+                    type="submit"
+                    class="primary-btn"
+                    id="create-user-btn">
+              Submit
+            </button>
+          </div>-->
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+

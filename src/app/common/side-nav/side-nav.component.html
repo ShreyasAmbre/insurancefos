@@ -1,0 +1,184 @@
+<section>
+  <div (click)="hideSideNav()" [ngClass]="(displaySideNav) ? 'activeOverlay' : '' " class="sticky-menu-wrapper">
+    <div (mouseover)="showSideNav()" (mouseout)="hideSideNav()" [ngClass]="(displaySideStickyMenu) ? 'showmenuTitle' : '' "  class="sticky-menu-sec">
+      <ul>
+        <!--<li *ngIf="userRoleAccessObj.hasOwnProperty('PPNSearch')">
+          <a [routerLink]="['ppnsearch']" class="ppn-search">
+            <div class="menuSec">
+              <div class="menu-icon">
+                <img src="assets/images/ppn-search-icon.svg"
+                     alt="ppn-search-icon" />
+              </div>
+              <div class="menu-heading">
+                <p>PPN search</p>
+              </div>
+            </div>
+          </a>
+        </li>-->
+
+        <li class="" *ngIf="userRoleAccessObj.hasOwnProperty('Dashboard')" class="menuSec"  routerLinkActive="activeMenu">
+          <a [routerLink]="['dashboard']"  class="dashboard-main">
+            <div class="menuSec">
+              <div class="menu-icon">
+                <img src="assets/images/dashboard-icon.svg"
+                     alt="dashboard-icon" />
+              </div>
+              <div class="menu-heading">
+                <p>Dashboard</p>
+              </div>
+            </div>
+          </a>
+        </li>
+
+        <li *ngIf="userRoleAccessObj.hasOwnProperty('Rider')" class="menuSec"  routerLinkActive="activeMenu">
+          <a [routerLink]="['assestsmanagement']"  class="assest-management">
+            <div class="menuSec">
+              <div class="menu-icon">
+                <img src="assets/images/assest-management-icon.svg"
+                     alt="assest-management-icon" />
+              </div>
+              <div class="menu-heading">
+                <p>Rider management</p>
+              </div>
+            </div>
+          </a>
+        </li>
+
+        <li *ngIf="userRoleAccessObj.hasOwnProperty('StoreTrade')"
+            (mouseover)="displaySubMenu  = 'block'"
+            (mouseout)="displaySubMenu  = 'none'"
+            class="dropdown">
+          <a href="javascript:void(0);">
+            <div class="menuSec">
+              <div class="menu-icon">
+                <img src="assets/images/store-and-trade-zone-icon.svg"
+                     alt="store-and-trade-zone-icon" />
+              </div>
+
+              <div class="menu-heading">
+                <p>Store and trade zone</p>
+              </div>
+            </div>
+          </a>
+
+          <div [ngStyle]="{'display' : displaySubMenu}" class="submenu-sec">
+            <ul>
+              <li class="menuSec"  routerLinkActive="activeMenu">
+                <a [routerLink]="['/storetradezone/tradezone']" class="store-and-trade">
+                  <div class="submenu-list">
+                    <div class="submenu-icon">
+                      <img src="assets/images/store-and-trade-zone-icon.svg"
+                           alt="store-and-trade-zone-icon" />
+                    </div>
+
+                    <div class="submenu-heading">
+                      <p>Trade zone dashboard</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+
+              <li class="menuSec"  routerLinkActive="activeMenu">
+                <a [routerLink]="['/storetradezone/servicearea']" class="service-area">
+                  <div class="submenu-list">
+                    <div class="submenu-icon">
+                      <img src="assets/images/store-and-trade-zone-icon.svg"
+                           alt="store-and-trade-zone-icon" />
+                    </div>
+
+                    <div class="submenu-heading">
+                      <p>Serviceable Area Management</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+        <li *ngIf="userRoleAccessObj.hasOwnProperty('Capacity')" class="menuSec"  routerLinkActive="activeMenu">
+          <a [routerLink]="['/capacity']" class="capacity-management">
+            <div class="menuSec">
+              <div class="menu-icon">
+                <img src="assets/images/capacity-management-icon.svg"
+                     alt="capacity-management-icon" />
+              </div>
+              <div class="menu-heading">
+                <p>Capacity management</p>
+              </div>
+            </div>
+          </a>
+        </li>
+
+        <li *ngIf="userRoleAccessObj.hasOwnProperty('User')" class="menuSec"  routerLinkActive="activeMenu">
+          <a [routerLink]="['usermanagement']"  class="user-management">
+            <div class="menuSec">
+              <div class="menu-icon">
+                <img src="assets/images/user-management-icon.svg"
+                     alt="user-management-icon" />
+              </div>
+              <div class="menu-heading">
+                <p>User management</p>
+              </div>
+            </div>
+          </a>
+        </li>
+
+        <!--<li *ngIf="userRoleAccessObj.hasOwnProperty('Management')">
+          <a href="javascript:void(0);">
+            <div class="menuSec">
+              <div class="menu-icon">
+                <img src="assets/images/management-dashboard-icon.svg"
+                     alt="management-dashboard-icon" />
+              </div>
+              <div class="menu-heading">
+                <p>Management dashboard</p>
+              </div>
+            </div>
+          </a>
+        </li>-->
+
+        <li *ngIf="userRoleAccessObj.hasOwnProperty('PPNMaster')" class="menuSec"  routerLinkActive="activeMenu">
+          <a [routerLink]="['ppnMaster']" class="ppn-master">
+            <div class="menuSec">
+              <div class="menu-icon">
+                <img src="assets/images/ppn-master-icon.svg"
+                     alt="ppn-master-icon" />
+              </div>
+              <div class="menu-heading">
+                <p>PPN Master</p>
+              </div>
+            </div>
+          </a>
+        </li>
+
+        <!--<li *ngIf="userRoleAccessObj.hasOwnProperty('Analytics')">
+          <a href="javascript:void(0);">
+            <div class="menuSec">
+              <div class="menu-icon">
+                <img src="assets/images/management-dashboard-icon.svg"
+                     alt="management-dashboard-icon" />
+              </div>
+              <div class="menu-heading">
+                <p>Analytics dashboard</p>
+              </div>
+            </div>
+          </a>
+        </li>-->
+
+        <li>
+          <a href="javascript:void(0);">
+            <div class="menuSec" (click)="logoutUser()">
+              <div class="menu-icon">
+                <img src="assets/images/logout-icon.svg" alt="logout-icon" />
+              </div>
+              <div class="menu-heading">
+                <p>Log out</p>
+              </div>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>

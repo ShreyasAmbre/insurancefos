@@ -1,0 +1,45 @@
+<div class="assignjob-popup-sec">
+  <div class="db-popup-overlay activeOverlay">
+    <div class="db-popup-sec">
+      <div class="db-closebtn-block" (click)="closePopup('')">
+        <a class="js_closedbPopup"></a>
+      </div>
+
+      <div class="db-popup-content">
+        <div class="assign-job-block">
+          <div class="db-popup-heading">
+            <h3>Assign Job</h3>
+          </div>
+
+          <div class="assignjob-input">
+            <div class="select-input-block">
+              <div class="input-block dropdown-block">
+                <!--<label for="choose-asset">Choose Asset</label>-->
+                <div class="dropdown">
+                  <p-dropdown class="custom-prime-dropdown"
+                              [(ngModel)]="assignedRider"
+                              [options]="riderDetails"
+                              optionLabel="RiderName"
+                              placeholder="Choose Rider">
+                  </p-dropdown>
+                </div>
+
+              </div>
+              <!--<span class="error_message">Please select option</span>-->
+            </div>
+
+            <div class="update-btn-block">
+              <button type="button"
+                      class="primary-btn"
+                      id="db-login-btn"
+                      (click)="updateAssignJob()">
+                Update
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

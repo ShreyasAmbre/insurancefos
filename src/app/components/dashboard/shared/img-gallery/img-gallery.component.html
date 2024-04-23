@@ -1,0 +1,17 @@
+<div class="vehicle-img-block">
+  <h4>{{imgCollection.title}}</h4>
+  <ul>
+    <li *ngFor="let item of imgCollection.collection">
+      <h5>{{item.Key}}</h5>
+      <a>
+        <div class="vehicle-img">
+          <p-image [src]="item.StoragePath"
+                   [preview]="true"
+                   alt="Image"
+                   width="250">
+          </p-image>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>

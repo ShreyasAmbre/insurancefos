@@ -1,0 +1,556 @@
+/* You can add global styles to this file, and also import other style files */
+@import "primeng/resources/themes/saga-orange/theme.css";
+@import "primeng/resources/primeng.css";
+
+/* Common Class Styling Start */ 
+body {
+  background: #f7f7f8;
+}
+
+.pointer {
+  cursor: pointer
+}
+/* Common Class Styling End */ 
+
+/* Custom Pagination CSS Theme Changes Start */
+.p-paginator .p-paginator-first,
+.p-paginator .p-paginator-prev,
+.p-paginator .p-paginator-next,
+.p-paginator .p-paginator-last {
+  display: block;
+}
+.p-paginator .p-paginator-next{
+    margin-left: 10px;
+}
+.p-paginator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 6rem;
+  background: #f7f7f8 !important;
+}
+
+.p-paginator .p-paginator-pages .p-paginator-page {
+  background-color: #ffffff !important;
+  color: #ec6625 !important;
+  font-size: 1.4rem;
+  font-weight: 700;
+  height: 36px !important;
+  width: 41px;
+  border-right: 1px solid #ec6625 !important;
+  border-top: 1px solid #ec6625 !important;
+  border-bottom: 1px solid #ec6625 !important;
+  border-radius: 0px !important;
+  font-family: Mulish, sans-serif !important;
+  margin: 0px !important;
+}
+
+.p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+  background-color: #ec6625 !important;
+  color: #ffffff !important;
+  font-family: Mulish, sans-serif !important;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0px !important;
+  border-right: 1px solid #ec6625 !important;
+  border-top: 1px solid #ec6625 !important;
+  border-bottom: 1px solid #ec6625 !important;
+}
+
+.p-paginator .p-paginator-pages .p-paginator-page:not(.p-highlight):hover {
+  background: none !important;
+  border-color: transparent;
+  color: #ec6625 !important;
+}
+
+.p-paginator-pages {
+  border-left: 1px solid #ec6625 !important;
+}
+/* Custom Pagination CSS Theme Changes End */
+
+/*Custom Dropdown CSS Theme Changes Start*/
+.custom-prime-dropdown .p-dropdown {
+  /*height: 4rem;*/
+  padding: 1.1rem 1.5rem;
+  font-family: Mulish, sans-serif !important;
+}
+
+
+/*.p-dropdown {*/
+ /* height: 4.4rem;*/
+  /*padding: 1.5rem;
+  width: 100%;
+  position: static !important;
+  display: block;
+  color: #282828 !important;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 5.4rem;
+  background: #ffffff;
+  font-family: Mulish, sans-serif !important;
+}*/
+
+
+.p-icon {
+  display: inline-block;
+  color: #EC6625;
+  font-weight: 600;
+  width: 1.3rem;
+  height: 1.3rem;
+}
+
+.p-dropdown {
+  padding: 0.8rem 1.6rem;
+  width: 100%;
+  position: static !important;
+  display: block;
+  color: #282828 !important;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 5.4rem;
+  background: transparent;
+  font-family: Mulish,sans-serif !important;
+}
+
+.p-dropdown-label .p-inputtext .p-placeholder {
+  color: #838383 !important;
+}
+
+.p-dropdown .custom-dashboard-dropdown {
+  height: auto;
+}
+.p-dropdown-trigger {
+  display: none !important;
+}
+.p-dropdown:not(.p-disabled).p-focus {
+  border-color: #EC6625;
+  box-shadow: 0 0 0 0.2rem #EC6625;
+}
+
+.p-paginator .p-dropdown {
+  height: 3.357rem;
+  border: 1px solid #ec6625 !important;
+}
+
+.p-inputtext {
+  display: flex !important;
+  align-items: center !important;
+  font-size: 1.6rem !important;
+  line-height: 21px;
+  font-weight: 600;
+  color: #282828;
+  font-family: Mulish,sans-serif !important;
+  padding: 0.8rem 0rem;
+}
+
+.pi-chevron-down:before {
+  content: "" !important;
+  position: absolute !important;
+  top: 1.8rem !important;
+  right: 1.5rem;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid #404040;
+  border-right-width: 0;
+  border-top-width: 0;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  padding: 0;
+}
+
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item {
+  font-family: Mulish, sans-serif !important;
+  font-size: 1.6rem !important;
+  line-height: 21px;
+  font-weight: 600;
+  border-bottom: 1px solid #EAEAEA;
+  font-size: 1.4rem !important;
+}
+
+.p-dropdown:not(.p-disabled):hover {
+  border: 1px solid #282828 !important;
+}
+
+.p-autocomplete .p-autocomplete-multiple-container:not(.p-disabled).p-focus {
+  border: 1px solid #282828 !important;
+}
+/*Custom Dropdown CSS Theme Changes End*/
+
+/*Custom Multi Select Dropdown Css Start*/
+.p-multiselect {
+  padding: 1.5rem;
+  width: 100% !important;
+  height: 6.2rem;
+}
+
+.p-element {
+  font-size: 1.6rem !important;
+  line-height: 21px;
+  font-weight: 600;
+  color: #282828 !important;
+  /*z-index: 99 !important;*/
+  font-family: Mulish, sans-serif !important;
+}
+
+.p-checkbox .p-checkbox-box.p-highlight {
+  border-color: #EC6625;
+ background: #EC6625;
+}
+.p-multiselect-panel
+  .p-multiselect-header
+  .p-multiselect-filter-container
+  .p-multiselect-filter-icon {
+  top: 2rem !important;
+}
+
+.p-multiselect.p-multiselect-chip .p-multiselect-token {
+  background-color: #F0EFEE;
+  background-image: linear-gradient(to bottom, #F0EFEE, #F0EFEE);
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  border-radius: 5px;
+  text-shadow: none;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  color: #282828;
+  padding: 4px 20px 4px 10px;
+  margin: 0px 5px;
+  font-family: Mulish, sans-serif !important;
+}
+
+/*Custom Multi Select Dropdown Css End*/
+
+/*Custom Calander Time Css Start*/
+.dob-form-block .p-inputtext {
+  height: 56px;
+  padding: 17px;
+}
+
+.p-calendar {
+  display: flex !important;
+  height: 100%;
+}
+/*Custom Calander Time Css End*/
+
+/*Custom Dialog Css Start*/
+.p-dialog {
+  background: #ffffff;
+  border-radius: 15px !important;
+  padding: 1rem 1rem !important;
+}
+.p-dialog-title {
+  color: #282828;
+  font-size: 1.8rem !important;
+  line-height: normal !important;
+  font-family: Mulish, sans-serif !important;
+}
+/*Custom Dialog Css End*/
+
+
+/*Custom Primeng Tree Css Start*/
+.p-tree .p-tree-container .p-treenode .p-treenode-content {
+  padding: 6px;
+  font-family: Mulish, sans-serif !important;
+  cursor: pointer;
+  font-size: 1.6rem;
+  line-height: 2rem;
+  font-weight: 500;
+  color: #282828;
+  margin-bottom: 0.5rem;
+}
+
+.p-tree .p-tree-filter-container .p-tree-filter {
+  padding: 1.7rem 1.7rem;
+  font-size: 1.6rem !important;
+  line-height: 2rem !important;
+  font-weight: 600 !important;
+  color: #838383;
+  font-family: Mulish, sans-serif !important;
+}
+
+.p-tree .p-tree-filter-container .p-tree-filter-icon{
+    display: none;
+}
+/*Custom Primeng Tree Css End*/
+
+
+/* Custom InputSwitch Css Start */
+.p-inputswitch{
+    height: 18px !important;
+}
+
+.p-element .custom-slider{
+    line-height: 0px !important
+}
+.p-inputswitch.p-inputswitch-checked .p-inputswitch-slider {
+  background-color: #EC6608;
+}
+
+.p-inputswitch.p-inputswitch-checked:not(.p-disabled):hover .p-inputswitch-slider {
+  background-color: #EC6608;
+}
+
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item {
+  margin: 0;
+  padding: 1rem 1.5rem 1rem;
+  border: 0 none;
+  color: #495057;
+  background: transparent;
+  transition: box-shadow .2s;
+  border-radius: 0;
+  text-transform: capitalize;
+}
+
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
+  color: #495057;
+  background: #eaeaea;
+}
+
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight):not(.p-disabled):hover {
+  color: #495057;
+  background: #f7f6f6;
+}
+.joblist-tab-sec .p-dropdown-label {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  flex: 1 1 auto;
+  width: 1%;
+  text-overflow: ellipsis;
+  cursor: pointer;
+ /* justify-content: center;*/
+}
+
+.p-dialog .p-dialog-header .p-dialog-header-icon {
+  border: 1px solid #F0EFEE;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.p-dialog .p-dialog-header .p-dialog-header-icon:enabled:hover {
+  color: #495057;
+  border-color: #F0EFEE;
+  background: transparent;
+}
+
+.relateddata-popup-sec .accordion-sec .accordion-head ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.p-tree {
+  border: none;
+  background: #ffffff;
+  color: #495057;
+  padding: 0;
+  border-radius: 3px;
+}
+.p-tree .p-tree-container .p-treenode .p-treenode-content.p-highlight {
+  background: transparent;
+  color: #282828;
+}
+
+.p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box.p-highlight:hover {
+  border-color: #838383;
+  background: #EAEAEA;
+  color: #282828;
+}
+
+
+.p-checkbox .p-checkbox-box .p-checkbox-icon {
+  transition-duration: .2s;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.p-tree .p-tree-container .p-treenode .p-treenode-content:focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: none;
+}
+
+.p-inputtext:enabled:focus:enabled:focus {
+  /* outline: 0 none;*/
+  outline-offset: 0;
+  box-shadow: none;
+  border: 2px solid #EC6625;
+  /* border-color: transparent;*/
+}
+p-inputtext:enabled:hover {
+  border-color: #ffc107;
+}
+.p-tree .p-tree-container .p-treenode .p-treenode-content.p-treenode-selectable:not(.p-highlight):hover {
+  background: transparent;
+  color: #282828;
+}
+.p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box:hover {
+  border-color: #EC6625;
+}
+.dob-form-block.focus label {
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+  font-weight: 600;
+  top: 0;
+  left: 11px;
+  padding: 0 7px;
+  z-index: 2;
+  transition: .3s all ease;
+}
+
+
+
+.dob-form-block label {
+  font-size: 1.6rem;
+  line-height: 2rem;
+  font-weight: 600;
+  color: #838383;
+  position: absolute;
+  left: 17px;
+  /* top: 17px; */
+  top: 50%;
+  background-color: #fff;
+  transition: .3s all ease;
+  pointer-events: none;
+  transform: translate(0%, -50%);
+  z-index:9;
+}
+.p-inputtext:enabled:hover {
+  border-color: #282828;
+}
+.paginator .p-inputtext {
+    justify-content:center;
+}
+.dob-form-block .input-block .p-calendar input {
+  text-align: left;
+  padding: 0.8rem 1.6rem;
+}
+
+
+.select-input-block .p-dropdown {
+  border: none;
+}
+
+.select-input-block .p-dropdown:not(.p-disabled):hover {
+  border: none !important;
+  border-color: #282828 !important;
+}
+
+.select-input-block .p-dropdown:not(.p-disabled).p-focus {
+  border-color: #EC6625 !important;
+  box-shadow: none;
+}
+
+/*.select-input-block .p-inputtext {
+  padding: 0.8rem 1.7rem;
+}*/
+
+.p-dialog .p-dialog-header .p-dialog-header-icon:focus {
+  
+  box-shadow: none !important;
+}
+
+.p-icon {
+  color: #575757;
+}
+
+.cap-calendar-block .fc .fc-toolbar.fc-header-toolbar {
+  margin-bottom: 0;
+}
+
+.capacity-management-sec .fc.fc-theme-standard .fc-view-harness td,
+.capacity-management-sec .fc.fc-theme-standard .fc-view-harness th{
+    border-bottom:none;
+}
+
+.capacity-management-sec .fc.fc-theme-standard .fc-view-harness th {
+  border-top: none;
+}
+
+.cap-managment-input .select-input-block .p-inputtext {
+  padding: 0.8rem 0;
+}
+.db-filter-block .p-inputtext {
+  font-size: 1.4rem !important;
+}
+
+/*.additionalinfo-block .p-element {
+  z-index: 999 !important;
+}*/
+
+.db-filter-block .db-filter-input {
+  max-width: 120px;
+}
+.db-filter-block .db-filter-input.allvertical-input {
+  max-width: 150px;
+}
+.joblist-accord-block .accordion-sec .accordion-body {
+  border-top: 1px solid #EAEAEA;
+}
+.accordion-sec.accordOpen {
+  border: 2px solid #EC6625;
+}
+.joblist-accord-block .accordion-sec .accordion-body {
+  padding: 2rem 0;
+}
+.select-slot-block .fc .fc-toolbar {
+  justify-content: center;
+}
+
+.dashboard-wrapper .fc.fc-theme-standard .fc-toolbar .fc-button.fc-next-button {
+  margin-right: 0;
+  margin-left: 2rem;
+}
+.fc .fc-toolbar-title {
+  font-size: 1.4rem;
+}
+.select-slot-popup-sec .db-popup-heading {
+  padding-bottom: 0.5rem !important;
+  border-bottom: none;
+}
+.p-overlay {
+  z-index: 100 !important;
+}
+
+.p-dropdown-panel {
+  margin: 0.5rem 0;
+  border-radius: 5px;
+}
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight:after {
+/*  content: url(../images/selected-right-icon.svg);*/
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+}
+
+.p-dropdown-panel .p-dropdown-items {
+ padding: 0 0;
+ border-radius: 5px;
+ overflow: hidden;
+}
+
+
+/* Custom InputSwitch Css End */
+
+.p-multiselect-clear-icon {
+  display: none !important;
+}
+
+
+
+ 

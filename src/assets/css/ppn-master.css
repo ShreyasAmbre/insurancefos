@@ -1,0 +1,301 @@
+/*----------------CSS For PPN Master Start Here----------------*/
+
+
+.ppnmaster-accordian-block .accordion-head li:first-child {
+  width: 13%;
+  padding-right: 2rem;
+}
+
+.ppnmaster-accordian-block .accordion-head li:nth-child(2) {
+  width: 14%;
+}
+
+.ppnmaster-accordian-block .accordion-head li:nth-child(5) {
+  width: 13%;
+}
+
+.ppnmaster-accordian-block .accordion-head li:nth-child(4) {
+  width: 13%;
+}
+
+.ppnmaster-accordian-block .accordion-head li:nth-child(3),
+.ppnmaster-accordian-block .accordion-head li:nth-child(6) {
+  width: 10%;
+}
+
+.ppnmaster-accordian-block .accordion-head li:nth-child(3) {
+  padding-right: 1rem;
+}
+
+.ppnmaster-accordian-block .accordion-head li:nth-child(7) {
+  width: 10%;
+  padding-right: 1rem;
+}
+
+.ppnmaster-accordian-block .accordion-head li:nth-child(8) {
+  width: 13%;
+}
+
+.ppnmaster-accordian-block .accordion-head li:last-child {
+  width: 2%;
+  position:relative;
+  z-index: 99;
+}
+
+.ppn-master-wrapper .accordian-title li:first-child {
+  width: 13%;
+}
+
+.ppn-master-wrapper .accordian-title li:nth-child(2) {
+  width: 14%;
+}
+
+.ppn-master-wrapper .accordian-title li:nth-child(3) {
+  width: 11%;
+}
+
+.ppn-master-wrapper .accordian-title li:nth-child(7) {
+  width: 11%;
+}
+
+.ppn-master-wrapper .accordian-title li:nth-child(4) {
+  width: 12%;
+}
+
+.ppn-master-wrapper .accordian-title li:nth-child(5) {
+  width: 14%;
+}
+
+.ppn-master-wrapper .accordian-title li:nth-child(6) {
+  width: 10%;
+}
+
+.ppn-master-wrapper .accordian-title li:last-child {
+  width: 15%;
+}
+
+.garage-details-sec li {
+  padding-right: 1rem;
+}
+
+  .garage-details-sec li:first-child {
+    width: 13%;
+  }
+
+  .garage-details-sec li:nth-child(2) {
+    width: 14%;
+  }
+
+  .garage-details-sec li:nth-child(3) {
+    width: 11%;
+  }
+
+  .garage-details-sec li:nth-child(4) {
+    width: 13%;
+  }
+
+  .garage-details-sec li:nth-child(5) {
+    width: 23%;
+    padding-right: 6rem;
+  }
+
+  .garage-details-sec li:nth-child(6) {
+    width: 11%;
+  }
+
+  .garage-details-sec li:last-child {
+    width: 15%;
+    /*	padding-right: 6rem;*/
+  }
+
+.garage-details-sec .disable-btn-block {
+  text-align: right;
+  position: relative;
+  z-index: 9;
+}
+
+  .garage-details-sec .disable-btn-block a {
+    margin-right: 2rem;
+  }
+
+    .garage-details-sec .disable-btn-block a:last-child {
+      margin-right: 0;
+    }
+
+.garage-details-sec ul {
+  margin-bottom: 3rem;
+}
+
+.ppnmaster-accordian-block .accordion-head:before {
+  content: '';
+  background: url(../images/ppn-master-accordian-icon.svg);
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translate(0%,-50%);
+}
+
+.garage-details-sec h4 {
+  margin: 0;
+  color: #838383;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: normal;
+  padding-bottom: 1rem;
+}
+
+.garage-details-sec p {
+  color: #282828;
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: normal;
+  word-break: break-all;
+}
+
+.garage-details-sec {
+  padding: 2rem 3rem 3rem 6rem;
+  position: relative;
+}
+
+.ppnmaster-accordian-block .accordion-sec .accordion-body {
+  padding: 0;
+}
+
+.garage-details-sec ul {
+  display: flex;
+}
+
+.ppnmaster-popup-sec .db-popup-sec,
+.edit-ppnmaster-popup-sec .db-popup-sec {
+  width: 100%;
+  max-width: 660px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin: 0;
+  height: 100%;
+  border-radius: 0;
+  left: auto;
+  padding: 3.6rem 4rem 6rem;
+  overflow-y: auto;
+}
+
+.ppnmaster-input-block .create-ppn-input {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+}
+
+.create-ppn-input .left-block,
+.create-ppn-input .right-block {
+  width: 48%;
+}
+
+.ppnmaster-popup-sec .ppnmaster-input-block,
+.edit-ppnmaster-popup-sec .ppnmaster-input-block {
+  margin: 4rem 0;
+}
+
+.create-ppnmaster-block .create-btn-block,
+.edit-ppnmaster-block .create-btn-block {
+  text-align: right;
+}
+
+.garage-details-sec .edit-ppn-block a {
+  color: #EC6625;
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: normal;
+  text-decoration: underline;
+}
+
+.garage-details-sec .edit-ppn-block {
+  position: absolute;
+  right: 40px;
+  top: 20px;
+}
+
+
+
+.delete-ppn-popup-sec .db-popup-sec {
+  max-width: 466px;
+  padding: 3rem 2.8rem 4rem;
+}
+
+.delete-ppn-block .delete-ppn-btn {
+  text-align: right;
+  margin-top: 4.3rem;
+}
+
+.delete-ppn-block .cancle-btn,
+.delete-ppn-block .delete-btn {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  padding: 1.3rem 2.4rem;
+  font-size: 1.6rem;
+  border-radius: 5px;
+  text-decoration: none;
+  outline: none;
+  font-weight: 700;
+  text-align: center;
+  width: 100%;
+  max-width: 175px;
+}
+
+
+.delete-ppn-block .cancle-btn {
+  background: #fff;
+  color: #6C6C6C;
+  border: 1px solid #C9C9C9;
+  margin-right: 2rem;
+}
+
+.delete-ppn-block .delete-btn {
+  background: #E71A1A;
+  color: #ffffff;
+  border: 1px solid #E71A1A;
+}
+
+
+.delete-ppn-popup-sec .db-popup-sec .db-popup-content .db-popup-heading h3 {
+  font-size: 2rem;
+  line-height: 26px;
+  padding-right: 6rem;
+}
+
+
+.disable-ppn-block:after {
+  content: '';
+  background: #F5F6F6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+}
+
+.garage-details-sec.disable-ppn-block .edit-ppn-block a {
+  color: #B2B2B2;
+}
+
+.garage-details-sec .disable-btn-block a#enable-ppn {
+  display: none;
+}
+
+.ppnmaster-accordian-block .disable-ppn-block .accordion-head li.accordian-arrow {
+  position: relative;
+  z-index: 99;
+}
+
+
+
+/*----------------CSS For PPN Master End Here----------------*/
+
+
+.store-and-trade-wrapper .section-width {
+  margin-bottom: 2rem;
+}

@@ -1,0 +1,22 @@
+<div class="db-heading-block">
+  <div class="left-block">
+    <h3 class="left-content">User management</h3>
+    <!--<ng-content></ng-content>-->
+  </div>
+  <div class="right-block">
+    <div class="il-input-block onFocused focus" id="joblist-searchby">
+      <label for="search-by">Search by Name</label>
+      <form [formGroup]="searchForm">
+        <input id="searchby-assets-name"
+               [(ngModel)]="searchText"
+               (input)="onSearch()"
+               formControlName="searchInput"
+               type="text" />
+        <label for="searchby-assets-name">Search by Garage name</label>
+        <span *ngIf="searchForm.get('searchInput')?.errors?.['pattern']" class="error_message">This field is invalid</span>
+      </form>
+    </div>
+    <app-select-area></app-select-area>
+
+  </div>
+</div>

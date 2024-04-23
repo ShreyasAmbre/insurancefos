@@ -1,0 +1,40 @@
+<div class="dashboard-main-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="dashboard-wrapper section-width" id="dashboard-main" style="display: block; margin-bottom: 2.5rem;">
+          <div class="db-heading-block">
+            <div class="left-block">
+              <!--<a routerLink="job-summary" routerLinkActive="activeBtn" class="greyborder-btn job-summery">Job summery</a>-->
+              <!--<a routerLink="job-list" routerLinkActive="activeBtn" class="greyborder-btn job-list">Job list</a>-->
+            </div>
+            <div class="right-block">
+
+              <div class="il-input-block" id="joblist-searchby">
+                <form [formGroup]="customerSearchForm">
+                  <label for="searchby-user-name">Search by Customer name</label>
+                  <input id="searchby-user-name"
+                         formControlName="searchInput"
+                         type="text"
+                         appInputfocus/>
+                  <span *ngIf="customerSearchForm.get('searchInput')?.errors?.['pattern']" class="error_message">This field is invalid</span>
+                </form>
+              </div>
+
+
+              <div style="margin-right: 1%">
+                <a class="whitebg-btn select-area-btn"
+                    (click)="openSelectAccess()">
+                  <span id="selectedCity">{{userData.city || 'Lucknow'}}{{ " " + zoneAreaListCount + "+ more"}}</span>
+                  <img src="assets/images/select-area-btn-arrow.svg" />
+                </a>
+              </div>
+              <a class="orangebg-btn js_create-job-popup" [routerLink]="['../job']">Create new job</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

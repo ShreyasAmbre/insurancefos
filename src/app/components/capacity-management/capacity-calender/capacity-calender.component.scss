@@ -1,0 +1,12 @@
+.calendar-container {
+  position: relative;
+}
+
+.clock-icon {
+  position: absolute;
+  top: 25px;
+  left: 15px;
+  height: 30px;
+  width: 30px;
+  z-index: 4;
+}

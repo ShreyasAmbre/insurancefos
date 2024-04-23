@@ -1,0 +1,82 @@
+<div class="store-and-trade-wrapper">
+  <div class="service-area-wrapper section-width"
+       id="service-area"
+       style="display: block">
+    <div class="service-area-sec">
+      <div class="service-area-map">
+        <app-pin-map></app-pin-map>
+      </div>
+          <div class="service-area-input">
+            <form [formGroup]="serviceAbleAreaForm" (ngSubmit)="updatePincodes()" style="">
+              <div class="area-pincode-block">
+                <div class="area-input-block">
+                  <div class="select-input-block">
+                    <div class="input-block dropdown-block">
+                      <div class="dropdown">
+                        <p-dropdown formControlName="zone"
+                                    type="text"
+                                    [options]="zoneList"
+                                    optionLabel="ZoneName"
+                                    dataKey="ZoneName"
+                                    optionValue="ZoneId"
+                                    placeholder="Select zone">
+                        </p-dropdown>
+                        <span class="error_message" *ngIf="serviceAbleAreaForm.get('city')?.errors?.['required'] &&
+                        serviceAbleAreaForm.get('city')?.touched">This field is required</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="area-input-block">
+                  <div class="il-input-block">
+                    <label for="add-area-pincode">Add pincode</label>
+                    <input formControlName="newpincodes"
+                           id="add-area-pincode"
+                           type="text"
+                           appInputfocus
+                           appCommaSeparatedDirectiveTs  (focus)="duplicateErr=null"  
+                           [ngClass]="{ 'disabled-input': serviceAbleAreaForm.get('newpincodes')?.disabled }" />
+                    <span class="error_message" *ngIf="serviceAbleAreaForm.get('newpincodes')?.errors?.['required'] &&
+                          serviceAbleAreaForm.get('newpincodes')?.touched">This field is required</span>
+                    <span class="error_message"
+                          *ngIf="serviceAbleAreaForm.get('newpincodes')?.errors?.['pattern'] ">
+                      This field is invalid
+                    </span>
+                    <span class="error_message"
+                          *ngIf="duplicateErr">
+                      {{duplicateErr}}
+                    </span>
+                  </div>
+                </div>
+
+                <div class="area-input-block" style="display: block"
+                     id="all-area-pincode">
+                  <div class="multiSearch">
+                    <p-multiSelect [options]="pincodeList"
+                                   formControlName="pincodecollectoin"
+                                   optionLabel="pincode"
+                                   display="chip"
+                                   [showClear]="false" (onChange)="onItemRemoved($event)"
+                                   placeholder="Select Pincode">
+                    </p-multiSelect>
+                  </div>
+                </div>
+              </div>
+
+              <div class="update-pincode-block">
+                <button [disabled]="serviceAbleAreaForm.invalid"
+                        type="submit"
+                        class="primary-btn"
+                        id="update-pincode-btn">
+                  Update
+                </button>
+              </div>
+            </form>
+          </div>
+     </div>
+  </div>
+</div>
+<div *ngIf="toasterStatus">
+  <app-custom-toaster></app-custom-toaster>
+</div>

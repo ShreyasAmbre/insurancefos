@@ -1,0 +1,143 @@
+/*----------------CSS For Sticky Menu Start Here----------------*/
+
+.sticky-menu-sec {
+  background: #00305B;
+  width: 100%;
+  max-width: fit-content;
+  position: fixed;
+  left: 0;
+  top: 58px;
+  height: 100%;
+  padding: 3.5rem 1rem;
+  z-index: 999;
+}
+
+.sticky-menu-sec.showmenuTitle {
+  max-width: 274px;
+}
+
+.sticky-menu-sec .menu-heading p,
+.sticky-menu-sec .submenu-heading p {
+  color: #A6ABC8;
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 12px;
+}
+
+.sticky-menu-sec .menuSec {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid transparent;
+  position: relative;
+}
+
+.sticky-menu-sec li:last-child .menuSec {
+  border-bottom: none;
+}
+
+.sticky-menu-sec li:last-child {
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+  width: 100%;
+  border-bottom: none;
+}
+
+.sticky-menu-sec li:nth-last-child(2) .menuSec {
+  border-bottom: none;
+}
+
+.sticky-menu-sec ul {
+  position: relative;
+  height: 100%;
+}
+
+.sticky-menu-sec.showmenuTitle .menuSec {
+  border-color: #174369;
+}
+
+
+.sticky-menu-sec .menuSec .menu-icon {
+  width: 68px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sticky-menu-sec .menuSec.activeMenu .menu-icon {
+  background: #004A80;
+  border-radius: 5px;
+}
+
+.sticky-menu-sec .menu-heading {
+  display: none;
+  transition: all linear 0.5s;
+}
+
+.sticky-menu-sec.showmenuTitle .menu-heading {
+  display: block;
+}
+
+.sticky-menu-sec.showmenuTitle .menuSec.activeMenu .menu-icon {
+  background: transparent;
+}
+
+.submenu-sec .submenu-list {
+  display: flex;
+  align-items: center;
+}
+
+.submenu-sec .submenu-icon {
+  width: 68px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.submenu-sec {
+  width: 294px;
+  background: #033868;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 5px 5px;
+  transform: translateX(100%);
+  display: none;
+}
+
+
+.submenu-sec li {
+  border-bottom: 1px solid #2F6089;
+}
+
+.submenu-sec li:last-child {
+  border-bottom: none;
+  position: inherit;
+  bottom: 0;
+  left: 0;
+}
+
+.sticky-menu-sec .activeMenu .menuSec,
+.sticky-menu-sec .activeMenu .submenu-list {
+  background: #004A80;
+  border-radius: 5px;
+  width: 100%
+}
+
+.sticky-menu-sec .dropdown {
+  position: relative;
+}
+
+.sticky-menu-sec.showmenuTitle .dropdown:after {
+  content: '';
+/*  background: url('../images/submenu-arrow-icon.svg');
+*/  width: 8px;
+  height: 12px;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(-50%,-50%);
+}

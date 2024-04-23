@@ -1,0 +1,84 @@
+<div class="slotHeading">
+  <h3>Slot Details</h3>
+</div>
+<form [formGroup]="selectSlotForm">
+<div class="createjob-tab-block four-coloum marginBt">
+  <div class="first-block"  *ngIf="['PickUp' , 'Drop', 'Inspection'].includes(actonSelect)">
+    <div class="dob-form-block"  [ngClass]="{'focus':claimintimationdate.value }">
+      <label>Claim Intimation date*</label>
+      <p-calendar formControlName="claimintimationdate"
+                  [showSeconds]="true"
+                  [maxDate]="minmaxDateSelection"
+                  dateFormat="dd/mm/yy">
+      </p-calendar>
+      <span class="error_message" *ngIf="selectSlotForm.get('claimintimationdate')?.errors?.['required'] &&
+      selectSlotForm.get('claimintimationdate')?.touched">This field is required</span>
+    </div>
+  </div>
+
+  <div class="second-block" *ngIf="['PickUp' , 'Drop', 'Inspection'].includes(actonSelect)">
+    <div class="select-input-block selectActive">
+      <div class="input-block dropdown-block" [ngClass]="{'focus':pickupconfirm.value }">
+        <label for="create-select-product">Has the customer confirmed Pickup?</label>
+        <div class="dropdown">
+          <p-dropdown formControlName="pickupconfirm"
+                      [options]="pickupConfirmOption"
+                      optionLabel="option"
+                      optionValue="option">
+          </p-dropdown>
+          </div>
+          <span class="error_message" *ngIf="selectSlotForm.get('pickupconfirm')?.errors?.['required'] &&
+          selectSlotForm.get('pickupconfirm')?.touched">This field is required</span>
+        </div>
+        <!-- <span class="error_message">Please select option</span> -->
+      </div>
+  </div>
+
+  <div class="third-block" *ngIf="['PickUp' , 'Drop', 'Inspection'].includes(actonSelect)">
+    <div class="dob-form-block" [ngClass]="{'focus':prefertime.value }">
+      <label>Preferred time for pickup*</label>
+      <p-calendar formControlName="prefertime"
+                  [showTime]="true"
+                  [showSeconds]="true"
+                  dateFormat="dd/mm/yy"
+                  [minDate]="minmaxDateSelection"
+                  placeholder="Preferred time for pickup">
+      </p-calendar>
+      <span class="error_message" *ngIf="selectSlotForm.get('prefertime')?.errors?.['required'] &&
+selectSlotForm.get('prefertime')?.touched">This field is required</span>
+    </div>
+  </div>
+</div>
+
+<div class="createjob-tab-block marginBt" *ngIf="!editPpnInfoData.IsEdit">
+  <button type="button" class="primary-btn" id="pickup-select-slot" (click)="showSlotCal()">
+    Select slot
+  </button>
+</div>
+<div class="createjob-tab-block four-coloum marginBt">
+    <div class="first-block">
+      <div class="il-input-block"  [ngClass]="{'focus':startslot.value }">
+        <label>Start slot*</label>
+      <input appInputfocus
+            formControlName="startslot"
+            type="text"
+            readonly />
+      <span class="error_message" *ngIf="selectSlotForm.get('startslot')?.errors?.['required'] &&
+      selectSlotForm.get('startslot')?.touched">This field is required</span>
+      </div>
+    </div>
+
+    <div class="second-block">
+      <div class="il-input-block" [ngClass]="{'focus':endslot.value }">
+        <label>End slot*</label>
+        <input appInputfocus
+               formControlName="endslot"
+               type="text"
+               readonly />
+        <span class="error_message" *ngIf="selectSlotForm.get('endslot')?.errors?.['required'] &&
+           selectSlotForm.get('endslot')?.touched">This field is required</span>
+      </div>
+    </div>
+
+</div>
+  </form>

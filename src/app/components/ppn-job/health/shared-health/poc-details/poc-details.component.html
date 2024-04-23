@@ -1,0 +1,129 @@
+<form [formGroup]="pocInfoForm">
+  <div class="createjob-tab-block three-coloum marginBt">
+    <div class="left-block">
+      <div class="il-input-block">
+        <label>POC name*</label>
+        <input id="hospitalization-poc-name"
+               type="text"
+               formControlName="POCname"
+               appInputfocus
+               appSpecialChar/>
+        <span class="error_message" *ngIf="pocInfoForm.get('POCname')?.errors?.['required'] &&
+           pocInfoForm.get('POCname')?.touched">This field is required</span>
+        <span class="error_message"
+              *ngIf="
+              pocInfoForm.get('POCname')?.errors?.['pattern'] ||
+              pocInfoForm.get('POCname')?.errors?.['minlength'] ||
+              pocInfoForm.get('POCname')?.errors?.['maxlength']">
+              This field is invalid
+        </span>
+      </div>
+    </div>
+
+    <div class="middle-block">
+      <div class="il-input-block">
+        <label>POC contact no*</label>
+        <input id="hospitalization-poc-num"
+               type="text" maxlength="10"
+               appDigitOnly
+               formControlName="POCcontactno"
+               appInputfocus
+               appSpecialChar/>
+        <span class="error_message" *ngIf="pocInfoForm.get('POCcontactno')?.errors?.['required'] &&
+          pocInfoForm.get('POCcontactno')?.touched">This field is required</span>
+        <span class="error_message"
+              *ngIf="
+          pocInfoForm.get('POCcontactno')?.errors?.['pattern'] ||
+          pocInfoForm.get('POCcontactno')?.errors?.['minlength'] ||
+          pocInfoForm.get('POCcontactno')?.errors?.['maxlength']">
+          This field is invalid
+        </span>
+      </div>
+    </div>
+
+    <div class="right-block">
+      <div class="il-input-block">
+        <label>POC address*</label>
+        <input id="hospitalization-poc-address"
+               type="text" maxlength="50"
+               formControlName="POCaddress"
+               appInputfocus
+               appSpecialChar/>
+        <span class="error_message" *ngIf="pocInfoForm.get('POCaddress')?.errors?.['required'] &&
+          pocInfoForm.get('POCaddress')?.touched">This field is required</span>
+        <span class="error_message"
+              *ngIf="
+               pocInfoForm.get('POCaddress')?.errors?.['pattern'] ||
+               pocInfoForm.get('POCaddress')?.errors?.['minlength'] ||
+               pocInfoForm.get('POCaddress')?.errors?.['maxlength']">
+               This field is invalid
+        </span>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="createjob-tab-block four-coloum">
+    <div class="first-block">
+      <div class="il-input-block">
+        <label>Specification of Doctor*</label>
+        <input id="hospitalization-dctr-spec"
+               type="text" maxlength="10"
+               formControlName="specification"
+               appInputfocus
+               appSpecialChar/>
+        <span class="error_message" *ngIf="pocInfoForm.get('specification')?.errors?.['required'] &&
+          pocInfoForm.get('specification')?.touched">This field is required</span>
+        <span class="error_message"
+              *ngIf="
+         pocInfoForm.get('specification')?.errors?.['pattern'] ||
+         pocInfoForm.get('specification')?.errors?.['minlength'] ||
+         pocInfoForm.get('specification')?.errors?.['maxlength']">
+          This field is invalid
+        </span>
+      </div>
+
+    </div>
+
+    <div class="second-block">
+      <div class="il-input-block">
+        <label>ID proof of POC*</label>
+        <input id="hospitalization-poc-id"
+               type="text" maxlength="10"
+               formControlName="IDproof"
+               appInputfocus
+               appSpecialChar/>
+        <span class="error_message" *ngIf="pocInfoForm.get('IDproof')?.errors?.['required'] &&
+          pocInfoForm.get('IDproof')?.touched">This field is required</span>
+        <span class="error_message"
+              *ngIf="
+               pocInfoForm.get('IDproof')?.errors?.['pattern'] ||
+               pocInfoForm.get('IDproof')?.errors?.['minlength'] ||
+               pocInfoForm.get('IDproof')?.errors?.['maxlength']">
+          This field is invalid
+        </span>
+      </div>
+    </div>
+
+    <div class="third-block">
+      <div class="il-input-block">
+        <label>ID number</label>
+        <input id="hospitalization-ic-num"
+               type="text" maxlength="10"
+               formControlName="ICnumber"
+               appInputfocus
+               appSpecialChar/>
+        <span class="error_message" *ngIf="pocInfoForm.get('ICnumber')?.errors?.['required'] &&
+          pocInfoForm.get('ICnumber')?.touched">This field is required</span>
+        <span class="error_message"
+              *ngIf="
+              pocInfoForm.get('ICnumber')?.errors?.['pattern'] ||
+              pocInfoForm.get('ICnumber')?.errors?.['minlength'] ||
+              pocInfoForm.get('ICnumber')?.errors?.['maxlength']">
+              This field is invalid
+        </span>
+      </div>
+    </div>
+  </div>
+</form>
+

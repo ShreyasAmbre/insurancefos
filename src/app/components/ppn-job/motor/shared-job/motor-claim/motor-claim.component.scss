@@ -1,0 +1,92 @@
+
+
+.claim-type-input ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+
+.claim-type-input li {
+  margin-right: 10px;
+}
+
+.il-radio-group {
+ /* display: flex;*/
+  align-items: center;
+}
+
+.il-radio-group input[type="radio"] {
+  margin-right: 5px;
+}
+
+.PPNheading {
+  margin-top: 60px;
+}
+
+.PPNbutton {
+  margin-top: 0px;
+}
+
+
+.db-popup-sec {
+  max-width: 1100px;
+  width: 100%;
+}
+
+.db-popup-sec {
+  position: relative;
+  top: 0;
+  background: #ffffff;
+  width: 100%;
+  left: 0;
+  z-index: 999;
+  right: 0;
+  margin: 6.5rem auto 10rem;
+  border-radius: 15px;
+  padding: 3rem 3rem;
+}
+
+.db-popup-overlay {
+  background: rgb(40, 40, 40, 0.7);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  opacity: 0;
+  overflow: auto;
+  visibility: hidden;
+}
+
+.activeOverlay {
+  visibility: visible;
+  opacity: 1;
+}
+.NewCSSS {
+  padding-bottom: 4% !important;
+  border-bottom: 1px solid #eaeaea;
+}
+::ng-deep .createjob-block .createjob-tab-sec {
+    padding: 2rem 0;
+    border-bottom: 1px solid #EAEAEA;
+}
+/*.radioButton {
+  display: flex;
+  flex-direction: column;*/
+/*  align-items: center;*/
+/*}*/
+
+/*.radioSelector{
+    margin-right: 10px;
+}
+
+.createjob-block .createjob-tab-sec {
+  padding: 4rem 0 !important;
+  border-bottom: 1px solid #EAEAEA !important;
+}
+.createjob-tab-sec .claim-type-input {
+  margin-bottom: 6rem !important;
+}*/

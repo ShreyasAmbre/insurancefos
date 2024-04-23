@@ -1,0 +1,53 @@
+.invalidText {
+  color: red;
+  font-size: 15px
+}
+
+.disabled-button {
+  background-color: lightgray;
+  color: gray;
+  border: 2px solid gray
+}
+
+.disabled-div {
+  pointer-events: none;
+  color: gray
+}
+
+/*::ng-deep.p-element {
+  font-size: 1.6rem !important;
+  line-height: 12px !important;
+}*/
+
+/*::ng-deep .p-toast {
+  width:  30rem !important
+}*/
+.error_messages {
+  color: #e71a1a;
+  font-size: 14px;
+  font-weight: 600;
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  width: 100%;
+}
+.js_closedbPopup{
+    cursor: pointer;
+}
+
+.il-input-block.disabled-div input {
+  background-color: #f2f2f2; 
+}
+
+.custom-cancelbtn{
+    margin-right: 2%
+}
+.error_messagesOne {
+  color: #e71a1a;
+  font-size: 1.1rem;
+  font-weight: 600;
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  width: 100%;
+}

@@ -1,0 +1,32 @@
+
+
+
+.login-btn-block {
+  
+  justify-content: space-between;
+  align-items: center;
+}
+
+.loginUser {
+margin-top: 20px;
+  color: #e71a1a;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+::ng-deep .p-toast-top-center {
+  top: 101px !important;
+  left: 50.5% !important;
+  transform: translate(-50%);
+}
+
+/*::ng-deep .p-toast {
+  position: absolute !important;
+  width: 38rem !important;
+}*/
+
+/*::ng-deep .p-element {
+  font-size: 12px !important;
+  line-height: 15px !important;
+  font-weight:500;
+  }*/

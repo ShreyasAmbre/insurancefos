@@ -1,0 +1,182 @@
+<section>
+  <div class="dashboard-main-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="ppn-master-wrapper section-width" id="ppn-master" style="display: block">
+            <div class="db-heading-block">
+              <div class="left-block">
+                <h3 class="left-content">PPN Master</h3>
+              </div>
+              <div class="right-block">
+                <div class="il-input-block" id="joblist-searchby">
+                  <label for="search-by">Search by Name</label>
+                  <form [formGroup]="searchForm">
+                    <input id="searchby-assets-name"
+                           [(ngModel)]="searchText"
+                           formControlName="searchInput"
+                           type="text"
+                           appInputfocus
+                           (focus)="onSearch()"/>
+                    <label for="searchby-assets-name">Search by Garage name</label>
+                    <span *ngIf="searchForm.get('searchInput')?.errors?.['pattern']" class="error_message">This field is invalid</span>
+                  </form>
+                </div>
+                <a class="whitebg-btn select-area-btn"
+                   (click)="openSelectAccess()">
+                  <span id="selectedCity">{{userData.city || 'Lucknow'}}{{ " " + zoneAreaListCount + "+ more"}}</span>
+                  <img src="assets/images/select-area-btn-arrow.svg" />
+                </a>
+                <div>
+                  <a (click)="showppnForm(1)" class="orangebg-btn CreateFormButton" id="create-ppn-master-btn">Create PPN Master</a>
+                </div>
+              </div>
+            </div>
+            <div class="ppn-master-sec">
+              <div class="accordian-title">
+                <ul>
+                  <li>Garage name</li>
+                  <li>Contact number</li>
+                  <li>Manufacturer</li>
+                  <li>Working hours</li>
+                  <li>Contact person</li>
+                  <li>City
+                    <a>
+                      <span class="dropdown-arrow" (click)="sortPPNData()">
+                        <img src="assets/images/dropdown-icon.svg"  [ngClass]="{'rotate-arrow': isDescending}">
+                      </span>
+                    </a>
+                  </li>
+                  <li>PPN Category</li>
+                  <li>Garage type</li>
+                </ul>
+              </div>
+              <div class="ppnmaster-accordian-block">
+                <div *ngFor="let list of visibleRecords; let i = index" class="accordion-sec" [ngClass]="{'disabled-item': list.IsVisible === '0'}">
+                  <div class="accordion-head" [ngClass]="accHead ? 'active' : '' ">
+                    <ul>
+                      <li>{{list.GarageName}}</li>
+                      <li>{{list.MobileNo}}</li>
+                      <li>{{list.Manufacturer}}</li>
+                      <li>{{list.StartTime}} to {{list.EndTime}}</li>
+                      <li>{{list.EscalationLevel}}</li>
+                      <li>{{list.City}}</li>
+                      <li>{{list.PPNCategory}}</li>
+                      <li>{{list.GarageType}}</li>
+                      <li>
+                        <a (click)="showAccordianBody(i)">
+                          <img [ngClass]="
+                           currentlyOpenPopup === i ? 'rotate-up' : ''
+                      " src="assets/images/accordian-down-arrow.svg">
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="accordion-body" [ngClass]="currentlyOpenPopup === i ? 'borderNone' : ''"
+                       [ngStyle]="{'display' : displayaccBody && currentlyOpenPopup === i ? 'block' : 'none' }">
+                    <div class="garage-details-sec" [ngClass]="list?.IsVisible === '0' ? 'disable-ppn-block' : ''">
+                      <div class="edit-ppn-block" *ngIf="PPNSubRoleAccess.PPNEdit !== '0' && (userRole == 'AD001' || userRole == 'RL002' || userRole == 'RL003')"
+                           [ngClass]="{'ppn-access-disabled': PPNSubRoleAccess.PPNEdit === '2' }">
+                        <a (click)="showppnForm(2,i, list)" class="js_showEditppn_popup pointer">Edit</a>
+                      </div>
+                      <ul>
+                        <li>
+                          <h4>Garage phone</h4>
+                          <p>{{list.PPNContactNo}}</p>
+                        </li>
+                        <li>
+                          <h4>State</h4>
+                          <p>{{list.State}}</p>
+                        </li>
+                        <li>
+                          <h4>Service Capability</h4>
+                          <p>{{list.ServiceCapability}}</p>
+
+                        </li>
+                        <li>
+                          <h4>Pincode</h4>
+                          <p>{{list.Pincode}}</p>
+
+                        </li>
+                        <li>
+                          <h4>Address</h4>
+                          <p>{{list.Address}}</p>
+                        </li>
+                        <li>
+                          <h4>SAP vendor code</h4>
+                          <p>{{list.SapVendorCode}}</p>
+                        </li>
+                        <li>
+                          <h4>Network priority</h4>
+                          <p>{{list.NetworkPriority}}</p>
+                        </li>
+                      </ul>
+                      <ul>
+                        <li>
+                          <h4>PPN latitude</h4>
+                          <p>{{list.PPNLat}}</p>
+                        </li>
+                        <li>
+                          <h4>PPN Longitude</h4>
+                          <p>{{list.PPNLong}}</p>
+                        </li>
+                      </ul>
+                      <div class="disable-btn-block" style="font-size: 15px;" *ngIf="PPNSubRoleAccess.PPNDisable !== '0' && (userRole == 'AD001' || userRole == 'RL002' || userRole == 'RL003')"
+                           [ngClass]="{'ppn-access-disabled': PPNSubRoleAccess.PPNDisable === '2' }">
+                        <a (click)="onDisable(i,list)" class="secondary-btn">{{list?.IsVisible === '0' ? 'Enable' : 'Disable'}}</a>
+                        <!--<a (click)="opendeletePPN(i,list)" class="secondary-btn js_show_deleteppn_popup" id="delete-ppn">Delete PPN</a>-->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p-paginator
+                           [rows]="rowsPerPage"
+                           [totalRecords]="filteredRecords.length"
+                           [rowsPerPageOptions]="[10, 20, 30]"
+                           (onPageChange)="onPageChange($event)">
+              </p-paginator>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<app-create-ppn (ppnList)="getPPNList($event)" [isEditPopUp]="isEditPopUp"
+                [ppnDetailsFromParent]="ppnDetailsFromParent" [ppnHeader]="ppnHeader"
+                [buttonLabel]="buttonLabel" *ngIf="isOpen" (dataEvent)="closeCreatePPN($event)"></app-create-ppn>
+
+<!-- -----Popup for Delete PPN Master start here----- -->
+
+<div class="delete-ppn-popup-sec">
+  <div class="db-popup-overlay" [ngClass]="{'activeOverlay' : openDeletePopUp}">
+    <div class="db-popup-sec">
+      <div class="db-closebtn-block">
+        <a (click)="closePopUp()" class="js_closedbPopup"></a>
+      </div>
+      <div class="db-popup-content">
+        <div class="delete-ppn-block">
+          <div class="db-popup-heading">
+            <h3>Are you sure you want to <span>delete this PPN ?</span></h3>
+          </div>
+          <div class="delete-ppn-btn">
+            <button (click)="closePopUp()" type="button" class="cancle-btn" id="cancle-ppn-btn">Cancel</button>
+            <button (click)="deleteGrid(num)" type="button" class="delete-btn" id="delete-ppn-btn">Yes, delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- -----Popup for Delete PPN Master end here----- -->
+<div class="card flex justify-content-center gap-2">
+  <p-toast position="top-center"></p-toast>
+</div>
+
+<div *ngIf="toasterStatus">
+  <app-custom-toaster></app-custom-toaster>
+</div>
+

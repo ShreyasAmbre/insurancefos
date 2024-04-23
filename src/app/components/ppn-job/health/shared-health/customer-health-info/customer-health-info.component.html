@@ -1,0 +1,128 @@
+<form [formGroup]="healthCustomerInfoForm">
+  <div class="createjob-tab-block three-coloum marginBt">
+    <div class="left-block">
+      <div class="il-input-block">
+        <label for="hospitalization-cust-name">Customer name*</label> 
+        <input id="hospitalization-cust-name"
+               formControlName="healthCustomerName"
+               type="text"
+               appInputfocus
+               appSpecialChar/>
+        <span class="error_message" *ngIf="healthCustomerInfoForm.get('healthCustomerName')?.errors?.['required'] &&
+          healthCustomerInfoForm.get('healthCustomerName')?.touched">This field is required</span>
+        <span class="error_message"
+              *ngIf="
+                healthCustomerInfoForm.get('healthCustomerName')?.errors?.['pattern'] ||
+                healthCustomerInfoForm.get('healthCustomerName')?.errors?.['minlength'] ||
+                healthCustomerInfoForm.get('healthCustomerName')?.errors?.['maxlength']">
+                This field is invalid
+        </span>
+      </div>
+    </div>
+
+    <div class="middle-block">
+      <div class="il-input-block">
+        <label>Claim number*</label>
+        <input id="hospitalization-claim-num"
+               formControlName="healthClaim"
+               type="text"
+               appInputfocus
+               appSpecialChar/>
+        <span class="error_message" *ngIf="healthCustomerInfoForm.get('healthClaim')?.errors?.['required'] &&
+          healthCustomerInfoForm.get('healthClaim')?.touched">This field is required</span>
+        <span class="error_message"
+              *ngIf="
+                healthCustomerInfoForm.get('healthClaim')?.errors?.['minlength'] ||
+                healthCustomerInfoForm.get('healthClaim')?.errors?.['maxlength']">
+                This field is invalid
+        </span>
+      </div>
+    </div>
+
+    <div class="right-block">
+      <div class="il-input-block">
+        <label>Complete customer address*</label>
+        <input id="hospitalization-cust-address"
+                formControlName="healthCustomerAdd"
+               type="text" maxlength="50"
+               appInputfocus
+               appSpecialChar/>
+        <span class="error_message" *ngIf="healthCustomerInfoForm.get('healthCustomerAdd')?.errors?.['required'] &&
+          healthCustomerInfoForm.get('healthCustomerAdd')?.touched">This field is required</span>
+        <span class="error_message"
+              *ngIf="
+              healthCustomerInfoForm.get('healthCustomerAdd')?.errors?.['pattern'] ||
+              healthCustomerInfoForm.get('healthCustomerAdd')?.errors?.['minlength'] ||
+              healthCustomerInfoForm.get('healthCustomerAdd')?.errors?.['maxlength']">
+              This field is invalid
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="createjob-tab-block four-coloum">
+    <div class="first-block">
+      <div class="il-input-block">
+        <label>ID Proof Number*</label>
+        <input id="hospitalization-id-num"
+               formControlName="idproof"
+               type="text"
+               maxlength="10"
+               appInputfocus
+               appSpecialChar/>
+        <span class="error_message" *ngIf="healthCustomerInfoForm.get('idproof')?.errors?.['required'] &&
+          healthCustomerInfoForm.get('idproof')?.touched">This field is required</span>
+        <span class="error_message"
+              *ngIf="
+               healthCustomerInfoForm.get('idproof')?.errors?.['pattern'] ||
+               healthCustomerInfoForm.get('idproof')?.errors?.['minlength'] ||
+               healthCustomerInfoForm.get('idproof')?.errors?.['maxlength']">
+               This field is invalid
+        </span>
+      </div>
+    </div>
+
+    <div class="second-block">
+      <div class="il-input-block">
+        <label>Customer mobile no*</label>
+        <input id="hospitalization-cust-num"
+               formControlName="contactNum"
+               type="text"
+               maxlength="10"
+               appDigitOnly
+               appInputfocus
+               appSpecialChar/>
+        <span class="error_message" *ngIf="healthCustomerInfoForm.get('contactNum')?.errors?.['required'] &&
+          healthCustomerInfoForm.get('contactNum')?.touched">This field is required</span>
+        <span class="error_message"
+              *ngIf="
+               healthCustomerInfoForm.get('contactNum')?.errors?.['pattern'] ||
+               healthCustomerInfoForm.get('contactNum')?.errors?.['minlength'] ||
+               healthCustomerInfoForm.get('contactNum')?.errors?.['maxlength']">
+               This field is invalid
+        </span>
+      </div>
+    </div>
+
+    <div class="third-block">
+      <div class="il-input-block">
+        <label>Alternate Contact*</label>
+        <input id="hospitalization-alternate-num"
+               formControlName="alternatecontactno"
+               type="text" maxlength="10"
+               appDigitOnly
+               appInputfocus
+               appSpecialChar/>
+        <span class="error_message" *ngIf="healthCustomerInfoForm.get('alternatecontactno')?.errors?.['required'] &&
+          healthCustomerInfoForm.get('alternatecontactno')?.touched">This field is required</span>
+        <span class="error_message"
+              *ngIf="
+               healthCustomerInfoForm.get('alternatecontactno')?.errors?.['pattern'] ||
+               healthCustomerInfoForm.get('alternatecontactno')?.errors?.['minlength'] ||
+               healthCustomerInfoForm.get('alternatecontactno')?.errors?.['maxlength']">
+               This field is invalid
+        </span>
+      </div>
+    </div>
+  </div>
+</form>

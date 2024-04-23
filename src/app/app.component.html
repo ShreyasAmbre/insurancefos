@@ -1,0 +1,12 @@
+
+<div *ngIf="loading" class="pageLoader">
+  <div class="loaderInner">
+    <span class="loaderDot"></span>
+    <span class="loaderDot"></span>
+    <span class="loaderDot"></span>
+  </div>
+</div>
+<app-header></app-header>
+<router-outlet></router-outlet>
+<app-side-nav *ngIf="showSideNav"></app-side-nav>
+

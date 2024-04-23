@@ -1,0 +1,38 @@
+<div class="daterange-popup-sec">
+  <div class="db-popup-overlay activeOverlay">
+    <div class="db-popup-sec">
+      <div class="db-closebtn-block" (click)="closePopup('')">
+        <a class="js_closedbPopup"></a>
+      </div>
+
+      <div class="db-popup-content">
+        <div class="date-range-block">
+          <div class="db-popup-heading">
+            <h3>Select date range</h3>
+          </div>
+
+          <div class="daterange-input-block">
+            <div class="daterange-datepicker">
+              <div class="dob-form-block">
+                <p-calendar [(ngModel)]="startDate" placeholder="Start Date"></p-calendar>
+              </div>
+              <div class="dob-form-block">
+                <p-calendar [(ngModel)]="endDate" placeholder="End Date"></p-calendar>
+              </div>
+            </div>
+
+            <div class="daterange-btn-block">
+              <button [disabled]="startDate === '' || endDate === ''"
+                      type="button"
+                      class="primary-btn"
+                      id="date-continue-btn"
+                      (click)="submitDateRange()">
+                Continue
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

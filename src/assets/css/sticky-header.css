@@ -1,0 +1,66 @@
+/*----------------CSS For Sticky Menu Start Here----------------*/
+
+.sticky-menu-sec{
+	background: #00305B;
+    width: 100%;
+    max-width: fit-content;
+    position: fixed;
+    left: 0;
+    top: 65px;
+    height: 100%;
+    padding: 3.5rem 1rem;
+    z-index: 999;
+}
+
+.sticky-menu-sec.showmenuTitle{
+	max-width: 274px;
+}
+
+.sticky-menu-sec .menu-heading p{
+	color: #A6ABC8;
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 12px;
+}
+
+.sticky-menu-sec li{
+	display: flex;
+	align-items: center;
+    border-bottom: 1px solid transparent;
+}
+
+.sticky-menu-sec.showmenuTitle li{
+	border-color:#174369;
+}
+
+
+.sticky-menu-sec li .menu-icon{
+	width: 68px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.sticky-menu-sec li.activeMenu .menu-icon{
+	background: #004A80;
+    border-radius: 5px;
+}
+
+.sticky-menu-sec .menu-heading{
+	display: none;
+	transition: all linear 0.5s;
+}
+
+.sticky-menu-sec.showmenuTitle .menu-heading{
+	display: block;
+}
+
+.sticky-menu-sec.showmenuTitle li.activeMenu .menu-icon{
+	background: transparent;
+}
+
+
+/*----------------CSS For Sticky Menu End Here----------------*/

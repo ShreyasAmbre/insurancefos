@@ -1,0 +1,204 @@
+<div class="joblist-tab-title">
+  <ul>
+    <li>Customer name</li>
+    <li>Claim number</li>
+    <li>
+      Job type
+      <a (click)="sortJobData('JobSubType')">
+        <span class="dropdown-arrow"><img src="assets/images/dropdown-icon.svg" /></span>
+      </a>
+    </li>
+    <li>
+      Slot
+      <a (click)="sortJobData('StartSlot')">
+        <span class="dropdown-arrow"><img src="assets/images/dropdown-icon.svg" /></span>
+      </a>
+    </li>
+    <li>Assigned to</li>
+    <li>
+      City
+      <a (click)="sortJobData('City')">
+        <span class="dropdown-arrow"><img src="assets/images/dropdown-icon.svg" /></span>
+      </a>
+    </li>
+    <li>
+      Status
+      <a (click)="sortJobData('Status')">
+        <span class="dropdown-arrow"><img src="assets/images/dropdown-icon.svg" /></span>
+      </a>
+    </li>
+    <!--<li>Call customer</li>-->
+  </ul>
+</div>
+<div class="joblist-tab-details">
+  <div class="joblist-tab-block" style="display: block">
+    <div class="joblist-accord-block" style="display: block">
+      <div class="accordion-sec wyn-policy"
+           *ngFor="let item of visibleRecords; let i = index">
+        <div class="accordion-head">
+          <ul>
+            <li>{{item?.CustomerName}}</li>
+            <li>{{item?.ClaimNumber}}</li>
+            <li>{{item?.JobSubType}}</li>
+            <li>
+              {{ item?.StartSlot | date:'hh:mm a' }} <span class="accordian-date">{{ item?.StartSlot | date:'dd/MM/yyyy' }}</span>
+            </li>
+            <li>{{item?.Assigned === null ? 'Not Assigned' : item?.Assigned}}</li>
+            <li>{{item?.City}}</li>
+            <li class="done-btn"><span>{{item?.Status}}</span></li>
+            <li>
+              <!--<a class="js_showcallcustPopup">
+              <img src="assets/images/call-customer-icon.svg" />
+            </a>-->
+            </li>
+            <li class="accordian-arrow" (click)="accordionToggle(i)">
+              <a>
+                <img src="assets/images/accordian-down-arrow.svg" [class.rotoate-onexpand]="expandedRow === i" />
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="accordion-body" [class.isExpandTrue]="expandedRow === i">
+          <div class="joblist-details-block">
+            <ul class="customer-details">
+              <li>
+                <h4>Customer phone</h4>
+                <p>{{item?.CustomerContactNo}}</p>
+              </li>
+
+              <li>
+                <h4>Pincode</h4>
+                <p>{{item?.Pincode}}</p>
+              </li>
+
+              <li>
+                <h4>Customer ID Proof</h4>
+                <p>{{item?.CustomerIdProofNumber}}</p>
+              </li>
+
+              <li>
+                <h4>POC Name</h4>
+                <p>{{item?.POCName}}</p>
+              </li>
+
+              <li>
+                <h4>POC Contact</h4>
+                <p>{{item?.POCContactNo}}</p>
+              </li>
+
+              <li>
+                <h4>POC Address</h4>
+                <p>{{item?.POCAddress}}</p>
+              </li>
+
+              <li>
+                <h4>ID Proof of POC</h4>
+                <p>{{item?.POCIdProof}}</p>
+              </li>
+
+            </ul>
+
+            <ul class="customer-address">
+              <li>
+                <h4>Address Type</h4>
+                <p> {{item?.AddressType}} </p>
+              </li>
+
+              <li>
+                <h4>Hospital Name</h4>
+                <p> {{item?.HospitalName}} </p>
+              </li>
+
+              <li>
+                <h4>Document To Be Collected</h4>
+                <p> {{item?.DocumentCollection}} </p>
+              </li>
+
+              <li>
+                <h4>Other Document</h4>
+                <p> {{item?.OtherDocuments}} </p>
+              </li>
+
+              <li>
+                <h4> Customer Address</h4>
+                <p> {{item?.CustomerAddress}} </p>
+              </li>
+            </ul>
+            <div class="assign-popup-btn">
+              <a class="js_showreassign_Popup" (click)="openAssignJobPopup(item)"
+                 id="reassign-btn1" *ngIf="userRole == 'AD001' || userRole == 'RL002' || userRole == 'RL003' ||  userRole == 'RL004'">
+                {{item?.Assigned === null ? 'Assign' : 'Reassign'}}
+              </a>
+              <a class="js_showrelated_data_Popup"
+                 id="related-btn1" (click)="openRelatedData(item)">Related data</a>
+            </div>
+          </div>
+
+
+          <div class="contactstatus-block" *ngIf="userRole != 'RL004'">
+            <div class="joblist-btn-block">
+              <button *ngIf="userRole == 'AD001' || userRole == 'RL002' || userRole == 'RL003' ||  userRole == 'RL004'"
+                      type="button"
+                      class="secondary-btn"
+                      id="cancle-order-btn"
+                      (click)="openCancelPopup(item)">
+                Cancel order
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="joblist-accord-block">
+      <h2>Content Two</h2>
+    </div>
+
+    <div class="joblist-accord-block">
+      <h2>Content Three</h2>
+    </div>
+
+    <div class="joblist-accord-block">
+      <h2>Content Four</h2>
+    </div>
+
+    <div class="joblist-accord-block">
+      <h2>Content Five</h2>
+    </div>
+
+    <p-paginator [rows]="rowsPerPage"
+                 [totalRecords]="filteredRecords.length"
+                 [rowsPerPageOptions]="[10, 20, 30]"
+                 (onPageChange)="onPageChange($event)">
+    </p-paginator>
+
+    <app-assign-job-popup *ngIf="isVisisbleAssignJob" [selectedJobData]="selectedJobData"></app-assign-job-popup>
+    <app-cancel-info *ngIf="isVisisbleCancelPopup" [selectedJobData]="selectedJobData"></app-cancel-info>
+    <app-related-data *ngIf="isVisisbleRelatedData" [selectedJobData]="selectedJobData"></app-related-data>
+
+
+    <div class="delete-ppn-popup-sec">
+      <div class="db-popup-overlay" [ngClass]="{'activeOverlay' : openDeletePopUp}">
+        <div class="db-popup-sec">
+          <div class="db-closebtn-block">
+            <a (click)="closePopUp()" class="js_closedbPopup"></a>
+          </div>
+          <div class="db-popup-content">
+            <div class="delete-ppn-block">
+              <div class="db-popup-heading">
+                <h3>Are you sure you want to <span>canel the order ?</span></h3>
+              </div>
+              <div class="delete-ppn-btn">
+                <button (click)="closePopUp()" type="button" class="cancle-btn" id="cancle-ppn-btn">Cancel</button>
+                <button (click)="cancelJob()" type="button" class="delete-btn" id="delete-ppn-btn">Yes, Cancel </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

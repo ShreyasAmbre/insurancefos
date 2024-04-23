@@ -1,0 +1,21 @@
+<div class="select-slot-popup-sec">
+  <div class="db-popup-overlay activeOverlay">
+    <div class="db-popup-sec">
+      <div class="db-closebtn-block" (click)="closeSlotCalendar()">
+        <a class="js_closedbPopup"></a>
+      </div>
+      <div *ngIf="toasterStatus">
+        <app-custom-toaster [toasterIsSuccess]="toasterIsSuccess"></app-custom-toaster>
+      </div>
+
+      <div class="db-popup-content">
+        <div class="select-slot-block">
+          <div class="db-popup-heading">
+            <h3>Schedule appointment</h3>
+            <full-calendar [options]="calendarOptions"></full-calendar>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

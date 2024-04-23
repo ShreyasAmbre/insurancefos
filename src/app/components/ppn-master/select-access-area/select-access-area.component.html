@@ -1,0 +1,29 @@
+<div class="searcharea-input-block">
+  <div class="il-input-block">
+    <p-dropdown [(ngModel)]="selectedState"
+                type="text"
+                [options]="states"
+                optionLabel="StateName"
+                (onChange)="onStateSelect($event)"
+                placeholder="Select a State">
+    </p-dropdown>
+    <!--    <span class="error_message" style="display: block">This field is required</span>-->
+
+  </div>
+</div>
+<br />
+<div class="searcharea-chkbox-block">
+
+  <div class="country-block">
+    <p-tree class="w-full md:w-30rem"
+            selectionMode="checkbox"
+            [value]="data"
+            [(selection)]="selectedZones"
+            (onNodeSelect)="nodeSelect($event)">
+    </p-tree>
+    <br />
+    <div class="select-area-submit-btn">
+      <button type="button" class="primary-btn" id="area-submit-btn" (click)="selectAccess()">Submit</button>
+    </div>
+  </div>
+</div>

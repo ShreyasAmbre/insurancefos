@@ -1,0 +1,11 @@
+.disabled-node {
+    color:lightgray;
+}
+
+::ng-deep .p-tree .p-tree-container .p-treenode.disabled-node .p-treenode-label span {
+  color: #ddd;
+}
+
+::ng-deep .disabled-node .p-treenode-label {
+  color: #ddd;
+}

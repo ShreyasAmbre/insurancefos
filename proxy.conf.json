@@ -1,0 +1,51 @@
+{
+  "/api/slot/*": {
+    "target": "https://localhost:6091/",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  },
+  "/api/job/*": {
+    "target": "https://localhost:6091/",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  },
+  "/api/dashboard/*": {
+    "target": "https://localhost:6091/",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  },
+  "/api/*": {
+    "target": "https://localhost:9078/",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  },
+  //"/fos-api/*": {
+  //  "target": "https://fos.insurancearticlez.com/", // UAT Backend
+  //  "secure": false,
+  //  "logLevel": "debug",
+  //  "changeOrigin": true
+  //},
+  "/fos-api/*": {
+    "target": "https://localhost:55349/", // via Ocelot Gateway
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  }
+
+  //"/IpartnerService/core/api/": {
+  //  "target": "https://echannel.insurancearticlez.com/",
+  //  "secure": false,
+  //  "logLevel": "debug",
+  //  "changeOrigin": true
+  //},
+  //"/digital/v2.0/": {
+  //  "target": "https://echannel.insurancearticlez.com/",
+  //  "secure": false,
+  //  "logLevel": "debug",
+  //  "changeOrigin": true
+  //}
+}

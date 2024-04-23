@@ -1,0 +1,87 @@
+<form [formGroup]="slotCreation" class="cap-sloteidt-sec" (ngSubmit)="submitSlot()">
+
+  <div class="cap-slotedit-block">
+    <div class="cap-sloteidt-input">
+      <div class="select-input-block selectActive">
+        <div class="input-block dropdown-block">
+          <div class="dropdown">
+        <label for="create-select-product">Select product</label>
+            <p-calendar formControlName="StartTime"
+                        [showTime]="true"
+                        [timeOnly]="true"
+                        hourFormat="12"
+                        [stepHour]="1"
+                        [stepMinute]="30"
+                        [showSeconds]="false"
+                        [readonlyInput]="true"
+                        placeholder="Start Time"
+                        class="custom-calendar">
+            </p-calendar>
+          </div>
+        </div>
+        <span class="error_message" *ngIf="slotCreation.get('StartTime')?.errors?.['required'] &&
+              slotCreation.get('StartTime')?.touched">This field is required</span>
+        <span *ngIf="slotCreation.get('StartTime')?.hasError('invalidStart')" class="error_message">Invalid time range</span>
+      </div>
+    </div>
+
+    <div class="cap-sloteidt-input">
+      <div class="select-input-block selectActive">
+        <div class="input-block dropdown-block">
+          <div class="dropdown">
+            <label for="create-select-product">Select product</label>
+            <p-calendar formControlName="EndTime"
+                        [showTime]="true"
+                        [timeOnly]="true"
+                        hourFormat="12"
+                        [stepHour]="1"
+                        [stepMinute]="30"
+                        [showSeconds]="false"
+                        [readonlyInput]="true"
+                        placeholder="End Time">
+            </p-calendar>
+          </div>
+        </div>
+        <span class="error_message" *ngIf="slotCreation.get('EndTime')?.errors?.['required'] &&
+              slotCreation.get('EndTime')?.touched">This field is required</span>
+        <span *ngIf="slotCreation.get('EndTime')?.hasError('invalidEnd')" class="error_message">Invalid time range</span>
+      </div>
+    </div>
+    
+    <div class="cap-sloteidt-input">
+      <div class="il-input-block">
+        <label for="edituser-access">Overbooking Ratio</label>
+        <input id="edituser-access" type="number" maxlength="20" formControlName="BookingRation" appInputfocus />
+        <span class="error_message" *ngIf="slotCreation.get('BookingRation')?.errors?.['required'] &&
+              slotCreation.get('BookingRation')?.touched">This field is required</span>
+        <span class="error_message" *ngIf="slotCreation.get('BookingRation')?.errors?.['min']">
+          This field is invalid
+        </span>
+        <span class="error_message"
+              *ngIf="
+               slotCreation.get('BookingRation')?.errors?.['pattern'] ||
+               slotCreation.get('BookingRation')?.errors?.['minlength'] ||
+              slotCreation.get('BookingRation')?.errors?.['maxlength']">
+          This field is invalid
+        </span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="cap-slotedit-btn">
+    <div style="display: flex">
+      <span *ngIf="isOverlap" class="overlap-slot-validation">Slots are overlapping</span>
+    </div>
+
+    <button type="button" class="secondary-btn" (click)="removeSlot()"
+            *ngIf="config.data.action === 'edit'">
+      Remove this slot
+    </button>
+    <button [disabled]="slotCreation.invalid"
+            type="submit"
+            class="primary-btn"
+            id="cap-continue-btn">
+      Continue
+    </button>
+  </div>
+</form>

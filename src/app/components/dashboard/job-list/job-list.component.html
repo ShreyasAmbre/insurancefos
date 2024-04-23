@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="dashboard-wrapper section-width"
+           style="display: block; margin-top: 0px">
+        <div class="db-filter-block">
+
+          <!--<div class="db-filter-input allvertical-input">
+            <div class="" *ngIf="selectedJobType === 'Motor'">
+              <div class="select-input-block">
+                <div class="input-block dropdown-block">
+                  <div class="dropdown">
+                    <p-dropdown class="custom-prime-dropdown headingClass"
+                                [(ngModel)]="selectedVertical"
+                                [options]="verticalOptions"
+                                optionLabel="VerticalName"
+                                optionValue="VerticalId"
+                                placeholder="All Verticals">
+                    </p-dropdown>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>-->
+          <div class="db-filter-input alldate-input">
+            <a class="js_showdatepicker date-range" (click)="openRangeSelector()">Date range</a>
+          </div>
+          <div class="db-filter-input alljob-input">
+            <div class="select-input-block selectActive">
+              <div class="input-block dropdown-block">
+                <div class="dropdown">
+                  <label>Select Jobs</label>
+                  <p-dropdown class="custom-prime-dropdown"
+                              [(ngModel)]="selectedJobType"
+                              [options]="jobsOptions"
+                              optionLabel="label"
+                              optionValue="value"
+                              (onChange)="selectJobType($event)">
+                  </p-dropdown>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="joblist-tab-sec">
+          <app-count-header
+                            [selectedVertical]="selectedVertical"
+                            [selectedJobType]="selectedJobType"
+                            [selectedDateRange]="selectedDateRange"
+                            [motorJobUpdated]="motorJobUpdateData"
+                            (selectedCatEmit)="categoryEmit($event)">
+          </app-count-header>
+          <app-motor-table *ngIf="selectedJobType === 'Motor'"
+                           [selectedVertical]="selectedVertical"
+                           [selectedJobType]="selectedJobType"
+                           [selectedCategoryType]="selectedCategoryType"
+                           [selectedDateRange]="selectedDateRange"
+                           (motorJobUpdateEmit)="motorJobUpdateEmit($event)">
+          </app-motor-table>
+          <app-health-table *ngIf="selectedJobType === 'Health'"
+                            [selectedVertical]="selectedVertical"
+                            [selectedJobType]="selectedJobType"
+                            [selectedCategoryType]="selectedCategoryType"
+                            [selectedDateRange]="selectedDateRange"
+                            (motorJobUpdateEmit)="motorJobUpdateEmit($event)">
+          </app-health-table>
+          <app-date-range-selector *ngIf="isVisisbleDateRange" (selectedDateEmit)="dateRangeEmit($event)"></app-date-range-selector>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

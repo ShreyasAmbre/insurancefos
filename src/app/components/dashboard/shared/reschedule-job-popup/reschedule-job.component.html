@@ -1,0 +1,65 @@
+<div class="reschedule-job-popup-sec">
+  <div class="db-popup-overlay activeOverlay">
+    <div class="db-popup-sec">
+      <div class="db-closebtn-block" (click)="closeRescheduleSlot()">
+        <a href="javascript:void(0);" class="js_closedbPopup"></a>
+      </div>
+      <div class="db-popup-content">
+        <div class="reschedule-job-block">
+          <div class="db-popup-heading">
+            <h3>Reschedule Master</h3>
+          </div>
+          <div class="cancleorder-input-block" [formGroup]="rescheduleSlotForm">
+            <div class="reschedule-slot-btn">
+              <button type="button" class="secondary-btn" id="reschedule-select-btn" (click)=" showSlotCal() ">Select slot</button>
+            </div>
+            <div class="reschedule-job-input">
+              <div class="select-input-block selectActive">
+                <div class="input-block dropdown-block">
+                  <label for="reason-cancle-job">Requested by</label>
+                  <div class="dropdown">
+                    <p-dropdown formControlName="requestedBy"
+                                [options]="requestedByList"
+                                optionLabel="requestedName"
+                                dataKey="requestedName"
+                                optionValue="requestedName"
+                                placeholder="Requested by">
+                    </p-dropdown>
+                   
+                  </div>
+                </div>
+                <span class="error_message" *ngIf="requestedBy?.errors?.['required'] && (requestedBy?.touched || submitted)">Please select option</span>
+              </div>
+              <div class="dob-form-block focus">
+                <div class="input-block date-block">
+                  <p-calendar formControlName="startDate"
+                              [showTime]="true"
+                              [showSeconds]="true"
+                              dateFormat="dd/mm/yy"
+                              placeholder="Start slot">
+                  </p-calendar>
+                </div> 
+                <span class="error_message" *ngIf="startDate?.errors?.['required'] && (requestedBy?.touched || submitted)">This field is required. Please click on select slots</span>
+              </div>
+              <div class="dob-form-block">
+                <div class="input-block date-block">
+                  <p-calendar formControlName="endDate"
+                              [showTime]="true"
+                              [showSeconds]="true"
+                              dateFormat="dd/mm/yy"
+                              placeholder="End slot">
+                  </p-calendar>
+                </div> 
+                <span class="error_message" *ngIf="startDate?.errors?.['required'] && (requestedBy?.touched || submitted)">This field is required. Please click on select slots</span>
+              </div>
+            </div>
+            <div class="save-order-btn">
+              <button type="button" class="primary-btn" id="save-order-btn" (click)="saveReschedule()">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-slot-calendar [zoneDetails]="zoneData" *ngIf="showSlotCalendar" (selectedSlotEvent)="sendSelectedSlot($event)"></app-slot-calendar>

@@ -1,0 +1,275 @@
+/*----------------CSS For PPN Search Start Here----------------*/
+
+.ppn-search-wrapper .block-popup-sec{
+	display: block;
+	position: relative;
+	margin-bottom: 3.6rem;
+}
+
+.ppn-search-wrapper .ppn-search-sec{
+	padding-bottom: 4rem;
+    border-bottom: 1px solid #EAEAEA;
+    margin-bottom: 4rem;
+}
+
+.ppn-search-sec .ppn-search-block.three-coloum .first-block{
+	width: 32%;
+}
+
+.ppn-search-sec .ppn-search-block{
+	display: flex;
+}
+
+.ppn-search-sec .ppn-search-block.two-coloum .first-block{
+	width: 25%;
+	margin-right: 2.4rem;
+}
+
+.ppn-search-sec .ppn-search-block.two-coloum .second-block{
+	width: 50%;
+	margin-right: 2.4rem;
+}
+
+.ppn-search-sec.search-garage .ppn-search-block .first-block{
+	width: 60%;
+}
+
+.ppn-search-sec.search-garage .ppn-search-block .second-block{
+	width: 40%;
+}
+
+.ppn-search-sec .garage-details-block{
+	border-radius: 0px 10px 10px 0px;
+	box-shadow: -5px 0px 5px 0px rgba(0, 0, 0, 0.15);
+	border:1px solid #EAEAEA;
+	overflow: hidden;
+}
+
+.garage-details-block .select-garage-block{
+	background: #ffffff;
+	padding: 3rem 3rem;
+
+}
+
+.block-popup-sec .select-garage-block h3{
+	text-align: center;
+}
+
+.garage-details-block .select-garage-input{
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 3rem;
+}
+
+.garage-details-block .select-garage-input .left-block,
+.garage-details-block .select-garage-input .right-block{
+	width: 48%;
+}
+
+.garage-details-block .primary-btn{
+	width: 100%;
+}
+
+.garage-details-block .select-disstance-block{
+	margin-bottom: 3rem;
+}
+
+
+.garage-details-block .garage-count{
+	background: #E1F3FD;
+	padding: 1.5rem 4rem;
+}
+
+.garage-details-block .garage-count h4{
+	color: #102F58;
+	font-size: 1.4rem;
+	font-weight: 700;
+	line-height: normal;
+}
+
+.garage-details-block .garage-type{
+	background: #F8F6F6;
+	padding: 2rem 3rem 10rem;
+}
+
+.garage-details-block .garage-type-title{
+	display: flex;
+	margin-bottom: 2rem;
+
+}
+
+.garage-details-block .garage-type-title a{
+	color: #282828;
+	font-size: 1.3rem;
+	font-weight: 500;
+	line-height: normal;
+	border-radius: 30px;
+	background: #F0EFEE;
+	display: block;
+	border:1px solid #E6E4E3;
+	margin-right: 2rem;
+	padding: 0.9rem 2.2rem 1rem 2rem;
+	text-align: center;
+}
+
+.garage-details-block .garage-type-title a:last-child{
+	margin-right: 0;
+}
+
+.garage-type-details .garage-name-block{
+	display: flex;
+	background: #FFFFFF;
+    padding: 2rem 2rem;
+    border-radius: 10px 10px;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    border: 2px solid #ffffff;
+}
+
+.garage-type-details .garage-name-block.activeGarage{
+
+	border-color:#EC6625;
+}
+
+.garage-type-details .garage-name-block:last-child{
+	margin-bottom: 0;
+}
+
+.garage-type-details .garage-address{
+	width: 75%;
+	display: flex;
+}
+
+.garage-type-details .view-btn-block{
+	width: 25%;
+	text-align: right;
+	position: relative;
+}
+
+.garage-type-details .garage-address .icon-block{
+/*	width: 20%;*/
+margin-right: 1.2rem;
+}
+
+.garage-type-details .garage-address .address-block{
+/*	width: 80%;*/
+	padding-right: 1rem;
+}
+
+.garage-type-details .address-block h5{
+
+	color: #282828;
+	font-size: 1.4rem;
+	font-weight: 700;
+	line-height: normal;
+	padding-bottom: 1rem;
+}
+
+.garage-type-details .address-block p{
+	color: #6C6C6C;
+	font-size: 1.2rem;
+	font-weight: 500;
+	line-height: normal;
+	padding-bottom: 1rem;
+}
+
+.garage-type-details .address-block p span{
+	font-weight: 700;
+	display: block;
+}
+
+.garage-type-details .address-block a{
+	color: #6C6C6C;
+	font-size: 1.2rem;
+	font-weight: 600;
+	display: flex;
+	align-items: center;
+}
+
+.garage-type-details .address-block a span{
+	margin-left: 0.5rem;
+}
+
+.garage-type-details .secondary-btn{
+	padding: 0.8rem 1.6rem;
+    font-size: 1.4rem;
+}
+
+.garage-details-block .garage-type-details{
+	display: none;
+}
+
+.garage-details-block .garage-type-title a.activeBtn{
+	border: 2px solid #EC6625;
+    background: #FFF2EB;
+}
+
+.sticky-btn-block{
+	background: #FFF;
+    box-shadow: 0px -3px 8px 0px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    text-align: right;
+    padding: 1rem 0;
+    z-index: 99;
+}
+
+.sticky-btn-block button{
+	margin-right: 2rem;
+}
+
+.sticky-btn-block button:last-child{
+	margin-right: 0;
+}
+
+.ppn-search-wrapper .ppn-search-sec.search-garage{
+	border-bottom: none;
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
+
+.select-disstance-block .input_slider_label{
+	display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.select-disstance-block .input_slider_holder .slider_with_input{
+	width: 100%;
+}
+
+
+.garage-name-block .view-btn-block .secondary-btn{
+	position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.garage-name-block .form-group label:before{
+	margin-right: 0;
+}
+
+.garage-name-block .form-group{
+	margin-left: auto;
+}
+
+@media screen and (max-width:1199px){
+	
+	.ppn-search-sec.search-garage .ppn-search-block{
+		flex-direction: column;
+	}
+	.ppn-search-sec.search-garage .ppn-search-block .first-block,
+	.ppn-search-sec.search-garage .ppn-search-block .second-block {
+	    width: 100%;
+	}
+
+	.ppn-search-sec .garage-details-block {
+	    border-radius: 0;
+	    box-shadow: none;
+	}
+}
+
+
+/*----------------CSS For PPN Search End Here----------------*/

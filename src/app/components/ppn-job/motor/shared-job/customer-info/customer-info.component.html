@@ -1,0 +1,279 @@
+<form [formGroup]="customerInfoForm">
+  <div class="createjob-tab-block four-coloum marginBt">
+    <div class="first-block" *ngIf="['PickUp' , 'Inspection'].includes(actonSelect)">
+      <div class="il-input-block"  [ngClass]="{'focus':customerInfoForm.controls['claimnumber'].value}" >
+        <label>Claim number*</label>
+        <input id="pickupjob-claim-num"
+               type="text"
+               formControlName="claimnumber"
+               appInputfocus
+               appSpecialChar/>
+        <span class="error_message" *ngIf="customerInfoForm.get('claimnumber')?.errors?.['required'] &&
+              customerInfoForm.get('claimnumber')?.touched">This field is required</span>
+        <span class="error_message"
+              *ngIf="
+          customerInfoForm.get('claimnumber')?.errors?.['pattern'] ||
+          customerInfoForm.get('claimnumber')?.errors?.['minlength'] ||
+          customerInfoForm.get('claimnumber')?.errors?.['maxlength']">
+          This field is invalid
+        </span>
+      </div>
+    </div>
+
+
+    <div class="second-block">
+      <div class="il-input-block" [ngClass]="{'focus':customerInfoForm.controls['vehiclenumber'].value}">
+        <label>Vehicle number*</label>
+        <input #inputField
+               id="pickupjob-vehicle-num"
+               type="text"
+               maxlength="10"
+               formControlName="vehiclenumber"
+               appInputfocus
+               appTouppercase
+               appSpecialChar/>
+        <span class="error_message" *ngIf="customerInfoForm.get('vehiclenumber')?.errors?.['required'] &&
+              customerInfoForm.get('vehiclenumber')?.touched">This field is required</span>
+        <span class="error_message"
+              *ngIf="
+          customerInfoForm.get('vehiclenumber')?.errors?.['pattern'] ||
+          customerInfoForm.get('vehiclenumber')?.errors?.['minlength'] ||
+          customerInfoForm.get('vehiclenumber')?.errors?.['maxlength']">
+          This field is invalid
+        </span>
+      </div>
+    </div>
+
+    <div class="third-block">
+      <div class="il-input-block"  [ngClass]="{'focus':customerInfoForm.controls['customercontactno'].value}">
+        <label>Customer contact no*</label>
+        <input #inputField
+               id="pickupjob-cust-num"
+               type="text"
+               appDigitOnly
+               maxlength="10"
+               formControlName="customercontactno"
+               appInputfocus
+               appSpecialChar/>
+        <span class="error_message" *ngIf="customerInfoForm.get('customercontactno')?.errors?.['required'] &&
+          customerInfoForm.get('customercontactno')?.touched">This field is required</span>
+        <span class="error_message"
+              *ngIf="
+           customerInfoForm.get('customercontactno')?.errors?.['pattern'] ||
+           customerInfoForm.get('customercontactno')?.errors?.['minlength'] ||
+           customerInfoForm.get('customercontactno')?.errors?.['maxlength']">
+          This field is invalid
+        </span>
+      </div>
+    </div>
+
+    <div class="four-block">
+      <div class="il-input-block"   [ngClass]="{'focus':customerInfoForm.controls['customername'].value}">
+        <label>Customer name*</label>
+        <input #inputField
+               id="pickupjob-customer-name"
+               type="text"
+               maxlength="24"
+               formControlName="customername"
+               appInputfocus
+               appSpecialChar/>
+        <span class="error_message" *ngIf="customerInfoForm.get('customername')?.errors?.['required'] &&
+              customerInfoForm.get('customername')?.touched">This field is required</span>
+        <span class="error_message"
+              *ngIf="
+          customerInfoForm.get('customername')?.errors?.['pattern'] ||
+          customerInfoForm.get('customername')?.errors?.['minlength'] ||
+          customerInfoForm.get('customername')?.errors?.['maxlength']">
+          This field is invalid
+        </span>
+
+      </div>
+    </div>
+  </div>
+  
+  <div class="createjob-tab-block three-coloum marginBt">
+    <div class="left-block">
+      <div class="il-input-block"   [ngClass]="{'focus':customerInfoForm.controls['vehiclecolor'].value}">
+        <label>Vehicle colour</label>
+        <input #inputField
+               id="pickupjob-vehicle-color"
+               type="text"
+               maxlength="10"
+               formControlName="vehiclecolor"
+               appInputfocus
+               appSpecialChar
+               />
+        <span class="error_message" *ngIf="customerInfoForm.get('vehiclecolor')?.errors?.['required'] &&
+         customerInfoForm.get('vehiclecolor')?.touched">This field is required</span>
+        <span class="error_message"
+              *ngIf="
+                    customerInfoForm.get('vehiclecolor')?.errors?.['pattern'] ||
+                    customerInfoForm.get('vehiclecolor')?.errors?.['minlength'] ||
+                    customerInfoForm.get('vehiclecolor')?.errors?.['maxlength']">
+          This field is invalid
+        </span>
+      </div>
+    </div>
+  
+    <div class="middle-block" *ngIf="['PickUp' ,'Inspection'].includes(actonSelect)">
+      <div class="select-input-block selectActive">
+        <div class="input-block dropdown-block" [ngClass]="{'focus':customerInfoForm.controls['instaspectstatus'].value}">
+          <label for="create-select-product">Instaspect status*</label>
+          <div class="dropdown">
+            <p-dropdown formControlName="instaspectstatus"
+                        [options]="instaspectOptions"
+                        optionLabel="option"
+                        optionValue="option"
+                        placeholder="Instaspect status">
+            </p-dropdown>
+          </div>
+            <span class="error_message" *ngIf="customerInfoForm.get('instaspectstatus')?.errors?.['required'] &&
+            customerInfoForm.get('instaspectstatus')?.touched">This field is required</span>
+          </div>
+      </div>
+    </div>
+  
+    <div class="right-block">
+      <div class="il-input-block" [ngClass]="{'focus':customerInfoForm.controls['completecustomeraddress'].value}">
+        <label>Complete customer address</label>
+        <input #inputField
+               id="pickupjob-cust-address"
+               type="text"
+               maxlength="100"
+               formControlName="completecustomeraddress"
+               appInputfocus
+               appSpecialChar/>
+        <span class="error_message" *ngIf="customerInfoForm.get('completecustomeraddress')?.errors?.['required'] &&
+          customerInfoForm.get('completecustomeraddress')?.touched">This field is required</span>
+        <span class="error_message"
+              *ngIf="
+    customerInfoForm.get('completecustomeraddress')?.errors?.['pattern'] ||
+    customerInfoForm.get('completecustomeraddress')?.errors?.['minlength'] ||
+    customerInfoForm.get('completecustomeraddress')?.errors?.['maxlength']">
+          This field is invalid
+        </span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="createjob-tab-block three-coloum marginBt">
+    <div class="left-block">
+      <div class="il-input-block" [ngClass]="{'focus':customerInfoForm.controls['alternatePOCnumber'].value}">
+        <label>Alternate POC number</label>
+        <input #inputField
+               id="pickupjob-poc-num"
+               type="text"
+               maxlength="10"
+               formControlName="alternatePOCnumber"
+               appDigitOnly
+               appInputfocus
+               appSpecialChar/>
+        <span class="error_message" *ngIf="customerInfoForm.get('alternatePOCnumber')?.errors?.['required'] &&
+          customerInfoForm.get('alternatePOCnumber')?.touched">This field is required</span>
+        <span class="error_message"
+              *ngIf="
+           customerInfoForm.get('alternatePOCnumber')?.errors?.['pattern'] ||
+           customerInfoForm.get('alternatePOCnumber')?.errors?.['minlength'] ||
+           customerInfoForm.get('alternatePOCnumber')?.errors?.['maxlength']">
+          This field is invalid
+        </span>
+      </div>
+    </div>
+
+   
+    <div class="middle-block">
+      <div class="il-input-block"  [ngClass]="{'focus':customerInfoForm.controls['DCSMname'].value}">
+        <label>DCSM name</label>
+        <input id="pickupjob-dcsm-name"
+               type="text"
+               maxlength="24"
+               formControlName="DCSMname"
+               appInputfocus
+               appSpecialChar/>
+        <span class="error_message" *ngIf="customerInfoForm.get('DCSMname')?.errors?.['required'] &&
+              customerInfoForm.get('DCSMname')?.touched">This field is required</span>
+        <span class="error_message"
+              *ngIf="
+          customerInfoForm.get('DCSMname')?.errors?.['pattern'] ||
+          customerInfoForm.get('DCSMname')?.errors?.['minlength'] ||
+          customerInfoForm.get('DCSMname')?.errors?.['maxlength']">
+          This field is invalid
+        </span>
+      </div>
+    </div>
+
+   
+    <div class="right-block">
+      <div class="il-input-block">
+        <div class="dob-form-block" [ngClass]="{'focus':customerInfoForm.controls['instaspecttime'].value}">
+          <label>Instaspect time (If Agreed, please select the time)</label>
+          <p-calendar formControlName="instaspecttime"
+                      [showTime]="true"
+                      [showSeconds]="true"
+                      dateFormat="dd/mm/yy">
+          </p-calendar>
+          <span class="error_message" *ngIf="customerInfoForm.get('instaspecttime')?.errors?.['required'] &&
+           customerInfoForm.get('instaspecttime')?.touched">This field is required</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="createjob-tab-block four-coloum marginBt">
+    <div class="first-block">
+      <div class="select-input-block selectActive">
+        <div class="input-block dropdown-block" [ngClass]="{'focus':customerInfoForm.controls['firstdiversionpitch'].value}">
+          <label for="create-select-product">First diversion pitch*</label>
+          <div class="dropdown">
+            <p-dropdown formControlName="firstdiversionpitch"
+                        [options]="firstDiversionOptions"
+                        optionLabel="option"
+                        dataKey="option"
+                        optionValue="option">
+            </p-dropdown>
+            </div>
+            <span class="error_message" *ngIf="customerInfoForm.get('firstdiversionpitch')?.errors?.['required'] &&
+            customerInfoForm.get('firstdiversionpitch')?.touched">This field is required</span>
+          </div>
+        </div>
+    </div>
+
+    <div class="second-block">
+      <div class="select-input-block selectActive">
+        <div class="input-block dropdown-block" [ngClass]="{'focus':customerInfoForm.controls['taskleadsource'].value}">
+          <label for="create-select-product">Task lead source*</label>
+          <div class="dropdown">
+            <p-dropdown formControlName="taskleadsource"
+                        [options]="taskLeadOptions"
+                        optionLabel="option"
+                        dataKey="option"
+                        optionValue="option">
+            </p-dropdown>
+            </div>
+            <span class="error_message" *ngIf="customerInfoForm.get('taskleadsource')?.errors?.['required'] &&
+            customerInfoForm.get('taskleadsource')?.touched">This field is required</span>
+          </div>
+        </div>
+    </div>
+
+    <div class="third-block" *ngIf="!editPpnInfoData.IsEdit">
+      <div class="select-input-block selectActive">
+        <div class="input-block dropdown-block" [ngClass]="{'focus':customerInfoForm.controls['verticalMotor'].value}">
+          <label for="create-select-product">Vertical*</label>
+          <div class="dropdown">
+            <p-dropdown formControlName="verticalMotor"
+                        [options]="verticalOption"
+                        optionLabel="VerticalName"
+                        dataKey="VerticalId"
+                        optionValue="VerticalId">
+            </p-dropdown>
+            </div>
+            <span class="error_message" *ngIf="customerInfoForm.get('verticalMotor')?.errors?.['required'] &&
+             customerInfoForm.get('verticalMotor')?.touched">This field is required</span>
+          </div>
+        </div>
+    </div>
+  </div>
+</form>
+

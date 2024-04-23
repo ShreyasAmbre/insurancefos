@@ -1,0 +1,189 @@
+<!--<div class="product-details motor-product-list" style="display: block">
+  <div class="createjob-tab-content" id="pickup-job" style="display: block">-->
+<form [formGroup]="motorClaimForm">
+
+  <div class="createjob-tab-sec motorJob" >
+    <div *ngIf="(actonSelect === 'Drop' && !editPpnInfoData.IsEdit  )"> 
+      <h3>Vehicle details to fetch</h3>
+      <div class="createjob-tab-block four-coloum marginBt NewCSSS">
+        <div class="first-block">
+          <div class="il-input-block">
+            <label>Claim Number*</label>
+            <input formControlName="claimMotor"
+                   id="dropjob-claim-num"
+                   type="text"
+                   maxlength="20"
+                   appInputfocus
+                   appSpecialChar
+                   (blur)="verifyClaimNumber()" />
+            <span class="error_message"
+                  *ngIf="motorClaimForm.get('claimMotor')?.errors?.['required'] &&
+             motorClaimForm.get('claimMotor')?.touched">This field is required</span>
+            <span *ngIf="motorClaimForm.get('claimMotor')?.hasError('invalidClaim')" class="error_message">
+              Claim Number is invalid
+            </span>
+            <span class="error_message"
+                  *ngIf="motorClaimForm.get('claimMotor')?.errors?.['pattern'] ||
+             motorClaimForm.get('claimMotor')?.errors?.['minlength']">
+              This field is invalid
+            </span>
+          </div>
+        </div>
+        <div class="right-block PPNbutton">
+          <button type="button"
+                  class="primary-btn"
+                  id="search-ppn">
+            Search 
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="claim-type-sec"  *ngIf="!editPpnInfoData.IsEdit">
+      <h3>Claim Type</h3>
+      <div class="claim-type-input">
+        <ul>
+          <li>
+            <div class="il-radio-group CreateJob">
+              <input id="pickup-job-na"
+                     type="radio"
+                     name="pickup-job-claim-type"
+                     value="na"
+                     checked />
+              <label for="pickup-job-na">NA</label>
+            </div>
+          </li>
+
+          <li>
+            <div class="il-radio-group">
+              <input id="-pickup-job-premium"
+                     type="radio"
+                     name="pickup-job-claim-type"
+                     value="premium" />
+              <label for="-pickup-job-premium">Premium</label>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="createjob-tab-sec" [formGroup]="motorClaimForm">
+      <h3>Enter customer location</h3>
+      <div class="createjob-tab-block three-coloum">
+        <div class="left-block">
+          <div class="il-input-block" [ngClass]="{' focus': motorClaimForm.controls['pincode'].value}">
+            <label>Customer pincode*</label>
+            <input id="pickupjob-cust-pincode"
+                   formControlName="pincode"
+                   type="text"
+                   maxlength="6"
+                   appInputfocus
+                   appSpecialChar
+                   (blur)="verifyPincode()" />
+            <span class="error_message"
+                  *ngIf="motorClaimForm.get('pincode')?.errors?.['required'] &&
+               motorClaimForm.get('pincode')?.touched">This field is required</span>
+            <span class="error_message"
+                  *ngIf="motorClaimForm.get('pincode')?.errors?.['pattern'] ||
+                   motorClaimForm.get('pincode')?.errors?.['minlength']">
+              This field is invalid
+            </span>
+            <span *ngIf="motorClaimForm.get('pincode')?.hasError('invalidPincode')" class="error_message">
+              Pincode is invalid
+            </span>
+          </div>
+        </div>
+
+        <div class="middle-block">
+          <div class="select-input-block selectActive">
+            <div class="input-block dropdown-block">
+              <!--<label for="pickupjob-ppn-type">PPN type*</label>-->
+              <div class="dropdown">
+                <p-dropdown formControlName="ppntype"
+                            [options]="ppntypeOption"
+                            optionLabel="ppnCategory"
+                            optionValue="ppnCategoryId"
+                            placeholder="PPN type">
+                </p-dropdown>
+              </div>
+            </div>
+            <span class="error_message"
+                  *ngIf="motorClaimForm.get('ppntype')?.errors?.['required'] &&
+               motorClaimForm.get('ppntype')?.touched">
+              Please select option
+            </span>
+          </div>
+        </div>
+
+        <div class="right-block">
+          <div class="il-input-block" [ngClass]="{' focus': motorClaimForm.controls['location'].value}">
+            <label>Customer location*</label>
+            <input appSpecialChar
+                   id="pickupjob-cust-location"
+                   formControlName="location"
+                   type="text"
+                   maxlength="50"
+                   appInputfocus
+                   appSpecialChar
+                   />
+            <span class="error_message" *ngIf="motorClaimForm.get('location')?.errors?.['required'] &&
+             motorClaimForm.get('location')?.touched">This field is required</span>
+            <span class="error_message"
+                  *ngIf="motorClaimForm.get('location')?.errors?.['pattern'] ||
+              motorClaimForm.get('location')?.errors?.['maxlength']">
+              This field is invalid
+            </span>
+
+          </div>
+        </div>
+        <!--<div class="location-icon-block" *ngIf="!editPpnInfoData.IsEdit">
+          <a href="javascript:void(0)"
+             (click)="toggleImage()"
+             class="js_show_Adjustpin_popup">
+            <img src="assets/images/map-icon.svg"
+                 alt="map-icon" />
+          </a>
+        </div>-->
+        </div>
+        <!--<div class="right-block PPNbutton" *ngIf="!editPpnInfoData.IsEdit">
+          <button type="button"
+                  class="primary-btn"
+                  id="search-ppn">
+            Search PPN
+          </button>
+        </div>-->
+    </div>
+    </div>
+
+    <div class="db-popup-overlay" [ngClass]="{'activeOverlay' : mapImage}">
+      <div class="db-popup-sec">
+        <div class="db-popup-content">
+          <div class="db-closebtn-block" (click)="closeImage()">
+            <a href="javascript:void(0);" class="js_closedbPopup"></a>
+          </div>
+          <div class="adjust-pin-block">
+            <div class="db-popup-heading">
+              <h3>Adjust Pin</h3>
+            </div>
+
+            <div class="edit-map-block">
+              <img src="assets/images/location-map.png"
+                   class="img-responsive" />
+            </div>
+
+            <div class="edit-map-btn">
+              <button type="button"
+                      class="secondary-btn"
+                      id="cancle-editmap-btn"
+                      (click)="closeImage()">
+                Cancel
+              </button>
+              <button type="button" class="primary-btn" id="ok-editmap-btn" (click)="closeImage()">
+                Ok
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</form>
+      <!--</div>
+  </div>-->

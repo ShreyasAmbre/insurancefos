@@ -1,0 +1,6 @@
+<div class="user-action-block" style="display: block">
+  <p [ngClass]="{'unauthorized-class': !toasterIsSuccess}">
+    <img *ngIf="toasterIsSuccess" src="assets/images/user-action-icon.svg">
+    <span id="user-action">{{toastMessage}}</span>
+  </p>
+</div>

@@ -1,0 +1,246 @@
+<form [formGroup]="assetCreation" class="createassets-popup-sec">
+  <div class="db-popup-overlay" [class.activeOverlay]="true" >
+    <div class="db-popup-sec">
+      <div class="db-closebtn-block">
+        <a (click)="closeEvent.emit(false)" class="js_closedbPopup pointer"></a>
+      </div>
+      <div class="db-popup-content">
+        <div class="create-user-block">
+          <div class="db-popup-heading">
+            <h3>{{ assetHeader }}</h3>
+          </div>
+          <div class="createassets-input-block">
+            <div class="createassets-input">
+              <div [ngClass]="{'onFocused focus':
+                    assetCreation.controls['Username'].value && !isEditPopupOpen,
+                  focus: isEditPopupOpen}" class="il-input-block  newCss">
+                <label for="create-assets-name">Rider name</label>
+                <input formControlName="Username"
+                       id="create-assets-name"
+                       type="text"
+                       appInputfocus
+                       appSpecialChar
+                       />
+                <span class="error_message" *ngIf="assetCreation.get('Username')?.errors?.['required'] &&
+                  assetCreation.get('Username')?.touched">This field is required</span>
+                <span class="error_message"
+                      *ngIf="
+                   assetCreation.get('Username')?.errors?.['pattern'] ||
+                   assetCreation.get('Username')?.errors?.['minlength'] ||
+                   assetCreation.get('Username')?.errors?.['maxlength']">
+                  This field is invalid
+                </span>
+              </div>
+            </div>
+            <div class="createassets-input flex-row">
+              <div class="left-block">
+                <div [ngClass]="{ 'onFocused focus':
+                      assetCreation.controls['MobileNo'].value && !isEditPopupOpen, focus: isEditPopupOpen}"
+                     class="il-input-block  newCss">
+                  <label for="create-assets-mobnum">Mobile number</label>
+                  <input appDigitOnly
+                         formControlName="MobileNo"
+                         id="create-assets-mobnum"
+                         type="tel"
+                         maxlength="10"
+                         appInputfocus
+                         appSpecialChar/>
+                  <span class="error_message" *ngIf="assetCreation.get('MobileNo')?.errors?.['required'] &&
+                    assetCreation.get('MobileNo')?.touched">This field is required</span>
+                  <span class="error_message"
+                        *ngIf="
+                     assetCreation.get('MobileNo')?.errors?.['pattern'] ||
+                     assetCreation.get('MobileNo')?.errors?.['minlength'] ||
+                     assetCreation.get('MobileNo')?.errors?.['maxlength']">
+                    This field is invalid
+                  </span>
+                </div>
+              </div>
+              <div class="right-block">
+                <div [ngClass]="{'onFocused focus':assetCreation.controls['Capacity'].value && !isEditPopupOpen, focus: isEditPopupOpen}" class="il-input-block  newCss">
+                  <label for="create-assets-capacity">Capacity</label>
+                  <input formControlName="Capacity"
+                         id="create-assets-capacity"
+                         type="text"
+                         appInputfocus
+                         appSpecialChar/>
+                  <span class="error_message" *ngIf="assetCreation.get('Capacity')?.errors?.['required'] &&
+                      assetCreation.get('Capacity')?.touched">This field is required</span>
+                  <span class="error_message"
+                        *ngIf="
+                      assetCreation.get('Capacity')?.errors?.['pattern'] ||
+                      assetCreation.get('Capacity')?.errors?.['minlength'] ||
+                      assetCreation.get('Capacity')?.errors?.['maxlength']">
+                    This field is invalid
+                  </span>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="createassets-input flex-row">
+              <div class="left-block">
+                <div [class.disabled-div]="isEditPopupOpen" [ngClass]="{'onFocused focus': assetCreation.controls['UserId'].value && !isEditPopupOpen, focus: isEditPopupOpen}" class="il-input-block  newCss">
+                  <label for="create-assets-id">Employee ID</label>
+                  <span class="error_messagesOne" *ngIf="!(assetCreation.get('UserId')?.errors?.['required'] &&
+                        assetCreation.get('UserId')?.touched) && isEmployeeIdExists">This rider is already exists</span>
+                  <input formControlName="UserId"
+                         id="create-assets-id"
+                         type="text"
+                         maxlength="10"
+                         appInputfocus
+                         (blur)="employeeIdCheck('UserId')"
+                         (focus)="onFocus()"
+                         appTouppercase
+                         appSpecialChar/>
+                  <span class="error_message" *ngIf="assetCreation.get('UserId')?.errors?.['required'] &&
+                     assetCreation.get('UserId')?.touched">This field is required</span>
+                  <span class="error_message"
+                        *ngIf="
+                     assetCreation.get('UserId')?.errors?.['pattern'] ||
+                     assetCreation.get('UserId')?.errors?.['minlength'] ||
+                     assetCreation.get('UserId')?.errors?.['maxlength']">
+                    This field is invalid
+                  </span>
+                </div>
+              </div>
+              <div class="right-block">
+                <div class="createassets-input">
+                  <div class="select-input-block selectActive  newCss">
+                    <label>Skill Set</label>
+                    <div class="dropdown">
+                      <p-dropdown formControlName="SkillSet"
+                                  id="crtassets-skill-set"
+                                  type="text"
+                                  [options]="skillSetOptions">
+                      </p-dropdown>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <!--<div class="createassets-input">
+        <div class="select-input-block">
+          <p-dropdown formControlName="PrimaryAccessLevel"
+                      [options]="AccessLevel"
+                      optionLabel="ZoneName"
+                      dataKey="ZoneName"
+                      optionValue="ZoneName"
+                      placeholder="Access Level">
+          </p-dropdown>
+        </div>
+      </div>
+      <div class="createassets-input">
+        <div class="select-input-block">
+          <p-multiSelect formControlName="PrimaryAccessList"
+                         [options]="accessList"
+                         optionLabel="AccessName"
+                         optionValue="AccessName"
+                         placeholder="Access">
+          </p-multiSelect>
+        </div>
+      </div>
+      <div class="createassets-input">
+        <div class="select-input-block">
+          <p-dropdown formControlName="SecondaryAccessLevel"
+                      [options]="SecondaryAccessOptions"
+                      optionLabel="name"
+                      dataKey="name"
+                      optionValue="name"
+                      placeholder="Access Level">
+          </p-dropdown>
+        </div>
+      </div>
+      <div class="createassets-input">
+        <div class="select-input-block">
+          <p-multiSelect formControlName="SecondaryAccessList"
+                         [options]="accessList"
+                         optionLabel="AccessName"
+                         optionValue="AccessName"
+                         placeholder="Access">
+          </p-multiSelect>
+        </div>
+      </div>-->
+
+
+
+          <div class="createassets-input" [ngClass]="{'onFocused focus' : assetCreation.controls['PrimaryAccessLevel'].value}">
+            <div class="il-input-block  newCssOne">
+              <input id="crtassets-access-area"
+                     appInputfocus
+                     formControlName="PrimaryAccessLevel"
+                     type="text"
+                     maxlength="50"
+                     placeholder="Access area"
+                     readonly
+                     appSpecialChar/>
+              <!--<label for="crtassets-access-area">Access area</label>-->
+              <div class="select-area-block">
+                <a (click)="openSelectPrimaryAccess('PrimaryAccessLevel', 'SecondaryAccessLevel', 'PrimaryAccessArea')"
+                   class="js_showSelectstate_popup pointer">Select area</a>
+              </div>
+              <span class="error_message" *ngIf="assetCreation.get('PrimaryAccessLevel')?.errors?.['required'] &&
+                       assetCreation.get('PrimaryAccessLevel')?.touched">This field is required</span>
+            </div>
+          </div>
+
+          <div class="createassets-input" [ngClass]="{'onFocused focus' : assetCreation.controls['SecondaryAccessLevel'].value}">
+            <div class="il-input-block  newCssTwo">
+              <input id="crtassets-access-area"
+                     disable
+                     appInputfocus
+                     formControlName="SecondaryAccessLevel"
+                     type="text"
+                     maxlength="50"
+                     placeholder="Secondary access area"
+                     readonly
+                     appSpecialChar/>
+              <label for="crtassets-access-area"><!--Secondary access area--></label>
+              <div class="select-area-block">
+                <a (click)="openSelectPrimaryAccess('SecondaryAccessLevel', 'PrimaryAccessLevel', 'SecondaryAccessArea')"
+                   class="js_showSelectstate_popup pointer">Select area</a>
+              </div>
+              <span class="error_message" *ngIf="assetCreation.get('SecondaryAccessLevel')?.errors?.['required'] &&
+         assetCreation.get('SecondaryAccessLevel')?.touched">This field is required</span>
+            </div>
+          </div>
+
+          <div class="createassets-input">
+          </div>
+          <div class="createassets-input">
+          </div>
+        </div>
+        <div class="edit-btn-block submit createCss">
+          <div>
+            <button (click)="closeEvent.emit(false)" type="button" class="secondary-btn custom-cancelbtn btn1">
+              Cancel
+            </button>
+            &nbsp;
+            &nbsp;
+            <button [disabled]="assetCreation.invalid"
+                    *ngIf="buttonLabel === 'Create'"
+                    (click)="onSubmit()"
+                    type="submit"
+                    class="primary-btn btn2"
+                    id="create-btn">
+              Create
+            </button>
+
+          </div>
+
+        <div class="edit-btn-block submit">
+          <button [disabled]="assetCreation.invalid"
+                  *ngIf="buttonLabel === 'Submit'"
+                  (click)="onUpdate()"
+                  type="button"
+                  class="primary-btn"
+                  id="create-btn">
+            Submit
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
+</form>

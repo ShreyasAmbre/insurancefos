@@ -1,0 +1,87 @@
+<!-- -----Popup for Related Data start here----- -->
+
+<div class="relateddata-popup-sec">
+  <div class="db-popup-overlay activeOverlay">
+    <div class="db-popup-sec">
+      <div class="db-closebtn-block">
+        <a (click)="closePopup()" class="js_closedbPopup"></a>
+      </div>
+
+      <div class="db-popup-content">
+        <div class="related-data-block">
+          <div class="db-popup-heading">
+            <h3>Status History</h3>
+
+            <span id="related-data-id">ID: {{selectedJobData.JobId}}</span>
+          </div>
+
+          <div class="relateddata-details">
+            <div class="relateddata-tab-head">
+              <ul>
+                <li>Time stamp</li>
+                <li>Status</li>
+                <li>Description</li>
+                  <li>Created by</li>
+              </ul>
+            </div>
+
+            <div class="relateddata-tab">
+              <ng-container *ngFor="let item of allJobStatus; let i = index">
+                <div class="accordion-sec">
+                  <div class="accordion-head">
+                    <ul>
+                      <li>{{ item.EntryTimeStamp | date:'dd MMM yyyy' }} | {{ item.EntryTimeStamp | date:'hh:mm a' }}</li>
+                      <li class="bg-orangeBtn">
+                        <span>{{item.Value}}</span>
+                      </li>
+                      <li>{{item.Description}}</li>
+                      <li>{{item.CreatedBy}}</li>
+                      <li class="accordian-arrow" *ngIf="item.Comment?.length > 0">
+                        <a (click)="openCloseAcc(i)">
+                          <img src="assets/images/accordian-down-arrow.svg" [ngClass]="{'rotate-up' : jobAccIndex === i}"/>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="accordion-body" style="display: block"  *ngIf="jobAccIndex === i">
+                    <div class="inspection-details-block">
+                      <div class="vehicle-details mb25">
+                        <ul>
+                          <li *ngFor="let ele of item.Comment">
+                            <h4>{{ele.Key}}</h4>
+                            <span>{{ele.Value}}</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+
+                    <div class="vehicle-img-block">
+                      <!-- Below is for PPN Images -->
+                      <ng-container *ngIf="item.PPNImages.length > 0">
+                        <app-img-gallery [imgCollection]="{title: 'PPN Images', collection: item.PPNImages}"></app-img-gallery>
+                      </ng-container>
+                      <ng-container *ngIf="item.VehicleImages.length > 0">
+                        <app-img-gallery [imgCollection]="{title: 'Vehicle Images', collection: item.VehicleImages}" ></app-img-gallery>
+                      </ng-container>
+                      <ng-container *ngIf="item.AdditionalImages.length > 0">
+                        <app-img-gallery [imgCollection]="{title: 'Additional Images', collection: item.AdditionalImages}"></app-img-gallery>
+                      </ng-container>
+                      <ng-container *ngIf="item.SignatureImage.StoragePath != null ">
+                        <app-img-gallery [imgCollection]="{title: 'Signature Images', collection: [item.SignatureImage]}"></app-img-gallery>
+                      </ng-container>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>  
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- -----Popup for Related Data end here----- -->

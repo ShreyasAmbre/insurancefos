@@ -1,0 +1,486 @@
+/*----------------CSS For Assets Management Start Here----------------*/
+
+.assets-accordian-block .accordion-head li:first-child,
+.assest-management-wrapper .accordian-title li:first-child{
+	width: 20%;
+}
+.assets-accordian-block .accordion-head li:nth-child(2),
+.assest-management-wrapper .accordian-title li:nth-child(2){
+	width: 15%;
+}
+
+
+.assets-accordian-block .accordion-head li:nth-child(3),
+.assets-accordian-block .accordion-head li:nth-child(4),
+.assets-accordian-block .accordion-head li:nth-child(5),
+.assets-accordian-block .accordion-head li:nth-child(6),
+/*.assets-accordian-block .accordion-head li:nth-child(7),*/
+.assets-accordian-block .accordion-head li:nth-child(8),
+
+.assest-management-wrapper .accordian-title li:nth-child(3),
+.assest-management-wrapper .accordian-title li:nth-child(4),
+.assest-management-wrapper .accordian-title li:nth-child(5),
+.assest-management-wrapper .accordian-title li:nth-child(6){
+	width: 10%;
+}
+
+.assest-management-wrapper .accordian-title li:last-child{
+	width: 15%;
+}
+
+.assets-accordian-block .accordion-head li:nth-child(7),
+.assest-management-wrapper .accordian-title li:nth-child(7){
+	width: 10%;
+}
+
+.assets-accordian-block .accordion-head li:nth-child(8){
+	width: 10%;
+}
+
+.assets-accordian-block .accordion-head li:last-child{
+	width: 5%;
+
+}
+
+.assets-accordian-block li.green-btn span,
+.assets-accordian-block li.lightorange-btn span{
+    color: #ffffff !important;
+    border-radius: 100px;
+    padding: 0.4rem 1rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: normal;
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.assets-accordian-block li.green-btn span{
+	background: #0DA526;
+}
+
+.assets-accordian-block li.lightorange-btn span{
+	background: #F58820;
+}
+
+.order-details-sec .order-details-block{
+	border: 1px solid #EAEAEA;
+	border-radius: 10px;
+	width: 32%;
+	margin-right: 2.2rem;
+	overflow: hidden;
+}
+
+.order-details-sec .order-details-block:last-child,
+.order-details-sec .order-details-block:nth-child(3n){
+	margin-right: 0;
+}
+
+.assets-accordian-block .order-details-sec{
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: 4rem;
+}
+
+.order-details-block .number-details p{
+	color: #282828;
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.order-details-block .number-details p span{
+	font-weight: 700;
+}
+
+.order-details-block .number-details{
+	background: #F5F6F6;
+	padding: 2rem 2rem;
+	    display: flex;
+    justify-content: space-between;
+}
+
+.order-details-block .number-details a{
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: normal;
+    border-radius: 22px;
+    padding: 0.5rem 1rem;
+    display: block;
+    width: fit-content;
+}
+
+.order-details-block .number-details a.green-border-btn{
+	border: 1px solid #0DA526;
+    color: #0DA526;
+}
+
+.order-details-block .number-details a.orange-border-btn{
+	border: 1px solid #F28D25;
+    color: #F28D25;
+}
+
+.order-details-block .edit-order a{
+	color: #EC6625;
+	font-size: 1.4rem;
+	font-weight: 700;
+	line-height: normal;
+	text-decoration: underline;
+}
+
+.order-details-block .edit-order{
+	text-align: right;
+}
+
+.order-details-block .order-details{
+	padding: 2rem 2rem 4rem;
+}
+
+.order-details-block .claim-details{
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 3rem;
+
+}
+
+.order-details-block .claim-details:last-child{
+	margin-bottom: 0;
+}
+
+.order-details-block .claim-details.address-details{
+	display: block;
+}
+
+.order-details-block .claim-details h6{
+	margin:0;
+	color: #838383;
+	font-size: 1.4rem;
+	font-weight: 400;
+	line-height: normal;
+	padding-bottom: 0.5rem;
+}
+
+.order-details-block .claim-details span{
+	color: #282828;
+	font-size: 1.4rem;
+	font-weight: 600;
+	line-height: normal;
+}
+
+.order-details-block .claim-details .left-block,
+.order-details-block .claim-details .right-block{
+	width: 50%;
+}
+
+.order-details-block .order-btn-block{
+	margin:4rem 0 3rem;
+	display: flex;
+    justify-content: space-between;
+}
+
+.order-details-block .order-btn-block button{
+	width: 48%;
+}
+
+.order-details-block .cancle-order-btn a{
+	color: #EC6625;
+	font-size: 1.2rem;
+	font-weight: 700;
+	line-height: normal;
+	text-decoration: underline;
+}
+
+.order-details-block .cancle-order-btn{
+	text-align: center;
+}
+
+.accordion-sec .accordion-head li span.accordian-date.greenColor{
+	color: #09751B;
+}
+
+.accordian-title li {
+    color: #282828;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.accordian-title ul{
+	display: flex;
+	padding: 6rem 4rem 1.5rem 6rem;
+}
+
+.assets-accordian-block .accordion-head:before{
+	content: '';
+	background: url('../images/user-management-profile.svg');
+	width: 14px;
+	height: 16px;
+	position: absolute;
+	top:50%;
+	left: 30px;
+	transform: translate(0%,-50%);
+}
+
+
+.createassets-popup-sec .db-popup-sec,
+.edit-assets-popup-sec .db-popup-sec{
+	width: 100%;
+    max-width: 600px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 0;
+    height: 100%;
+    border-radius: 0;
+    left: auto;
+    padding: 3.6rem 4rem;
+    overflow-y: auto;
+}
+
+.create-assets-block .createassets-input{
+	margin-bottom: 3rem;
+}
+
+.create-assets-block .createassets-input:last-child{
+	margin-bottom: 0;
+}
+
+.createassets-input-block .createassets-input.flex-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.createassets-input-block .createassets-input .left-block,
+.createassets-input-block .createassets-input .right-block{
+	width: 48%;
+}
+
+.createassets-input-block{
+	margin:2.5rem 0 4rem;
+}
+
+.edit-user-input .edit-input .left-block,
+.edit-user-input .edit-input .right-block{
+	width: 48%;
+}
+
+.edit-user-input .edit-input{
+	margin-bottom: 3rem;
+}
+
+.edit-user-input .edit-input:last-child{
+	margin-bottom: 0;
+}
+
+.edit-crtuser-popup-sec .edit-crtuser-btn{
+	text-align: right;
+}
+
+.edit-crtuser-popup-sec .edit-user-input{
+	margin:2.5rem 0 6rem;
+}
+
+.edit-user-input .edit-input.flex-row{
+	justify-content: space-between;
+}
+
+
+.edit-crtuser-popup-sec .db-popup-sec,
+.edit-assets-popup-sec .db-popup-sec{
+	width: 100%;
+    max-width: 660px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 0;
+    height: 100%;
+    border-radius: 0;
+    left: auto;
+    padding: 3.6rem 5rem;
+}
+
+.create-assets-block .edit-btn-block,
+.edit-assets-block .edit-btn-block{
+	text-align: right;
+}
+
+.edit-assets-sec a{
+	color: #EC6625;
+	font-size: 1.4rem;
+	font-weight: 700;
+	line-height: normal;
+	text-decoration: underline;
+
+}
+
+.edit-assets-sec{
+	text-align: right;
+	margin-bottom: 1.2rem;
+}
+
+.delete-assets-sec{
+	text-align: right;
+}
+
+.edit-assets-block .createassets-input{
+	margin-bottom: 3rem;
+}
+
+.order-details-block .edit-order .disable-order{
+	pointer-events: none;
+}
+
+.changestatus-popup-sec .db-popup-sec,
+.additionalinfo-popup-sec .db-popup-sec,
+.deleteassets-popup-sec .db-popup-sec,
+.reschedule-popup-sec .db-popup-sec{
+	width: 100%;
+	max-width: 466px;
+}
+
+.change-status-block .cancle-btn,
+.delete-assets-block .cancle-btn {
+    background: #fff;
+    color: #6C6C6C;
+    border: 1px solid #C9C9C9;
+    margin-right: 2rem;
+}
+
+.change-status-block .delete-btn,
+.delete-assets-block .delete-btn {
+    background: #E71A1A;
+    color: #ffffff;
+    border: 1px solid #E71A1A;
+}
+
+.change-status-block .change-status-btn,
+.delete-assets-block .delete-assets-btn{
+    text-align: right;
+    margin-top: 4.3rem;
+}
+
+
+.change-status-block .cancle-btn, 
+.change-status-block .delete-btn,
+.delete-assets-btn .cancle-btn,
+.delete-assets-btn .delete-btn{
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    padding: 1.3rem 2.4rem;
+    font-size: 1.6rem;
+    border-radius: 5px;
+    text-decoration: none;
+    outline: none;
+    font-weight: 700;
+    text-align: center;
+    width: 100%;
+    max-width: 175px;
+}
+
+.changestatus-popup-sec .db-popup-sec .db-popup-content .db-popup-heading h3{
+	font-size: 2rem;
+	padding-right: 5rem;
+	line-height: 26px;
+}
+
+/*.additionalinfo-popup-sec .db-popup-sec{
+	width: 100%;
+	max-width: 466px;
+}*/
+
+.additionalinfo-block .additionalinfo-input{
+	margin-bottom: 3rem;
+}
+
+.additionalinfo-block .additionalinfo-input:last-child{
+	margin-bottom: 0;
+}
+
+.additionalinfo-block .additionalinfo-input-block{
+
+	margin: 2.5rem 0 4rem;
+}
+
+.additionalinfo-block .additionalinfo-save-btn{
+	text-align: right;
+}
+
+.reschedule-block .reschedule-input-block .reschedule-input{
+	margin-bottom: 3rem;
+}
+
+.reschedule-block .reschedule-input-block .reschedule-input:last-child{
+	margin-bottom: 0;
+}
+
+.reschedule-block .reschedule-input-block{
+	margin:4rem 0;
+}
+
+.reschedule-block .reschedule-btn-block{
+	text-align: right;
+}
+
+.reschedule-popup-sec .db-popup-sec .db-popup-content .db-popup-heading {
+    padding-bottom: 5.5rem;
+}
+
+
+
+/*CSS for select area start here*/
+
+.select-area-block{
+	position: absolute;
+    top: 50%;
+    right: 17px;
+    transform: translate(0%, -50%);
+}
+
+.select-area-block a{
+	color: #EC6625;
+	font-size: 1.2rem;
+	font-weight: 700;
+	line-height: normal;
+	text-decoration: underline;
+}
+
+.create-assets-block .createassets-input{
+	position: relative;
+}
+
+.selectstate-popup-sec .db-popup-sec{
+	max-width: 426px;
+}
+
+/*CSS for select area end here*/
+
+
+
+
+/*----------------CSS For Assets Management End Here----------------*/
+
+
+@media screen and (max-width:1280px){
+
+
+	.assets-accordian-block .order-details-sec{
+		justify-content: space-between;
+	}
+
+	.order-details-sec .order-details-block {
+	    width: 48%;
+	    margin-right: 0;
+	    margin-bottom: 3rem;
+	}
+}
+
+
+@media screen and (max-width:1199px){
+
+	.assets-accordian-block .accordion-head li:first-child,
+	.assets-accordian-block .accordion-head li:nth-child(8) {
+	    width: 15%;
+	}
+}
